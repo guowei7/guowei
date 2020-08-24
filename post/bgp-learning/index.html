@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-cn" data-theme=""><head>
+    <title> Guo Wei | BGP Learning </title>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="Call me Guo Wei">
+    
+    <link rel="stylesheet" href="http://guowei7.gitee.io/guowei/css/style.min.5be3a155aa89a24586c761b1b5538c4040e3735ee32ac12a708dc1696c0982f5.css" integrity="sha256-W&#43;OhVaqJokWGx2GxtVOMQEDjc17jKsEqcI3BaWwJgvU=" crossorigin="anonymous" type="text/css"><link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link rel="shortcut icon" href="http://guowei7.gitee.io/guowei/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="http://guowei7.gitee.io/guowei/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://guowei7.gitee.io/guowei/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://guowei7.gitee.io/guowei/favicons/favicon-16x16.png">
+    <link rel="canonical" href="http://guowei7.gitee.io/guowei/post/bgp-learning/">
+    
+    
+    <script type="text/javascript" src="http://guowei7.gitee.io/guowei/js/anatole-header.min.7e2fc0724240b28c6e214687e73a4a6eb6c196bbace546b9dc86e94cca120b5c.js" integrity="sha256-fi/AckJAsoxuIUaH5zpKbrbBlrus5Ua53IbpTMoSC1w=" crossorigin="anonymous"></script>
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://guowei7.gitee.io/guowei/images/site-feature-image.png"/>
+
+<meta name="twitter:title" content="BGP Learning"/>
+<meta name="twitter:description" content="记录BGP的学习"/>
+
+</head><body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="http://guowei7.gitee.io/guowei/images/profile.jpg" alt="profile picture">
+        <h3 title=""><a href="/">我是郭微</a></h3>
+        <div class="description">
+          <p>Call me Guo Wei</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <li>
+        <a href="mailto:770857344@qq.com" rel="me" aria-label="e-mail">
+          <i class="fa fa-2x fa-envelope" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; Guo Wei 2020 </div>
+      </div>
+    </div>
+</div><div class="main">
+            <div class="page-top animated fadeInDown">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    <ul class="nav" id="navMenu">
+        
+        
+        
+        <li><a  href="/guowei/" title="">Home</a></li>
+        
+        
+        <li><a  href="/guowei/post/" title="">Post</a></li>
+        
+        
+        <li class="theme-switch-item">
+        <a class="theme-switch" title="Switch Theme">
+            <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        </a>
+        </li>
+    </ul>
+</div>
+
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+
+      <div class="post-title">
+        <h3>BGP Learning
+        </h3>
+        
+        <div class="info">
+          <i class="fa fa-sun-o"></i>
+          <span class="date">Tue, Aug 18, 2020</span>
+          <i class="fa fa-clock-o"></i><span class="reading-time"></span>
+        </div>
+        
+        </div>
+
+    <p>本文主要介绍BGP相关的概念</p>
+<p>[TOC]</p>
+<blockquote>
+<h3 id="1bgp综述">1.BGP综述</h3>
+<blockquote>
+<h4 id="bgp的出现">BGP的出现</h4>
+<p>数据量少的时代</p>
+<h4 id="bgp的发展">BGP的发展</h4>
+<ul>
+<li>BGPv1定义了BGP最基础的一些协议特征，使用TCP作为传输层协议来保证BGP的可靠传
+输。</li>
+<li>BGP是建立在两个不同的AS间，存在信任问题，所以BGP不能通过自动发现，而是需要手动配置邻居，使用指定地址建立TCP关系。与AS外部节点建立的BGP关系叫做EBGP关系，与AS内部节点建立的BGP关系是IBGP关系。</li>
+<li>BGP使用AS号来解决AS间的环路问题，如果收到某个路由信息携带了自己的AS号，说明是已知路由，出现了路由环路，就不再处理它。主要使用v2版本中确立的AS-path概念。</li>
+<li>对于AS内部，为了防止出现路由环路则采用了路由水平分割，即从IBGP邻居学习到的路由不会传递给另一个IBGP邻居，这样就会要求AS内部的路由器要两两建立IBGP关系（即全连接）。</li>
+<li>因为在大型网络中全连接是不可想象的，所以出现了路由反射器和BGP联盟两种技术。
+<ul>
+<li>路由反射器是在AS中指定一个节点作为反射器，所有其他节点都与反射器建立IBGP关系，反射器作为一个中间节点，在其他任何两个IBGP间传递路由。</li>
+<li>BGP联盟则是在AS内部做了重新规划，把一个扁平化的AS又划分为多个私有AS，一方面可以分层管理庞大的AS，又可以通过层次的划分，减少全连接的需求。</li>
+</ul>
+</li>
+<li>BGP报文采用TLV的结构，这种结构是非常利于扩展和向下兼容的。</li>
+<li>从BGPv2开始，消息种类确定为4种。在TCP连接建立后
+<!-- raw HTML omitted -->
+</li>
+<li>BGPv2首次出现BGP路径属性的概念，路径属性分为四种。
+<ul>
+<li>公认必遵属性，这类属性必须在发布路由时携带，如下一跳、AS_PATH和ORIGIN。</li>
+<li>公认可选属性，必须被所有BGP路由器所识别，携带与否可以选择。</li>
+<li>可选可传属性。</li>
+<li>可选不传属性，这两种属性考虑到协议的扩展性，对于不识别的属性，可以透传或者忽略。</li>
+</ul>
+</li>
+<li>网络设备根据NLRI中的网络前缀和对应的路径属性，进行路由计算，计算有可能需要IGP来完成。IGP路由与BGP路由同步，BGP黑洞。</li>
+<li>BGPv3版本增加了连接的冲突处理机制，当两个节点同时发起连接时，BGP ID大的一方发起的连接会被保留。</li>
+<li>BGPv4版本中BGP从有类的路由协议成为一个无类的路由协议，为解决有类地址枯竭的问题，而定义的CIDR。</li>
+</ul>
+<h4 id="bgp的扩展">BGP的扩展</h4>
+<!-- raw HTML omitted -->
+</blockquote>
+<h3 id="2bgp基础">2.BGP基础</h3>
+<blockquote>
+<h4 id="概述">概述</h4>
+<p>通信协议最基本的功能是运行在两台或多台设备之间，通过收集、发布、交换一些信息，来为设备间的通信建立通道，即实现支撑上层数据互通。为了实现该功能，需要解决三个问题。</p>
+<ul>
+<li>单台设备需要收集和存储哪些信息？</li>
+<li>设备之间如何交互和通信，来汇总出完整的信息？</li>
+<li>信息汇总之后，进行怎样的决策，来得出通信通道？</li>
+</ul>
+<h4 id="信息收集和存储">信息收集和存储</h4>
+<p>分配AS后，通常AS内部运行某种IGP协议；而在AS的边界运行BGP。借助BGP，各AS可以独立选择自己适合的IGP协议，并通过BGP来获得其他AS的路由信息。  因此BGP需要做到以下几点。</p>
+<ul>
+<li>能够支持从各类IGP引入路由信息。</li>
+<li>能够从这些数据中决策出最优路由。</li>
+<li>不论从那类IGP引入，将最优路由对外发布时，采用统一的格式。</li>
+</ul>
+<p>现主要讨论信息的收集和存储问题：</p>
+<ol>
+<li>信息的收集<br>
+最基本的是IP前缀和掩码、下一跳；为了支持路由优选，考虑路由的优先级，并记录路由的来源。具体到UPDATE报文中就是IP前缀和掩码对应NLRI、下一跳对应NEXT_HOP、优先级对应LOCAL_PREF和MED、路由来源对应AS_PATH和ORIGIN。</li>
+<li>信息存储<br>
+BGP存储路由信息的数据库叫做RIB，分为三个部分：
+<ul>
+<li>Adj-RIBs-In，保存BGP Speaker从邻居学到的路由信息，即初始路由。</li>
+<li>Loc-RIB，保存经过决策从Adj-RIBs-In选取的路由信息，即最优路由。</li>
+<li>Adj-RIBs-Out，保存BGP Speaker发给邻居的路由信息，即发布路由。</li>
+</ul>
+</li>
+</ol>
+<h4 id="与谁交换信息">与谁交换信息</h4>
+<p>BGP报文头部选择了TCP作为承载协议，使用端口号179。在TCP之上，BGP报文头如图所示，共19个字节。<br>
+<img src="../../images/BGP-Learning/BGP%E6%8A%A5%E6%96%87%E5%A4%B4.png" alt="BGP报文头部"><br>
+Type字段标识BGP协议报文类型，Length字段标识BGP消息的字节长度，包含BGP报文头，合法范围从19到4096。Marker字段用来探测对端与本端是否同步。<br>
+发现邻居的方式是采用普通路由协议的动态发现，还是使用手工静态配置方式，BGP使用了后者，只要双方指定地址路由可达，就可以建立邻居。好处有两个：</p>
+<ul>
+<li>可以与对端设备用任何IP地址建立邻居，而不限于某个固定的接口IP。可以采用环回地址而非直连地址建立BGP邻居，即使主链路中断了，也可以切换到备份链路上，保持稳定。</li>
+<li>可以跨越多台设备建立邻居。当一个AS有多个设备运行BGP建立域内全连接时，不必每台设备物理直连，只要用IGP保证建立邻居的地址可达，即可建立全网链接。</li>
+</ul>
+<p>同一个AS内，设备之间的邻居叫做IBGP邻居。不同AS间，设备之间的邻居叫做EBGP邻居。运行BGP的设备叫做BGP Speaker，相互之间称作BGP peer。<br>
+BGP使用OPEN消息来建立邻居如下图：<br>
+<img src="../../images/BGP-Learning/BGP-OPEN%E6%B6%88%E6%81%AF.png" alt="BGP-OPEN消息"><br>
+Version标识运行的BGP版本。如果双方的版本不同，会进行协商到版本达成一致。My AS标识邻居建立发起者的AS号。用来决定双方是IBGP邻居，还是EBGP邻居。Hold Time是设备收到一个KEEPALIVE之前允许经过的最大秒数。BGP Identifier标识邻居的IP地址。Optional Parameters公布对一些可选功能的支持，如认证、多协议支持等等。
+建立邻居时，BGP先尝试与对等体建立一个TCP连接。如果TCP链接建立成功，BGP发送一个OPEN消息给对端，并等待从对端发来的OPEN消息。收到一个OPEN消息以后，BGP检查该消息的所有字段，如果没有发现错误，则向对端发送一个KEEPALIVE消息并启动KEEPALIVE定时器。收到KEEPALIVE消息，则邻居建立。当邻居检测到错误需要中断连接时，BGP发送NOTIFICATION消息通知对端。格式如下图：<br>
+<img src="../../images/BGP-Learning/BGP-NOTIFICATION%E6%B6%88%E6%81%AF.png" alt="BGP-NOTIFICATION消息"> 
+BGP建立邻居采用有限状态机，共有6种状态。BGP运行流程就是在这6种状态之间根据资源和事件的要求作转换。分别是：</p>
+<ol>
+<li>Idle<br>
+BGP协议初始时是Idle状态。在这个状态时，系统不分配任何资源，也拒绝所有进入的BGP连接。只有收到Start Event时，才分配BGP资源，启动ConnectRetry计时器，启动对其它BGP对等体的传输层连接，同时也侦听是否有来自其它对等体的连接请求。</li>
+<li>Connect<br>
+这个状态下，BGP等待TCP完成连接。若连接成功，本地清空ConnectRetry计时器，并向对等体发送OPEN报文，然后状态改变为OpenSent状态；否则，本地重置ConnectRetry计时器，侦听是否有对等体启动连接，并移至Active状态。</li>
+<li>Active<br>
+在这个状态下，BGP初始化TCP连接来获得一个对等体。如果连接成功，本地清空ConnectRetry计时器，并向对等体发送OPEN报文，并转至OpenSent状态。</li>
+<li>OpenSent<br>
+这个状态下，BGP等待对等体的OPEN报文。收到报文后对报文进行检查，如果发现错误，本地发送NOTIFICATION报文给对等体，并改变状态为IDLE。如果报文正确，BGP发送KEEPALIVE报文，并转至OpenConfirm状态。</li>
+<li>OpenConfirm<br>
+这个状态下，BGP等待KEEPALIVE或NOTIFICATION报文。如果收到KEEPALIVE报文，则进入Established状态，如果收到NOTIFICATION报文，则变为Idle状态。</li>
+<li>Established<br>
+这个状态下，BGP可以和其他对等体交换UPDATE，NOTIFICATION、KEEPALIVE报文。如果收到正确的UPDATE或KEEPALIVE报文，就认为对端处于正常运行状态，本地重置Hold Timer。如果收到NOTIFICATION报文，本地转到Idle状态。如果收到错误的UPDATE报文，本地发送NOTIFICATION报文通知对端，并改变本地状态为Idle。如果收到了TCP拆链通知，本地关闭BGP连接，并回到Idle状态。</li>
+</ol>
+<h4 id="如何交换信息">如何交换信息</h4>
+<p>邻居建立后，BGP采用UPDATE消息来发布路由或撤销路由。UPDATE消息由三部分组成：</p>
+<ul>
+<li>Unfeasible Routes：之前发布过，不再有效的路由。</li>
+<li>Path Attributes： 路由信息的附加描述，是BGP用以进行路由控制和决策的重要信息。</li>
+<li>NLRI：由一个或多个IP地址/前缀长度组成。</li>
+</ul>
+<p>其采用了TLV（Type、Length、Value）形式，具有非常好的扩展性，在后期追加新类型支持新业务时，只需要定义新的类型编码和值，报文不需要做任何更改。<br>
+<img src="../../images/BGP-Learning/BGP-UPDATE%E6%B6%88%E6%81%AF.png" alt="BGP-UPDATE消息"></p>
+<h4 id="决策过程">决策过程</h4>
+<p>决策过程选择路由用于下一步的发布，应用本地策略信息库PIB来处理Adj-RIB-In中的路由。决策过程的输出是发布到所有邻居（包括IBGP和EBGP）的路由信息集合，被选的路由存储在Adj-EIB-Out中。决策步骤分三步进行：</p>
+<ol>
+<li>当本地BGP发言者接收到EBGP邻居发布过来的更新、替代或撤销路由时，为每一条路由计算优先级，并将最高优先级的路由通告到所有IBGP邻居。</li>
+<li>在步骤一完成后激活。负责从到达目的地的所有路由中选择最好的路由，同时安装每条选中的路由到相应的Loc-RIB。如果路由信息携带的下一跳路由不可达，则将该路由排除在这个决策过程之外。</li>
+<li>在步骤二完成后激活。负责根据在PIB中的规则，发布Loc_RIB中的路由到EBGP邻居的每个对端。</li>
+</ol>
+<p>最优路由有三种情况：</p>
+<ol>
+<li>对同一个目的地集合有路由的最高优先级。</li>
+<li>是到目的地的唯一路由。</li>
+<li>两条或两条以上具有相同优先级，必须用更细的法则算出一条最优来。此过程称之为Tie-Break。</li>
+</ol>
+</blockquote>
+<h3 id="3-bgp属性简介">3. BGP属性简介</h3>
+<blockquote>
+<h4 id="属性分类">属性分类</h4>
+<p>BGP属性是BGP进行路由决策和控制的重要信息。它可以分为如下两大类四小类:</p>
+<ol>
+<li>
+<p>公认属性</p>
+<ul>
+<li>公认强制</li>
+<li>公认自选</li>
+</ul>
+<p>公认属性是所有的BGP都必须识别支持的属性。</p>
+</li>
+<li>
+<p>可选属性</p>
+<ul>
+<li>可选转发</li>
+<li>可选非转发</li>
+</ul>
+<p>可选属性并不要求所有的BGP都识别。如果属性是可选转发的，那么，即使BGP不能识别该属性，也要接受该属性并将其发布给它的对端。而如果属性是可选非转发的，BGP可以忽略包含该属性的消息并且不向它的对端发布。</p>
+</li>
+</ol>
+<h4 id="属性详述">属性详述</h4>
+<p>常见属性如下：</p>
+<ol>
+<li>
+<p>ORIGIN<br>
+表示路径信息的来源，是公认强制属性。ORIGIN有以下三种植:</p>
+<ul>
+<li>IGP：网络层可达信息来源于AS内部</li>
+<li>EGP：网络层可达信息通过AS外部学习</li>
+<li>INCOMPLETE：网络层可达信息通过别的方式学习</li>
+</ul>
+</li>
+<li>
+<p>AS_PATH<br>
+由一系列AS路径组成，是公认强制属性。AS_PATH有两种类型：</p>
+<ul>
+<li>AS_SET:在UPDATE消息中的路由经过的AS的无序集</li>
+<li>AS_SEQUENCE:在UPDATE消息中的路由经过的AS有序集</li>
+</ul>
+<p>当BGP Speaker发布路由给IBGP邻居时，BGP不修改路由的AS_PATH属性。当BGP Speaker发布路由给EBGP邻居时，对AS_PATH做如下修改：</p>
+<ol>
+<li>如果AS_PATH的第一个路径是AS_SEQUENCE类型，本地系统应该把自己的AS号作为序列的最后一个元素加在后面（放在最左边）。</li>
+<li>如果AS_PATH的第一个路径段是AS_SET类型，本地系统应该添加一个新AS_SEQUENCE类型的路径段到AS_PATH包括段的内部的自己AS号码。</li>
+</ol>
+<p>AS_PATH属性主要用来作为路由选路的一种度量。路由经过的AS少则优先。</p>
+</li>
+<li>
+<p>NEXT_HOP<br>
+它定义了到达目的地下一跳的设备IP地址，也是一个公认强制属性。<br>
+NEXT_HOP中IP地址的填写遵循如下规则:</p>
+<ul>
+<li>如果是发布给EBGP邻居，NEXT_HOP填写BGP发言者的IP地址</li>
+<li>如果是发布给IBGP邻居，且路由来自AS内部，则NEXT_HOP填写BGP发言者的IP地址</li>
+<li>如果是发布给IBGP邻居，且路由来自AS外部，则NEXT_HOP保留原始的AS外部邻居的IP地址</li>
+</ul>
+<p>即NEXT_HOP指向路由发布者。</p>
+</li>
+<li>
+<p>MULTI_EXIT_DISC<br>
+MULTI_EXIT_DISC被用来区分同一个邻居AS的多个出口，是一个可选非转发属性，一般简写为MED。MED只在EBGP发布的路由中产生，接收者可以向它的IBGP邻居转发，但不允许向它的EBGP邻居转发。假设一张网络连接了邻居AS的多个出口，通过发布不同的MED给对端，就可以控制进入网络的流量从MED值最小的那个出口进来。</p>
+</li>
+<li>
+<p>LOCAL_PREF<br>
+LOCAL_PREF用来通知AS内部源发言者通告路由的优先程度，是公认自选属性。LOCAL_PREF只在IBGP发布的路由中使用，它不会传递给其他AS，除非AS建立联盟。假设一张网络连接了两个不同的AS出口，对某些特定业务，需要控制对应的流量从特性的AS出口转发，那么可以对AS边界的路由器应用LOCAL_PREF，AS内部的路由器将优选LOCAL_PREF高的路由。</p>
+</li>
+<li>
+<p>ATOMIC_AGGREGATE<br>
+ATOMIC_AGGREGATE是公认自选属性。有时BGP发言者会收到两条重叠的路由，其中一条路由包含的地址是另一条路由的子集。一般情况下BGP发言者会优选更精细的路由，但是在对外发布时，如果它选择发布更粗略的那条路由（后者），这时需要附加上ATOMIC-AGGREGATE属性，以知会邻居。它实际上是一种警告，因为发布更粗略的路由意味着更精细的路由信息在发布过程中丢失了。</p>
+</li>
+<li>
+<p>AGGREGATOR<br>
+AGGREGATOR是可选转发属性，它是ATOMIC_AGGREGATE属性的补充。ATOMIC_AGGREGATE是一种路由信息丢失的警告，AGGREGATOR属性补充了路由信息在哪里丢失，包含了发起路由聚合的AS号码和形成聚合路由的BGP发言者的IP地址。</p>
+</li>
+<li>
+<p>COMMUNITY<br>
+COMMUNITY是可选转发属性，它是一组共享相同属性的目的地集合。例如对一组路由应用相同的团体属性值，从而通过对团体属性进行路由策略来达到对一组路由进行控制的目的。</p>
+</li>
+<li>
+<p>ORIGINATOR_ID<br>
+ORIGINATOR_ID是可选非转发属性，用于标识路由反射器。通常人工选定一台或多台设备作为反射器，反射器可以是多台，形成路由层面的冗余结构。这样为了防止引入路由反射器之后出现环路，增加ORIGINATOR_ID这个属性来标识，反射器在发布路由时加入ORIGINATOR_ID,当反射器收到的路由信息中包含自己的ORIGINATOR_ID时，就检测到了环路。</p>
+</li>
+<li>
+<p>CLUSTER_ID<br>
+CLUSTER_ID是可选非转发属性，用于标识路由反射器组。也是用来防止环路的。</p>
+</li>
+</ol>
+</blockquote>
+<h3 id="4-bgp-general-faq">4. BGP General FAQ</h3>
+<blockquote>
+<h4 id="bgp的几种拓扑结构">BGP的几种拓扑结构</h4>
+<ul>
+<li>单口AS（stub AS):一个AS通过单一出口点到达其域外的网络。</li>
+<li>多归路非过渡AS(Multihomed AS):一个AS有多于一个到达外部网络的出口点但它不允许业务量通过它过渡。</li>
+<li>过渡AS(transit AS):一个AS有多于一个到达外部网络的出口点并且允许被其他AS用于过渡业务量。</li>
+</ul>
+<p>从BGP的观点上来看整个Internet的拓扑就是由一系列Stub AS、Multi-Homed AS、Transit AS组成的连通图。</p>
+<h4 id="bgp的router-id如何配置如何自动选择">BGP的Router ID如何配置，如何自动选择</h4>
+<p>全局Router ID可以在全局模式下通过配置命令router id来配置，如果没有通过命令指定，系统会从当前接口的IP地址中自动选取一个作为路由器的ID号。其选择顺序是：优先从Loopback地址中选择最大IP地址作为路由器的ID号，如果没有配置Loopback接口，则选取接口中最大的IP地址作为路由器的ID号。只有在路由器的Router ID所在接口被删除或去除手工配置的Router ID的情况下才会重新选择路由器的Router ID。为了增加网络的可靠性，建议将Router ID手工配置为Loopback接口的IP地址。</p>
+<h4 id="bgp路由的基本使用原则">BGP路由的基本使用原则</h4>
+<p>BGP路由往往很多，但是并不是都会进行转发处理，主要有一下几条规则：</p>
+<ol>
+<li>多条路径时，BGP Speaker只选最优的给自己使用，当然也可以设置负载分担。</li>
+<li>BGP Speaker只把自己使用的路由通告给相邻体，也就是说本地BGP路由表里面不是最有的路由不会再进行转发处理操作。</li>
+<li>BGP Speaker从EBGP获得的路由会向它所有BGP相邻体通告(EBGP和IBGP),当然路由不会再从原路发送回去。</li>
+<li>BGP Speaker从IBGP获得的路由不向它的IBGP相邻体通告(全连接、反射和联盟)。</li>
+<li>BGP Speaker从IBGP获得的路由默认会向它所有EBGP相邻体通告；若配置了同步，是否通告给它的EBGP相邻体要依IGP和BGP同步的情况来决定。</li>
+</ol>
+<h4 id="有哪些原因会导致bgp连接建立不起来">有哪些原因会导致BGP连接建立不起来</h4>
+<p>常见原因如下:</p>
+<ol>
+<li>两边BGP peer地址不可达，一般是底层原因或者缺少可达路由，可以使用扩展的ping命令检查TCP连接是否正常。</li>
+<li>对等体IP地址和AS配置错误。</li>
+<li>OPEN报文协商失败，OPEN报文需要协商BGP版本，Holdtime、Router ID以及可选项参数等。</li>
+<li>BGP的MD5验证配置错误。</li>
+<li>BGP的Router ID冲突。</li>
+<li>联盟与非联盟之间的BGP连接配置错误。</li>
+<li>错误报文导致连接中断。</li>
+</ol>
+<h4 id="使用loopback口为什么无法建立ibgp邻居">使用Loopback口为什么无法建立IBGP邻居</h4>
+<p>当排除底层原因后，发现IBGP PEER使用loopback口建立却无法建立。可能因为BGP连接建立首先要建立起两个peer之间的TCP连接，而TCP连接的源地址缺省是路由器相应的出接口的IP地址，所以必须要指定TCP连接的源地址为相应的loopback接口地址，连接才能建立起来，peer X.X.X.X connect-interface命令的功能就是用于指定BGP会话建立TCP连接使用的接口。</p>
+<h4 id="直连ebgp使用loopback口为什么无法建立连接">直连EBGP使用Loopback口为什么无法建立连接</h4>
+<p>如果使用Loopback口建立的是EBGP连接，即使是两个直连接口也需要配置ebgp-max-hop，因为两个loopback口不是直连接口。一般情况下不推荐使用loopback建立EBGP邻居，而一般是使用物理接口地址建立，比如在L3vpn的各种跨域环境中。</p>
+<h4 id="非直连ebgp邻居无法建立">非直连EBGP邻居无法建立</h4>
+<p>如果是EBGP邻居，双方路由可达，且EBGP连接在物理上不是直连的，请检查是否配置了peer的ebgp-max-hop。默认情况下，EBGP邻居不配置这条命令，如果不是直连，必须配置peer X.X.X.X ebgp-max-hop,该命令默认值是64。</p>
+<h4 id="为什么使用network命令无法将本地路由通过bgp发布出去">为什么使用network命令无法将本地路由通过BGP发布出去</h4>
+<p>Network命令是BGP各个视图下很强大的路由引入命令，能够将各种IGP有效路由、静态路由、直连路由等引入BGP中发布出去。比如本地存在直连路由或者IGP协议路由172.16.1.0/24，BGP试图下使用network 172.16.1.0命令，目的是准备把这条路由传递到BGP路由表中，但是查看本地BGP路由表里面没有这条路由。</p>
+<h4 id="peer-ignore命令有什么作用">Peer Ignore命令有什么作用</h4>
+<p>Peer ignore命令用来人为地停止指定对等体/对等体组的激活会话，并且清楚所有相关路由信息，禁止与指定对等体/对等体组建立会话，BGP邻居将一直抑制在idle的状态，会话一直处于无法建立的状态。如果该命令用来对于一个对等体组，这就意味着大量与对端的会话突然终止。缺省情况下，允许与BGP对等体/对等体组建立会话。</p>
+<h4 id="从直连ebgp邻居向ibgp邻居发布路由时路由会失效">从直连EBGP邻居向IBGP邻居发布路由时路由会失效</h4>
+<p>在BGP中，向IBGP和EBGP邻居发送路由时，下一跳的处理是不同的。向EBGP邻居发送路由时，next-hop均改为该路由器的出口IP地址；向IBGP邻居发送路由时，next-hop是不变的。<br>
+由于BGP向其他IBGP邻居转发来自EBGP路由时不修改下一跳，这样的话若IBGP邻居所处的设备没有到该下一跳之地的路由，会导致该IBGP收到这条转发自IBGP邻居的EBGP邻居的路由后下一跳不可达，导致路由失效。</p>
+<h4 id="为什么相同路由比较时候没有选择med值小的路由">为什么相同路由比较时候没有选择MED值小的路由</h4>
+<p>假设一个这样的场景，三台AS号不一致的路由器之间分别建立EBGP邻居关系，其中C同时受到A和B发来的因特网路由。根据C的要求，A将自己发给给C的路由设置MED值为50，而B将自己发送给C的MED设置为100。C希望选择MED值小的路由作为最佳路由，从而对相同目的地来说，把通过A的链路作为主链路，而把通过B的链路作为备份链路。当时在C上面没有把A发送过来的路由选为最优。<br>
+BGP在路由优选过程中考虑若干因素，包括本地优先级、AS路径长度、起点类型、MED值等。需要注意的是，MED值默认只在同一个AS传来的路由之间才具备可比性。为了能够在不同AS传来的相同路由之间比较MED值，从而选择MED小的路由作为最佳路由，需要在BGP或者BGP VPN视图下配置命令compare-different-as-med。</p>
+<h4 id="为什么ospf的路由引入到bgp中后costmed需要加1">为什么OSPF的路由引入到BGP中后cost(MED)需要加1</h4>
+<p>因为在Peer上引入到BGP中再发布到对端Peer上OSPF还原后就丢失了原来生成的信息，这条路由的原来生成者通过其他途径再收到这条被还原的路由后，如果进行了计算就会导致环路。MED加1，被还原的路由cost会比原路由cost大，能够在某种程度上避免环路。</p>
+<h4 id="ospf多实例下mce能力对bgp-med的影响"><del>OSPF多实例下MCE能力对BGP MED的影响</del></h4>
+<p>命令行vpn-instance-capability simple的作用并不是使能vpn能力，而是使能了多实例CE的能力；同时该能力使MCE不去检查DN位是否已经被置位。</p>
+<h4 id="什么是bgp的同步原则">什么是BGP的同步原则</h4>
+<p>同步的目的是为了防止在某种情况下转发“黑洞”的出现，启用同步功能后BGP Speaker在接收到IBGP邻居发过来的路由后都会查看该路由是否已经在IGP路由表中，如果IGP路由表中有这条路由，BGP路由表才会将这条路由置为有效；如果IGP路由表中没有该路由则BGP表中的该条路由是无效的。如果关闭同步功能，在收到IBGP邻居发来的路由更新后不检查IGP表是否有该路由，而直接将该路由置为有效，这样的话在以下拓扑中就会出现问题。</p>
+<h4 id="如何实现路由聚合">如何实现路由聚合</h4>
+<ul>
+<li>自动聚合功能<br>
+通过summary automatic命令在BGP/BGP VPN试图下遵旨，默认不使能；自动聚合只聚合通过import-route命令引入的各协议路由(对从邻居收到的BGP路由不生效),且不对缺省路由进行聚合，同时对参与聚合的IGP引入的子网路由会自动进行抑制，从而减少路由选择信息的数量。</li>
+<li>手工聚合<br>
+通过aggregate在BGP/BGP VPN视图下配置，该命令携带的参数比较多，而且聚合时候灵活多变，可以与路由 策略巧妙结合在一起以达到精确控制的目的。aggregate在手工聚合时候，如果不设置掩码，会以自然掩码进行聚合。</li>
+</ul>
+</blockquote>
+<h3 id="5-bgp-route-decision-faq">5. BGP Route Decision FAQ</h3>
+<blockquote>
+<h4 id="bgp选路规则">BGP选路规则</h4>
+<p>选路规则如下:</p>
+<ul>
+<li>首先丢弃下一跳(NEXT_HOP)不可达的路由</li>
+<li>若配置了Preffered-value值(不同平台的值可能叫法不同),优选值高的</li>
+<li>优选本地优先级(Local_Pref)最高的路由</li>
+<li>优选本地路由器始发的路由</li>
+<li>优选AS路径(AS_PATH)最短的路由</li>
+<li>依次选择Origin类型为IGP、EGP、Incomplete的路由</li>
+<li>优选MED值最低的路由</li>
+<li>依次选择从EBGP、联盟、IBGP学来的路由</li>
+<li>优选到下一跳Cost值最小的路由</li>
+<li>优选Cluster_List长度最短的路由</li>
+<li>优选Originator_ID最小的路由</li>
+<li>优选Router ID最小的路由器发布的路由</li>
+</ul>
+<h4 id="路由优选时候如何比较as-path">路由优选时候如何比较AS-Path</h4>
+<p>在路由优选的时候，比较的是AS的长度(即个数)，并不比较其内容，但是形成等价路由的时候必须要求其内容也一致。<br>
+所以在进行BGP方案部署的时候可以通过使用路由策略来增加路由的AS-path
+或者替代AS-path内容等手段来实现指定路由的优选、负载分担等目的。</p>
+<h4 id="ebgp路由的lp属性如何参与决策">EBGP路由的LP属性如何参与决策</h4>
+<p>从EBGP邻居收到的路由不会携带LP(本地优先级，IBGP传递路由会携带此属性),那么路由如何参与决策？如果显示为空，默认以100参与路由优选！</p>
+</blockquote>
+<h3 id="6-bgp-vpnv4-faq">6. BGP VPNV4 FAQ</h3>
+<blockquote>
+<p>标签分配方式除了传统的IGP+LDP之外，Label BGP方法也是一种标签分配方式，并且简单和方便操作，在跨域或者C2C环境中经常可以使用到这种典型配置，通过BGP来分配标签。</p>
+<h4 id="使用bgp成功应用标签分配策略但是路由还是没有分配标签">使用BGP成功应用标签分配策略，但是路由还是没有分配标签</h4>
+<p>如上配置BGP已经建立成功，并且策略应用成功，但是查看路由应该被选为最优的却不是最优，检查路由表又没有相同网段路由存在。<br>
+Label BGP分配标签时候还要求其相应的接口使能MPLS，这样才能正确的形成下一跳的隧道，并正确转发。在接口上使能和去使能mpls功能是测试MPLS L3vpn特性的一种很常见和重要的测试方法；而基于子接口的测试也是长发现问题的手段之一。</p>
+<h4 id="为什么优选的vpnv4路由插入到vrf中后唯一但不能形成最优">为什么优选的vpnv4路由插入到VRF中后，唯一但不能形成最优</h4>
+<p>收到一条vpnv4路由，下一跳可达，而且在全局VRF路由表里也是唯一，但是始终无法达到最优。<br>
+VRF中的路由在优选的时候，对于普通L3VPN，必须保证其下一跳的隧道的存在，通过使用命令display tunnel-info all命令可以查看目的网段102.102.102.102的隧道是否存在，如果不存在则不会最优，请检查标签分配LDP或者BGP的配置。</p>
+<h4 id="vpnv4路由经策略改变扩展团体属性不会生效">VPNV4路由经策略改变扩展团体属性不会生效</h4>
+<p>比如存在vpn-a和vpn-b，相应接受VT属性为1：1和2：1。在vpn-a视图下通过export route-policy命令强制改变本vpn路由的VT属性增加2：1，但是vpn-b实例不会接受到这些vpnv4路由。。<br>
+目前通过vpnv4获取的路由在刚开始接受时即会检查其VT属性然后决定下发到哪些vpn中，如果是在接受到VPNV4路由后再改变其VT属性不会影响以前所做的决定。当然，如果是VRF本身获取的路由，改变其属性会影响到路由下发其他VRF中。</p>
+<h4 id="如何将vpn路由发布到其他vpn并进行策略控制">如何将VPN路由发布到其他VPN并进行策略控制。</h4>
+<p>缺省情况下，某个VPN路由不会发布到其他VPN中，可以通过在VPN实例视图下配置vpn-target命令将当前VPN实例的路由发布到其他VPN实例或将其他VPN实例的路由引入到当前VPN实例。<br>
+另外，还可以使用系统视图&mdash;IP VPN实例视图下的import route-policy、export route-policy命令，以比采用扩展团体属性更精确地方式控制发布VPN实例路由。</p>
+</blockquote>
+</blockquote>
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+<span class="separator"><a class="category" href="/guowei/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></span>
+
+        
+    <span class="separator"><a class="tag" href="/guowei/tags/%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE/">路由协议</a><a class="tag" href="/guowei/tags/bgp/">BGP</a></span>
+
+      </div>
+    </div>
+
+    
+           
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+
+
+
+<script type="text/javascript" src="http://guowei7.gitee.io/guowei/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js" integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="http://guowei7.gitee.io/guowei/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js" integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="http://guowei7.gitee.io/guowei/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js" integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro=" crossorigin="anonymous"></script></html></body>
+
+</html>

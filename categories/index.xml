@@ -6,17 +6,26 @@
     <description>Recent content in Categories on 郭微blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 16 Aug 2020 13:13:46 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 18 Aug 2020 12:25:25 +0800</lastBuildDate>
     
 	<atom:link href="http://guowei7.gitee.io/guowei/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>C语言</title>
-      <link>http://guowei7.gitee.io/guowei/categories/c%E8%AF%AD%E8%A8%80/</link>
+      <title>计算机网络</title>
+      <link>http://guowei7.gitee.io/guowei/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
+      <pubDate>Tue, 18 Aug 2020 12:25:25 +0800</pubDate>
+      
+      <guid>http://guowei7.gitee.io/guowei/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C</title>
+      <link>http://guowei7.gitee.io/guowei/categories/c/</link>
       <pubDate>Sun, 16 Aug 2020 13:13:46 +0800</pubDate>
       
-      <guid>http://guowei7.gitee.io/guowei/categories/c%E8%AF%AD%E8%A8%80/</guid>
+      <guid>http://guowei7.gitee.io/guowei/categories/c/</guid>
       <description></description>
     </item>
     
