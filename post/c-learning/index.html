@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-cn" data-theme=""><head>
+    <title> Guo Wei | C语言基础 </title>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="Call me Guo Wei">
+    
+    <link rel="stylesheet" href="http://guowei7.gitee.io/guowei/css/style.min.5be3a155aa89a24586c761b1b5538c4040e3735ee32ac12a708dc1696c0982f5.css" integrity="sha256-W&#43;OhVaqJokWGx2GxtVOMQEDjc17jKsEqcI3BaWwJgvU=" crossorigin="anonymous" type="text/css"><link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link rel="shortcut icon" href="http://guowei7.gitee.io/guowei/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="http://guowei7.gitee.io/guowei/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://guowei7.gitee.io/guowei/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://guowei7.gitee.io/guowei/favicons/favicon-16x16.png">
+    <link rel="canonical" href="http://guowei7.gitee.io/guowei/post/c-learning/">
+    
+    
+    <script type="text/javascript" src="http://guowei7.gitee.io/guowei/js/anatole-header.min.7e2fc0724240b28c6e214687e73a4a6eb6c196bbace546b9dc86e94cca120b5c.js" integrity="sha256-fi/AckJAsoxuIUaH5zpKbrbBlrus5Ua53IbpTMoSC1w=" crossorigin="anonymous"></script>
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://guowei7.gitee.io/guowei/images/site-feature-image.png"/>
+
+<meta name="twitter:title" content="C语言基础"/>
+<meta name="twitter:description" content="主要是看C primer plus总结"/>
+
+</head><body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="http://guowei7.gitee.io/guowei/images/profile.jpg" alt="profile picture">
+        <h3 title=""><a href="/">我是郭微</a></h3>
+        <div class="description">
+          <p>Call me Guo Wei</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <li>
+        <a href="mailto:770857344@qq.com" rel="me" aria-label="e-mail">
+          <i class="fa fa-2x fa-envelope" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; Guo Wei 2020 </div>
+      </div>
+    </div>
+</div><div class="main">
+            <div class="page-top animated fadeInDown">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    <ul class="nav" id="navMenu">
+        
+        
+        
+        <li><a  href="/guowei/" title="">Home</a></li>
+        
+        
+        <li><a  href="/guowei/post/" title="">Post</a></li>
+        
+        
+        <li class="theme-switch-item">
+        <a class="theme-switch" title="Switch Theme">
+            <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        </a>
+        </li>
+    </ul>
+</div>
+
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+
+      <div class="post-title">
+        <h3>C语言基础
+        </h3>
+        
+        <div class="info">
+          <i class="fa fa-sun-o"></i>
+          <span class="date">Sun, Aug 16, 2020</span>
+          <i class="fa fa-clock-o"></i><span class="reading-time"></span>
+        </div>
+        
+        </div>
+
+    <h3 id="1-初识c语言">1. 初识C语言</h3>
+<h4 id="c语言的7个步骤">C语言的7个步骤</h4>
+<ol>
+<li>定义程序的目标<br>
+思考你的程序需要哪些信息，要进行那些计算和控制，以及程序要报告什么信息。</li>
+<li>设计程序<br>
+主要的一点就是程序中的数据如何表示，以及用什么方法来处理数据。</li>
+<li>编写代码<br>
+把设计好的思路用C语言实现，注意要添加正确的文字注释。</li>
+<li>编译<br>
+编译取决于环境，编译器是把源代码转换成可执行代码的程序。可执行代码是用机器语言表示的代码，由数字码表示的指令组成。通常C编译器还将源代码和C库的代码合并成最终的程序(准确来说是用链接器来链接库函数)。</li>
+<li>运行程序<br>
+在常见环境中运行程序要输入可执行文件的文件名，其他环境核能要运行命令。</li>
+<li>测试和调试程序<br>
+发现程序中的错误(bug),查找并修复程序错误的过程叫调试。</li>
+<li>维护和修改代码<br>
+主要是程序有错或需要扩展程序用途的时候，就需要修改程序。</li>
+</ol>
+<h4 id="编程机制">编程机制</h4>
+<p> C编程的基本策略是，用程序把源代码文件转换为可执行文件。典型的C实现通过编译和链接两个步骤来完成。编译器把源代码转换成中间代码，链接器把中间代码和其他代码合并，生成可执行文件。可以独立编译单独的模块，稍后再用链接器合并已编译的模块，这样在只更改了某个模块时，不必重新编译其他模块。<br>
+ 中间文件有多种形式。最普遍的一种形式是吧源代码转换成机器语言代码，并把结果放在目标代码文件中。但目标文件不能直接运行，并不是一个完整的程序。<br>
+ 目标代码文件缺失启动代码，启动代码充当着程序和操作系统之间的接口。目标文件还缺少库函数，许多函数的目标代码在库文件中。链接器的作用是把你编写的目标代码、系统的标准启动代码和库代码三部分合成一个文件，即可执行文件。对于库代码，链接器只会把程序中要用的库函数代码提取出来如下图:
+<img src="../../images/C-Learning/C-%E7%BC%96%E8%AF%91%E5%99%A8%E5%92%8C%E9%93%BE%E6%8E%A5%E5%99%A8.png" alt="C-编译器和链接器"></p>
+<h4 id="gnu编译器合集">GNU编译器合集</h4>
+<p> GNU编译器合集也被称为GCC，其中包含GCC C编译器。可以根据不同的版本选择运行时调用不同C标准</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">gcc -std<span style="color:#f92672">=</span><span style="color:#ae81ff">99</span> inform.c  //调用C99标准
+gcc -std<span style="color:#f92672">=</span>clx inform.c  //接受C11之前的草案标准
+gcc -std<span style="color:#f92672">=</span>cll inform.c  //接受C11标准
+</code></pre></div><h3 id="2-c-语言概述">2. C 语言概述</h3>
+<h4 id="简单的c程序">简单的C程序</h4>
+<p><a href="../../c-example/first.c">first.c</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>)
+{
+    <span style="color:#66d9ef">int</span> num;
+    num <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+    printf(<span style="color:#e6db74">&#34;I am a simple&#34;</span>);
+    printf(<span style="color:#e6db74">&#34;computer.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+    printf(<span style="color:#e6db74">&#34;My favorite number is %d because it is first.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, num);
+    getchar();
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}  
+</code></pre></div><ol>
+<li>#include指令和头文件<br>
+ #include&lt;stdio.h&gt; 这是程序的第一行，相当于把stdio.h中的所有内容都输入该行所在的位置。实际上，这是一种“拷贝-粘贴”的操作。<br>
+ #include这行代码是一条C预处理指令(preprocessor directive)。通常，在C程序顶部的信息集合被称为头文件，在大多数情况下，头文件包含了编译器创建最终可执行程序要用到的信息。例如，头文件中可以定义一些常量，或者指明函数名及如何使用它们。但是函数的实际代码在一个预编译代码的库文件中。</li>
+<li>main()函数<br>
+  int main(void)  C程序一定从main()函数开始执行(目前不必考虑例外情况)。int是main()函数的返回类型，这表明main()函数返回的值是整数。通常函数名后面的圆括号中包含一些传入函数的信息。该例中没有传递任何信息。因此，圆括号内饰单词void。</li>
+<li>注释<br>
+/*一个简单的程序*/<br>
+ 在程序中，被/* /*两个符号括起来的部分是程序的注释。写注释能让他人(自己)更容易明白你你所写的程序。C99新增了另一种风格的注释，使用//符号创建注释，仅限于单行。</li>
+<li>花括号、函数体和块<br>
+ 花括号把main()函数括起来。一般而言，所有的C函数都使用花括号标记函数体的开始和结尾。这是规定，不能省略。花括号还可用于把函数中的多条语句合并为一个单元或块。</li>
+<li>声明<br>
+int num；<br>
+ 这行代码叫做声明。声明是C语言最重要的特征之一。声明完成了两件事情，一是在函数中有一个名为num的变量，二是int表明num是一个整数。int是一种数据类型。编译器使用这些信息为num变量在内存中分配存储空间。<br>
+ int是C语言的一个关键字，表示一种基本的C语言数据类型。关键字是语言定义的单词，不能做其他用途。如用作函数名和变量名。<br>
+ 示例中的num是一个标识符，也就是一个变量、函数或其他实体的名称。因此，声明2把特定标识符与计算机内存中的特定位置联系起来，同时也确定了存储在某位置的信息类型或数据类型。C语言中，所有变量都必须先声明才能使用，这意味着必须列出程序中用到的所有变量名及其类型。</li>
+</ol>
+<ul>
+<li>数据类型</li>
+</ul>
+<blockquote>
+<p>C语言可以处理多种类型的数据，如整数、字符和浮点数。把变量声明为整形或字符类型，计算机才能正确地存储、读取和解释数据。</p>
+</blockquote>
+<ul>
+<li>命名</li>
+</ul>
+<blockquote>
+<p>给变量命名时要使用有意义的变量名或标识符。如果变量名无法清楚地表达自身的用途，可在注释中进一步说明。这是一种良好的编程习惯和编程技巧。<br>
+C99和C11允许使用更长的标识符名，但是编译器只识别前63个字符，你可以使用更长的字符，但是编译器会忽略超出的字符。可以用小写字母、大写字母、数字和下划线(_)来命名。而且，名称的第一个字符必须是字符或下划线，不能是数字。操作系统和C库经常使用一个或两个下划线字符开始的标识符，因此最好避免在自己的程序中使用这样的名称。</p>
+</blockquote>
+<ol start="6">
+<li>赋值<br>
+num=1；<br>
+ 这行代码是赋值表达式语句。赋值是C语言的基本操作之一，改行代码的意思是把&quot;把值1赋给变量num&rdquo;。在执行int num；声明时，编译器在计算机内存中为变量预留了空间，然后在执行这行赋值表达式语句时，把值存储在之前预留的位置。</li>
+<li>printf()函数<br>
+ 圆括号表明printf是一个函数名。圆括号中的内容是从main()函数传递给printf()函数的信息。第一行吧I am a simple传递给printf()函数。该信息被称为参数或者更确切地说，是函数的实际参数，实参是传递给函数的特性值，形式参数是函数中用于存储值的变量。当程序运行到这一行时，控制权被转给已命名的函数(如printf())。函数执行结束后，控制权被返回至主调函数，如main()。</li>
+<li>return语句<br>
+ return语句是程序中的最后一条语句。int main(void)中的int表明main函数应返回一个整数。C标准要求main()这样做。有返回值的C函数要有return语句。该语句以return关键字开始，后面是带返回的值，并以分号结尾。如果遗漏main()函数中的return语句，程序运行至最外面的右花括号时会返回0。</li>
+</ol>
+<h4 id="简单程序的结构">简单程序的结构</h4>
+<p> C程序由一个或多个函数组成，必须有main()函数，函数由函数头和函数体组成。</p>
+<ul>
+<li>函数头包括函数名、传入该函数的信息类型和函数的返回类型。</li>
+<li>函数体被花括号括起来，由一系列语句、声明组成。</li>
+</ul>
+<h4 id="提高程序可读性技巧">提高程序可读性技巧</h4>
+<ol>
+<li>选择有意义的函数名和写注释。</li>
+<li>在函数中用空行分隔概念上的多个部分。</li>
+<li>尽量每条语句占一行。</li>
+</ol>
+<h4 id="进一步使用c">进一步使用C</h4>
+<p><a href="../../c-example/fathm_ft.c">fathm_ft.c</a></p>
+<ol>
+<li>该程序在一条声明中声明了两个变量，而不是一个变量，使用逗号隔开两个变量。</li>
+<li>程序进行了乘法运算，使用运算符*。</li>
+<li>最后使用printf()函数时,进行了两次替换，并且待打印的值不一定是变量，只要可求值得出合适类型值得项即可。如6*fathoms。</li>
+</ol>
+<h4 id="多个函数">多个函数</h4>
+<p><a href="../../c-example/two_func.c">two_func.c</a><br>
+ two.func.c程序演示了如何把自己的函数加入程序中。<br>
+ butler()函数在程序中出现了三次。第1次是函数原型(prototype),告知编译器要在程序中使用该函数；第2次以函数调用(function call)的形式出现在main中；最后一次出现在函数定义(function definition)中，函数定义即是函数本身的源代码。<br>
+ 函数原型是一种声明形式，告知编译器正在使用某函数，因此函数原型也被称为函数声明(function declaration)。函数原型还指明了函数的属性。例如，butler()函数原型中的第1个void表明，butler()函数没有返回值。第二个void的意思是butler()函数不带参数。<br>
+ C标准建议，要为程序中用到的所有函数提供函数原型。标准include文件为标准库函数提供可函数原型。例如，在C标准中，stdio.h文件包含了printf()的函数原型。</p>
+<h4 id="调试程序">调试程序</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">/* nogood.c --有错误的程序 */</span>
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;  </span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>)(
+    <span style="color:#66d9ef">int</span> n,<span style="color:#66d9ef">int</span> n2, <span style="color:#66d9ef">int</span> n3;
+    <span style="color:#75715e">/* 该程序有多处错误
+</span><span style="color:#75715e">    n = 5;
+</span><span style="color:#75715e">    n2 = n * n;
+</span><span style="color:#75715e">    n3 = n2*n2;
+</span><span style="color:#75715e">    printf(&#34;n=%d,n squared = %d, n cubed = %d\n&#34;,n,n2,n3)
+</span><span style="color:#75715e">    return 0;
+</span><span style="color:#75715e">)
+</span></code></pre></div><ol>
+<li>语法错误<br>
+ 上述程序中有多处语法错误。不遵循C语言的规则就会犯语法错误。其一，main()函数体使用圆括号来代替花括号。二是变量声明错误，三是注释漏掉了*/结尾。最后printf()语句末尾漏掉了分号。</li>
+<li>语义错误<br>
+ 编译器无法检测语义错误，因为这类错误并未违反C语言的规则。编译器无法了解你的真正意图。所以你只能自己找出这些错误。<br>
+<a href="../../c-example/stillbad.c">stillbad.c</a></li>
+<li>程序状态<br>
+ 通过逐步跟踪程序的执行步骤，并记录每个变量，便可监视程序的状态。程序状态(program state)是在程序的执行过程中，某给定点上所有变量值的集合。<br>
+ 定义语义错误的另一种方法是：在程序中的关键点插入额外的printf()语句，以监视制定变量值的变化。通过查看值得变化可以了解程序的执行情况，对程序的执行满意后，便可删除额外的printf()语句，然后重新编译。<br>
+ 检测程序状态的第三种方法是使用调试器。调试器(debugger)是一种程序，让你一步一步运行另一个程序，并检查该程序变量的值。调试器有不同的使用难度和复杂度。较高级的调试器会显示正在执行的源代码行号。</li>
+<li>关键字和保留标识符<br>
+ 关键字是C语言词汇。它们对C而言比较特殊，不能用它们作为标识符。许多关键字用于指定不同的类型，如int。还有一些关键字(如if)用于控制程序中语句的执行顺序。</li>
+</ol>
+<h3 id="3-数据和c">3. 数据和C</h3>
+<h4 id="示例程序">示例程序</h4>
+<p><a href="../../c-example/platimun.c">platinum.c</a><br>
+ 即使使用第2章介绍的方法，在程序中添加下面一行代码:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C">getchar();  
+</code></pre></div><p> 程序的输出是否依旧在屏幕上一闪而过？本例，需要调用两次getchar()函数：<br>
+ getchar()函数读取下一个输入字符，因此程序会等待用户输入。在这种情况下，键入156并按下Enter键(发送一个换行符)，然后scanf()读取键入的数字，第1个getchar()读取换行符，第二个getchar()让程序暂停，等待输入。<br>
+ 代码中使用了一种新的变量声明。前面的例子中只使用了整数类型的变量(int)，但是本例使用了浮点数类型(float)的变量，以便处理更大范围的数据。float类型可以存储带小数的数字。<br>
+为了打印新类型的变量，在printf()中使用%f来处理浮点值。%.2f中的.2用于精确控制输出，指定输出的浮点数只显示小数点后两位。<br>
+ scanf()函数用于读取键盘的输入。%f说明scanf()要读取用户从键盘输入的浮点数，&amp;weight告诉scanf()把输入的值赋给名为weight的变量。</p>
+<h4 id="变量与常量数据">变量与常量数据</h4>
+<p> 要完成各类任务，程序需要使用数据，即承载信息的数字和字符。有些数据类型在程序使用之前已经预先设定好了，在程序运行过程中没有变化，这些称为常量(constant)。其他数据类型在程序运行期间可能会改变或被赋值，这些称为变量(variable)。在示例程序中，weight是一个变量，14.5833是一个常量。那么1700.0是常量还是变量？在现实生活中，白金的价格不会是常量，但是在程序中，像1700.0这样的价格被视为常量。</p>
+
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+<span class="separator"><a class="category" href="/guowei/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></span>
+
+        
+    <span class="separator"><a class="tag" href="/guowei/tags/c/">C</a></span>
+
+      </div>
+    </div>
+
+    
+           
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+
+
+
+<script type="text/javascript" src="http://guowei7.gitee.io/guowei/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js" integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="http://guowei7.gitee.io/guowei/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js" integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="http://guowei7.gitee.io/guowei/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js" integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro=" crossorigin="anonymous"></script></html></body>
+
+</html>

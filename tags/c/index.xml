@@ -13,11 +13,14 @@
     
     <item>
       <title>C语言基础</title>
-      <link>http://guowei7.gitee.io/guowei/post/c-learning-one/</link>
+      <link>http://guowei7.gitee.io/guowei/post/c-learning/</link>
       <pubDate>Sun, 16 Aug 2020 13:13:46 +0800</pubDate>
       
-      <guid>http://guowei7.gitee.io/guowei/post/c-learning-one/</guid>
-      <description>C语言入门 c语言的主要结构包括</description>
+      <guid>http://guowei7.gitee.io/guowei/post/c-learning/</guid>
+      <description>1. 初识C语言 C语言的7个步骤  定义程序的目标
+思考你的程序需要哪些信息，要进行那些计算和控制，以及程序要报告什么信息。 设计程序
+主要的一点就是程序中的数据如何表示，以及用什么方法来处理数据。 编写代码
+把设计好的思路用C语言实现，注意要添加正确的文字注释。 编译</description>
     </item>
     
   </channel>
