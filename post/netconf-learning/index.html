@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-cn" data-theme=""><head>
+    <title> Guo Wei | Netconf Learning </title>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="Call me Guo Wei">
+    
+    <link rel="stylesheet" href="http://guowei7.gitee.io/guowei/css/style.min.5be3a155aa89a24586c761b1b5538c4040e3735ee32ac12a708dc1696c0982f5.css" integrity="sha256-W&#43;OhVaqJokWGx2GxtVOMQEDjc17jKsEqcI3BaWwJgvU=" crossorigin="anonymous" type="text/css"><link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link rel="shortcut icon" href="http://guowei7.gitee.io/guowei/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="http://guowei7.gitee.io/guowei/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://guowei7.gitee.io/guowei/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://guowei7.gitee.io/guowei/favicons/favicon-16x16.png">
+    <link rel="canonical" href="http://guowei7.gitee.io/guowei/post/netconf-learning/">
+    
+    
+    <script type="text/javascript" src="http://guowei7.gitee.io/guowei/js/anatole-header.min.7e2fc0724240b28c6e214687e73a4a6eb6c196bbace546b9dc86e94cca120b5c.js" integrity="sha256-fi/AckJAsoxuIUaH5zpKbrbBlrus5Ua53IbpTMoSC1w=" crossorigin="anonymous"></script>
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://guowei7.gitee.io/guowei/images/site-feature-image.png"/>
+
+<meta name="twitter:title" content="Netconf Learning"/>
+<meta name="twitter:description" content="网络配置命令学习的记录"/>
+
+</head><body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="http://guowei7.gitee.io/guowei/images/profile.jpg" alt="profile picture">
+        <h3 title=""><a href="/">我是郭微</a></h3>
+        <div class="description">
+          <p>Call me Guo Wei</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <li>
+        <a href="mailto:770857344@qq.com" rel="me" aria-label="e-mail">
+          <i class="fa fa-2x fa-envelope" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; Guo Wei 2020 </div>
+      </div>
+    </div>
+</div><div class="main">
+            <div class="page-top animated fadeInDown">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    <ul class="nav" id="navMenu">
+        
+        
+        
+        <li><a  href="/guowei/" title="">Home</a></li>
+        
+        
+        <li><a  href="/guowei/post/" title="">Post</a></li>
+        
+        
+        <li class="theme-switch-item">
+        <a class="theme-switch" title="Switch Theme">
+            <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        </a>
+        </li>
+    </ul>
+</div>
+
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+
+      <div class="post-title">
+        <h3>Netconf Learning
+        </h3>
+        
+        <div class="info">
+          <i class="fa fa-sun-o"></i>
+          <span class="date">Tue, Sep 8, 2020</span>
+          <i class="fa fa-clock-o"></i><span class="reading-time"></span>
+        </div>
+        
+        </div>
+
+    <p>主要记录网络配置命令学习的心得</p>
+<h3 id="常用的网络配置命令">常用的网络配置命令</h3>
+<ol>
+<li>进入网络配置命令行
+<ul>
+<li>从host主机进入
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>root@vfowind ~<span style="color:#f92672">]</span>telnet <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">20000</span>  
+</code></pre></div></li>
+<li>从主控盘进入
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#登录主控盘</span>
+<span style="color:#f92672">[</span>root@vfowind ~<span style="color:#f92672">]</span> docker-login mpu_0_1
+<span style="color:#f92672">[</span>root@mpu_0_1 /<span style="color:#f92672">]</span> telnet <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">9000</span>  
+</code></pre></div></li>
+</ul>
+</li>
+<li>展示网络接口分配的ip地址和给接口分配ip地址
+<ul>
+<li>展示网络接口的状态
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#进入config视图，简写为con t</span>
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">]</span> config terminal  
+<span style="color:#75715e">#展示网络接口的状态</span>
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>config<span style="color:#f92672">)]</span> show ip interface brief  
+</code></pre></div></li>
+<li>给接口分配ip地址
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#进入需要配置的接口，如loopback0</span>  
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>config<span style="color:#f92672">)]</span> interface loopback <span style="color:#ae81ff">0</span>  
+<span style="color:#75715e">#给loopback0配置ip地址1.1.1.55</span>
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>loopback 0<span style="color:#f92672">)]</span> ip address 1.1.1.55/32  
+</code></pre></div></li>
+</ul>
+</li>
+<li>配置直连接口<br>
+当两个设备的接口通过物理线连接后，并给两端的接口配置了同一个网段的ip后即会直连。
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#主机A进入以太网接口eth-1gi 0/3/1/1 并配置ip地址为12.12.12.1/24</span>
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>config<span style="color:#f92672">)]</span> interface eth-1gi 0/3/1/1  
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>eth-1gi 0/3/1/1<span style="color:#f92672">)]</span> ip address 12.12.12.1/24  
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>eth-1gi 0/3/1/1<span style="color:#f92672">)]</span> no shutdown  
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>eth-1gi 0/3/1/1<span style="color:#f92672">)]</span> commit
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#主机B进入以太网接口eth-1gi 0/3/1/1 并配置ip地址为12.12.12.2/24</span>
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>config<span style="color:#f92672">)]</span> interface eth-1gi 0/3/1/1  
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>eth-1gi 0/3/1/1<span style="color:#f92672">)]</span> ip address 12.12.12.2/24  
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>eth-1gi 0/3/1/1<span style="color:#f92672">)]</span> no shutdown
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>eth-1gi 0/3/1/1<span style="color:#f92672">)]</span> commit  
+</code></pre></div></li>
+<li>配置OSPF协议<br>
+给需要运行OSPF协议的路由器配置并将对应端口通告给OSPF学习
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#运行OSPF，且进程号为1</span>
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>config<span style="color:#f92672">)]</span> router ospf <span style="color:#ae81ff">1</span>  
+<span style="color:#75715e">#配置ospf的router-id</span>
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>ospf<span style="color:#f92672">)]</span> router-id 1.1.1.57  
+<span style="color:#75715e">#配置OSPF的area id，设置为0(可以整数形式，也可以ipv4的地址形式)</span>
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>ospf<span style="color:#f92672">)]</span> area <span style="color:#ae81ff">0</span>  
+<span style="color:#75715e">#通告直连的端口，以建立邻居</span>  
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>ospf-area<span style="color:#f92672">)]</span> interface eth-1gi 0/3/1/1
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>ospf-area-intf<span style="color:#f92672">)]</span> network broadcast    
+<span style="color:#75715e">#将loopback0进行通告OSPF进行学习</span>
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>ospf-area<span style="color:#f92672">)]</span> interface loopback <span style="color:#ae81ff">0</span>  
+<span style="color:#75715e">#通告方式</span>
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>ospf-area-intf<span style="color:#f92672">)]</span> network point-to-point    
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>ospf-area-intf<span style="color:#f92672">)]</span> commit  
+</code></pre></div></li>
+<li>配置BGP并将路由信息通告BGP进行传递
+<ul>
+<li>配置BGP
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#进入bgp配置视图，并且本地AS为100</span>
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>config<span style="color:#f92672">)]</span> router bgp <span style="color:#ae81ff">100</span>
+<span style="color:#75715e">#进入需要配置的IBGP邻居视图</span>  
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>router-bgp<span style="color:#f92672">)]</span> neighbor 1.1.1.56  
+<span style="color:#75715e">#配置邻居的AS号，以确定是IBGP还是EBGP邻居</span>
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>bgp-neighbor<span style="color:#f92672">)]</span> remote-as <span style="color:#ae81ff">100</span>  
+<span style="color:#75715e">#用环回口建立IBGP邻居时，需要修改TCP的源IP，以保证能建立邻居</span>
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>bgp-neighbor<span style="color:#f92672">)]</span> update-source 1.1.1.55
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>bgp-neighbor<span style="color:#f92672">)]</span> no shutdown    
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>bgp-neighbor<span style="color:#f92672">)]</span> commit  
+
+<span style="color:#75715e">#进入邻居视图的地址族配置</span>
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>bgp-neighbor<span style="color:#f92672">)]</span> address-family ipv4 unicast  
+<span style="color:#75715e">#配置EBGP邻居传给IBGP邻居时修改下一跳为自己</span>
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>bgp-neighbor-af-ipv4-uni<span style="color:#f92672">)]</span> next-hop-self
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>bgp-neighbor-af-ipv4-uni<span style="color:#f92672">)]</span> commit】
+
+<span style="color:#75715e">#进入需要配置的EBGP邻居视图</span>
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>router-bgp<span style="color:#f92672">)]</span> neighbor 100.1.1.2
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>bgp-neighbor<span style="color:#f92672">)]</span> remote-as <span style="color:#ae81ff">200</span>  
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>bgp-neighbor<span style="color:#f92672">)]</span> no shutdown    
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>bgp-neighbor<span style="color:#f92672">)]</span> commit  
+
+</code></pre></div></li>
+<li>通告路由给BGP协议
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#根据要通告的路由类型选定对应的地址族，并进入配置视图</span>
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>router-bgp<span style="color:#f92672">)]</span> address-family ipv4 unicast  
+<span style="color:#75715e">#使用network通告对应的网段</span>
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>bgp-af<span style="color:#f92672">)]</span> network 12.12.11.1/24  
+<span style="color:#75715e">#使用redistribute命令将ospf 1的所有路由进行通告，还可以通告static isis connected类型的路由</span>
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>bgp-af<span style="color:#f92672">)]</span> redistribute ospf <span style="color:#ae81ff">1</span>  
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>bgp-af<span style="color:#f92672">)]</span> commit  
+</code></pre></div></li>
+</ul>
+</li>
+<li>保存路由设备的所有配置
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#将配置保存到13.cfg中</span>
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">]</span> save 13.cfg  
+</code></pre></div></li>
+</ol>
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+<span class="separator"><a class="category" href="/guowei/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></span>
+
+        
+    <span class="separator"><a class="tag" href="/guowei/tags/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/">网络配置</a></span>
+
+      </div>
+    </div>
+
+    
+           
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+
+
+
+<script type="text/javascript" src="http://guowei7.gitee.io/guowei/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js" integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="http://guowei7.gitee.io/guowei/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js" integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="http://guowei7.gitee.io/guowei/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js" integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro=" crossorigin="anonymous"></script></html></body>
+
+</html>
