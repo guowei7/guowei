@@ -462,7 +462,7 @@ C99标准加了_Bool类型，用于表示布尔值，即逻辑值true和false。
 </li>
 <li>
 <p>可移植类型:stdint.h和inttypes.h<br>
-C语言提供了许多有用的整数类型。但是，某些类型名在不同系统中的功能不一样。C99新增了两个头文件stdint.h和inttypes.h，以确保C语言的类型在各系统中的功能相同。
+C语言提供了许多有用的整数类型。但是，某些类型名在不同系统中的功能不一样。C99新增了两个头文件stdint.h和inttypes.h，以确保C语言的类型在各系统中的功能相同。<br>
 <a href="../../c-example/altnames.c">altnames.c</a></p>
 </li>
 <li>
@@ -488,16 +488,16 @@ C语言的第3种浮点类型是long double，以满足比double类型更高的�
 C99标准添加了一种新的浮点型常量格式————用十六进制表示浮点型常量，即在十六进制数前加上十六进制前缀(0x或0X),用p和P分别代替e和E，用2的幂代替10的幂(即，p计数法)。如：0xa.1fp10(10+1/16+15/256)*1024。</li>
 <li>打印浮点值<br>
 printf()函数使用%f转换说明打印十进制记数法的float和double类型浮点数，用%e打印指数记数法的浮点数。如果系统支持十六进制格式的浮点数，，可用a和A分别代替e和E。打印long double类型要使用%Lf、%Le或%La转换说明。给那些未在函数原型中显示说明参数类型的函数传递参数时，C编译器会把float类型的值自动转换成double类型。<br>
-<a href="../../c-example/showf_pc.c">showf_pc.c</a></li>
+<a href="../../c-example/showf_pt.c">showf_pt.c</a></li>
 <li>浮点值的上溢和下溢<br>
 假设系统的最大float类型值是3.4E38，编写如下代码：
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">float</span> toobig <span style="color:#f92672">=</span> <span style="color:#ae81ff">3.4E38</span><span style="color:#f92672">*</span> <span style="color:#ae81ff">100.0f</span>;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">float</span> toobig <span style="color:#f92672">=</span> <span style="color:#ae81ff">3.4E38</span><span style="color:#f92672">*</span> <span style="color:#ae81ff">100.0f</span>;
 printf(<span style="color:#e6db74">&#34;%e</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,toobig);
 </code></pre></div><p>会发生什么？这是一个上溢(overflow)的示例。当计算导致数字过大，超过当前类型能表达的范围时，就会发生上溢。这种行为在过去是未定义的，不过现在C语言规定，在这种情况下会给toobig赋一个表示无穷大ade特定值，而且printf()显示该值为inf或infinity。<br>
 当除以一个很小的数时，情况更为复杂。回忆一下，float类型的数以指数和尾数部分来存储。存在这样一个数，它的指数部分是最小值，即由全部可用位表示的最小为尾数值。该数字是float类型给用全部精度表示的最小数字。现在把它除以2。通常，这个操作会减小指数部分，但是假设的情况中，指数已经是最小值了。所以计算机只好把尾数部分的位向右移，空出第1个二进制位，并丢弃最后一个二进制数。以十进制为例，把一个有4位有效数字的数(如，0.1234E-10)除以10，得到的结果是0.0123E-10。虽然得到了结果，但是在计算过程中却损失了原末尾有效位上的数字。这种情况叫做下溢(underflow)。C语言把损失了类型全精度的浮点值称为低于正常的(subnormal)浮点值。因此，把最小的正浮点数除以2将得到一个低于正常的值。如果除以一个非常大的值，会导致所有的位都为0。现在，C库已提供了用于检查计算是否会产生低于正常值的函数。<br>
 还有另一个特殊的浮点值NaN(not a number的缩写)。例如，给asin()函数传递一个值，该函数将返回一个角度，该角度的正弦就是传入函数的值。但是正弦值不能大于1，因此，如果传入的参数大于1，该函数的行为是未定义的。在这种情况下，该函数将返回NaN值，printf()函数可将其显示为nan、NaN或其他类似的内容。<br>
-<strong>点数舍入错误</strong><br>
-给定一个数，加上1，再减去原来给定的数，结果是多少？你一定认为是1。但是，下面的浮点运算给出了不同的答案:<br>
+<strong>浮点数舍入错误</strong><br>
+给定一个数，加上1，再减去原来给定的数，结果是多少？你一定认为是1。但是，下面的浮点运算给出了不同的答案：<br>
 <a href="../../c-example/floaterr.c">floaterr.c</a><br>
 得出这些奇怪答案的原因是，计算机缺少足够的小数位来完成正确的运算。2.0e20是2后面又20个0。如果把该数加1，那么发生变化的是第21位。要正确运算，程序至少要存储21位有效数字。而float类型的数字通常只能存储按指数比例缩小或放大的6或7位有效数字。在这种情况下，计算结果一定是错误的。</p>
 </li>
