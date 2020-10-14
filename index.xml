@@ -6,10 +6,15 @@
     <description>Recent content on 郭微blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 12 Sep 2020 16:44:49 +0800</lastBuildDate>
-    
-	<atom:link href="http://guowei7.gitee.io/guowei/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Sun, 11 Oct 2020 17:08:05 +0800</lastBuildDate><atom:link href="http://guowei7.gitee.io/guowei/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vim Learning</title>
+      <link>http://guowei7.gitee.io/guowei/post/vim-learning/</link>
+      <pubDate>Sun, 11 Oct 2020 17:08:05 +0800</pubDate>
+      
+      <guid>http://guowei7.gitee.io/guowei/post/vim-learning/</guid>
+      <description>&lt;p&gt;本文主要介绍一些VIM的概念和基本使用&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>MPLS Learning</title>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>编辑器 on 郭微blog</title>
+    <link>http://guowei7.gitee.io/guowei/tags/%E7%BC%96%E8%BE%91%E5%99%A8/</link>
+    <description>Recent content in 编辑器 on 郭微blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 11 Oct 2020 17:08:05 +0800</lastBuildDate><atom:link href="http://guowei7.gitee.io/guowei/tags/%E7%BC%96%E8%BE%91%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vim Learning</title>
+      <link>http://guowei7.gitee.io/guowei/post/vim-learning/</link>
+      <pubDate>Sun, 11 Oct 2020 17:08:05 +0800</pubDate>
+      
+      <guid>http://guowei7.gitee.io/guowei/post/vim-learning/</guid>
+      <description>&lt;p&gt;本文主要介绍一些VIM的概念和基本使用&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

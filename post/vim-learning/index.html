@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-cn" data-theme=""><head>
+    <title> Guo Wei | Vim Learning </title>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.76.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="记录生活与学习的点点滴滴">
+    
+    <link rel="stylesheet" href="http://guowei7.gitee.io/guowei/css/style.min.5be3a155aa89a24586c761b1b5538c4040e3735ee32ac12a708dc1696c0982f5.css" integrity="sha256-W&#43;OhVaqJokWGx2GxtVOMQEDjc17jKsEqcI3BaWwJgvU=" crossorigin="anonymous" type="text/css"><link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link rel="shortcut icon" href="http://guowei7.gitee.io/guowei/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="http://guowei7.gitee.io/guowei/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://guowei7.gitee.io/guowei/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://guowei7.gitee.io/guowei/favicons/favicon-16x16.png">
+    <link rel="canonical" href="http://guowei7.gitee.io/guowei/post/vim-learning/">
+    
+    
+    <script type="text/javascript" src="http://guowei7.gitee.io/guowei/js/anatole-header.min.7e2fc0724240b28c6e214687e73a4a6eb6c196bbace546b9dc86e94cca120b5c.js" integrity="sha256-fi/AckJAsoxuIUaH5zpKbrbBlrus5Ua53IbpTMoSC1w=" crossorigin="anonymous"></script>
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://guowei7.gitee.io/guowei/images/site-feature-image.png"/>
+
+<meta name="twitter:title" content="Vim Learning"/>
+<meta name="twitter:description" content="简单的记录VIM学习"/>
+
+</head><body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="http://guowei7.gitee.io/guowei/images/profile.jpg" alt="profile picture">
+        <h3 title=""><a href="/">我是郭微</a></h3>
+        <div class="description">
+          <p>记录生活与学习的点点滴滴</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <li>
+        <a href="mailto:770857344@qq.com" rel="me" aria-label="e-mail">
+          <i class="fa fa-2x fa-envelope" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; Guo Wei 2020 </div>
+      </div>
+    </div>
+</div><div class="main">
+            <div class="page-top animated fadeInDown">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    <ul class="nav" id="navMenu">
+        
+        
+        
+        <li><a  href="/guowei/" title="">Home</a></li>
+        
+        
+        <li><a  href="/guowei/post/" title="">Post</a></li>
+        
+        
+        <li class="theme-switch-item">
+        <a class="theme-switch" title="Switch Theme">
+            <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        </a>
+        </li>
+    </ul>
+</div>
+
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+
+      <div class="post-title">
+        <h3>Vim Learning
+        </h3>
+        
+        <div class="info">
+          <i class="fa fa-sun-o"></i>
+          <span class="date">Sun, Oct 11, 2020</span>
+          <i class="fa fa-clock-o"></i><span class="reading-time"></span>
+        </div>
+        
+        </div>
+
+    <p>本文主要介绍一些VIM的概念和基本使用</p>
+<h3 id="1-vim简介">1. Vim简介</h3>
+<h4 id="vim工作模式">Vim工作模式</h4>
+<ul>
+<li>命令模式(command-mode)<br>
+命令模式则多用于操作文本文件(而不是操作文本文件的内容),例如保存文件；或者用来改变编辑器本身的状态，例如设定多栏窗口、标签或者退出编辑器。</li>
+<li>插入模式(insert-mode)<br>
+插入模式则用来向文本中添加内容。</li>
+<li>可视模式(visual-mode)<br>
+可视模式相当于高亮选取文本后的普通模式。<br>
+可视模式具有子模式，以行为单位进行选取的可视行模式，使用&quot;V&quot;键进入；和以块为单位进行选取的可视化模式，使用&quot;Ctrl+v&quot;键进入。</li>
+<li>正常模式(normal-mode)<br>
+正常模式主要用来浏览和修改文本内容的。</li>
+</ul>
+<hr>
+<blockquote>
+<p>普通模式=&gt;插入模式(i、a、o等)<br>
+普通模式=&gt;命令模式(:)<br>
+普通模式=&gt;可视模式(v或V)<br>
+其他模式=&gt;普通模式(esc)</p>
+</blockquote>
+<hr>
+<h3 id="2-vimtutor">2. Vimtutor</h3>
+<h4 id="11-moving-the-cursor">1.1 Moving the cursor</h4>
+<p>移动光标，h，j，k，l四个按键的功能如下：</p>
+<ul>
+<li>h: 向左移动光标</li>
+<li>l: 向右移动光标</li>
+<li>j: 向下移动光标</li>
+<li>k: 向上移动光标</li>
+</ul>
+<h4 id="12-exiting-vim">1.2 Exiting vim</h4>
+<p>进入命令模式使用q进行退出，其不会进行内容的保存。</p>
+<h4 id="13-text-editing">1.3 Text Editing</h4>
+<ul>
+<li>Deletion<br>
+将光标移动到要进行删除的字符处，使用x按钮删除不想要的字符。</li>
+<li>Insertion<br>
+将光标移动到套进行插入的字符出，使用i(I到行首进行插入)进入插入模式并进行输入。</li>
+<li>Appendding<br>
+将光标移动到要进行添加的字符处，使用a(A到行尾进行输入)进入插入模式并进行输入。</li>
+</ul>
+<h4 id="21-deletion-commands">2.1 Deletion commands</h4>
+<p>d motion[w,$,e]</p>
+<ul>
+<li>dw:删除从光标开始到下一个单词前的所有内容</li>
+<li>d$:删除从光标开始到行尾的所有内容</li>
+<li>de:删除从光标开始到本单词结束的所有内容</li>
+</ul>
+<p>d count[1,2,10] motion</p>
+<ul>
+<li>d2w:删除从光标开始到后续第三个单词首部前的所有内容</li>
+<li>d2e:删除从光标开始到后续第二个单词尾部前的所有内容</li>
+<li>d2$:删除从光标本行开始向后两行(包含本行)的内容<br>
+count dd<br>
+vim开发者认为删除行的命令用的比较频繁，故使用dd作为行删除命令</li>
+</ul>
+<h4 id="22-using-a-count-for-a-motion">2.2 Using a count for a motion</h4>
+<p>count[1,10,5] motion[w,$,e]</p>
+<ul>
+<li>2w:光标移动到后面第三个单词的第一个字母处</li>
+<li>2e:光标移动到后面第二个单词的最后一个字母处</li>
+<li>2$:光标移动到向下数第二行(包含本行)的行尾处</li>
+</ul>
+<h4 id="23-the-undo-command">2.3 The undo command</h4>
+<ul>
+<li>u:撤销上一次修改的动作</li>
+<li>U:撤销本行的所有修改</li>
+<li>CTRL+R:反撤销u进行的撤销</li>
+</ul>
+<h4 id="31-the-put-command">3.1 The put command</h4>
+<p>使用p将上一次删除的文本添加到光标后</p>
+<h4 id="32-the-replace-command">3.2 The replace command</h4>
+<p>使用r[x]来将光标处的字母替换成输入的[x]字母</p>
+<h4 id="33-the-change-operator">3.3 The change operator</h4>
+<ul>
+<li>ce:修改光标到单词尾部分的内容</li>
+<li>c count motion:修改多个单词的内容</li>
+</ul>
+<h4 id="41-cursor-location-and-file-status">4.1 Cursor location and file status</h4>
+<ul>
+<li>CTRL+G:用来显示光标在文件中的位置及文件的状态</li>
+<li>G:移动光标到文件底部</li>
+<li>gg:移动光标到文件顶部</li>
+<li>count G:移动到文件中对应的count行</li>
+</ul>
+<h4 id="42-the-search-command">4.2 The search command</h4>
+<p>在/后面输入要进行查找的内容，键入n表示继续进行查找，键入N则表示反向查找。<br>
+如果想要向上进行查找则是用？代替/进行查找。</p>
+<h4 id="43-matching-parentheses-search">4.3 Matching parentheses search</h4>
+<p>将光标移动到任何一个括号处，键入%号，则光标会移动到其匹配的括号处。</p>
+<h4 id="44-the-substitute-command">4.4 The Substitute command</h4>
+<p>键入:s/old/new/g，使用new来替换old</p>
+<ul>
+<li>:s/old/new: 将当前行中的第一个old替换成new</li>
+<li>:s/old/new/g: 将当前行中的全部old替换成new</li>
+<li>:#,#s/old/new/g: 将#到#行的全部old替换成new</li>
+<li>:%s/old/new/g: 将整个文件的old替换成new</li>
+<li>:%s/old/new/gc: 带提示的将整个文件的old替换成new</li>
+</ul>
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+<span class="separator"><a class="category" href="/guowei/categories/linux/">Linux</a></span>
+
+        
+    <span class="separator"><a class="tag" href="/guowei/tags/%E7%BC%96%E8%BE%91%E5%99%A8/">编辑器</a></span>
+
+      </div>
+    </div>
+
+    
+           
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+
+
+
+<script type="text/javascript" src="http://guowei7.gitee.io/guowei/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js" integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="http://guowei7.gitee.io/guowei/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js" integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="http://guowei7.gitee.io/guowei/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js" integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro=" crossorigin="anonymous"></script></html></body>
+
+</html>
