@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-cn" data-theme=""><head>
     <title> Guo Wei | C语言基础 </title>
-    <meta charset="utf-8"><meta name="generator" content="Hugo 0.76.4" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-    <meta name="description" content="祝罗晓萱生日快乐">
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="人真正变强大，不是因为守护着自尊心，而是抛开自尊心的时候！">
     
     <link rel="stylesheet" href="http://guowei7.gitee.io/guowei/css/style.min.5be3a155aa89a24586c761b1b5538c4040e3735ee32ac12a708dc1696c0982f5.css" integrity="sha256-W&#43;OhVaqJokWGx2GxtVOMQEDjc17jKsEqcI3BaWwJgvU=" crossorigin="anonymous" type="text/css"><link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     
@@ -24,13 +24,20 @@
     <div class="logo-title">
       <div class="title">
         <img src="http://guowei7.gitee.io/guowei/images/profile.jpg" alt="profile picture">
-        <h3 title=""><a href="/">我是郭微</a></h3>
+        <h3 title=""><a href="/">请回答1988</a></h3>
         <div class="description">
-          <p>祝罗晓萱生日快乐</p>
+          <p>人真正变强大，不是因为守护着自尊心，而是抛开自尊心的时候！</p>
         </div>
       </div>
     </div>
     <ul class="social-links">
+        
+        <li>
+        <a href="https://github.com/guowei7" rel="me" aria-label="GitHub">
+          <i class="fa fa-2x fa-github" aria-hidden="true"></i>
+        </a>          
+        </li>
+
         
         <li>
         <a href="mailto:770857344@qq.com" rel="me" aria-label="e-mail">
@@ -120,7 +127,7 @@ gcc -std<span style="color:#f92672">=</span>cll inform.c  //接受C11标准
 gcc -E first.c -o first.i  
 <span style="color:#75715e">#将预处理后的文件进行编译，生成汇编文件</span>
 gcc -S first.i -o first.s  
-<span style="color:#75715e">#将汇编文件进行汇编生成目标文件(机器语言)  </span>
+<span style="color:#75715e">#将汇编文件进行汇编生成目标文件(机器语言)</span>  
 gcc -c first.s -o first.o  
 <span style="color:#75715e">#将目标文件同系统库的obj文件、库文件连接成平台可执行的文件</span>
 gcc first.o -o first  
@@ -165,7 +172,7 @@ C99和C11允许使用更长的标识符名，但是编译器只识别前63个字
 </li>
 <li>赋值<br>
 num=1；<br>
-这行代码是赋值表达式语句。赋值是C语言的基本操作之一，改行代码的意思是把&quot;把值1赋给变量num&quot;。在执行int num；声明时，编译器在计算机内存中为变量预留了空间，然后在执行这行赋值表达式语句时，把值存储在之前预留的位置。</li>
+这行代码是赋值表达式语句。赋值是C语言的基本操作之一，改行代码的意思是把&quot;把值1赋给变量num&rdquo;。在执行int num；声明时，编译器在计算机内存中为变量预留了空间，然后在执行这行赋值表达式语句时，把值存储在之前预留的位置。</li>
 <li>printf()函数<br>
 圆括号表明printf是一个函数名。圆括号中的内容是从main()函数传递给printf()函数的信息。第一行吧I am a simple传递给printf()函数。该信息被称为参数或者更确切地说，是函数的实际参数，实参是传递给函数的特性值，形式参数是函数中用于存储值的变量。当程序运行到这一行时，控制权被转给已命名的函数(如printf())。函数执行结束后，控制权被返回至主调函数，如main()。</li>
 <li>return语句<br>
@@ -240,46 +247,46 @@ scanf()函数用于读取键盘的输入。%f说明scanf()要读取用户从键�
 <table>
 <thead>
 <tr>
-<th style="text-align:center">最初K&amp;R给出的关键字</th>
-<th style="text-align:center">C90标准添加的关键字</th>
-<th style="text-align:center">C99标准添加的关键字</th>
+<th align="center">最初K&amp;R给出的关键字</th>
+<th align="center">C90标准添加的关键字</th>
+<th align="center">C99标准添加的关键字</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">int</td>
-<td style="text-align:center">signed</td>
-<td style="text-align:center">_bool</td>
+<td align="center">int</td>
+<td align="center">signed</td>
+<td align="center">_bool</td>
 </tr>
 <tr>
-<td style="text-align:center">long</td>
-<td style="text-align:center">void</td>
-<td style="text-align:center">_complex</td>
+<td align="center">long</td>
+<td align="center">void</td>
+<td align="center">_complex</td>
 </tr>
 <tr>
-<td style="text-align:center">short</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">_Imaginary</td>
+<td align="center">short</td>
+<td align="center"></td>
+<td align="center">_Imaginary</td>
 </tr>
 <tr>
-<td style="text-align:center">unsigned</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td align="center">unsigned</td>
+<td align="center"></td>
+<td align="center"></td>
 </tr>
 <tr>
-<td style="text-align:center">char</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td align="center">char</td>
+<td align="center"></td>
+<td align="center"></td>
 </tr>
 <tr>
-<td style="text-align:center">float</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td align="center">float</td>
+<td align="center"></td>
+<td align="center"></td>
 </tr>
 <tr>
-<td style="text-align:center">double</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td align="center">double</td>
+<td align="center"></td>
+<td align="center"></td>
 </tr>
 </tbody>
 </table>
@@ -363,14 +370,14 @@ char类型变量的声明方式与其他类型变量的声明方式相同。如�
 <p>字符常量和初始化<br>
 如果要把一个字符常量初始化为字母A，不必背下ASCII码，用计算机语言很容易做到。通过以下初始化把字母A赋给grade即可：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">char</span> grade <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;A&#39;</span>;
-</code></pre></div><p>在C语言中，用单引号括起来的单个字符被称为字符常量(character constant)。编译器一发现&rsquo;A'，就会将其转换成相应的代码值。单引号必不可少。一些错误例子如下：</p>
+</code></pre></div><p>在C语言中，用单引号括起来的单个字符被称为字符常量(character constant)。编译器一发现&rsquo;A&rsquo;，就会将其转换成相应的代码值。单引号必不可少。一些错误例子如下：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">char</span> broiled;
 broiled <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;T&#39;</span>;  <span style="color:#75715e">/* 为其赋值，正确 */</span>  
 broiled <span style="color:#f92672">=</span> T;  <span style="color:#75715e">/* 错误！此时T是一个变量 */</span>  
 broiled <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;T&#34;</span>; <span style="color:#75715e">/* 错误！此时&#34;T&#34;是一个字符串 */</span>  
 </code></pre></div><p>如上所示，如果省略单引号，编译器认为T是一个变量名；如果把T用双引号括起来，编译器则认为&quot;T&quot;是一个字符串。<br>
 实际上字符是以数值形式存储的，所以也可使用数字代码来赋值：char grade = 65;，虽然65是int类型，但是它在char类型能表示的范围内，所以将其赋值给grade没问题。由于65是字母A对应的ASCII码，因此本例是把A赋给grade。注意，能这样做的前提是系统使用ASCII码。其实，用&rsquo;A&rsquo;代替65才是较为妥当的做法，这样在任何系统中都不会出问题。因此，最好使用字符常量，而不是数字代码值。<br>
-奇怪的是，C语言将字符常量视为int类型而非char类型。例如，在int为32位、char为8位的ASCII系统中，char grade = &lsquo;B&rsquo;;，本来&rsquo;B&rsquo;对应的数值66存储在32位的存储单元中，现在却可以存储在8位的存储单元中。利用字符常量的这种特性，可以定义一个字符常量&rsquo;FATE'，即把4个独立的8位ASCII码存储在一个32位存储单元中。如果把这样的字符常量赋给char类型变量grade，只有最后8位有效。因此，grade的值是&rsquo;E'。</p>
+奇怪的是，C语言将字符常量视为int类型而非char类型。例如，在int为32位、char为8位的ASCII系统中，char grade = &lsquo;B&rsquo;;，本来&rsquo;B&rsquo;对应的数值66存储在32位的存储单元中，现在却可以存储在8位的存储单元中。利用字符常量的这种特性，可以定义一个字符常量&rsquo;FATE&rsquo;，即把4个独立的8位ASCII码存储在一个32位存储单元中。如果把这样的字符常量赋给char类型变量grade，只有最后8位有效。因此，grade的值是&rsquo;E&rsquo;。</p>
 </li>
 <li>
 <p>非打印字符<br>
@@ -383,62 +390,62 @@ broiled <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;T&
 <table>
 <thead>
 <tr>
-<th style="text-align:center">转义序列</th>
-<th style="text-align:center">含义</th>
+<th align="center">转义序列</th>
+<th align="center">含义</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">\a</td>
-<td style="text-align:center">报警</td>
+<td align="center">\a</td>
+<td align="center">报警</td>
 </tr>
 <tr>
-<td style="text-align:center">\b</td>
-<td style="text-align:center">退格</td>
+<td align="center">\b</td>
+<td align="center">退格</td>
 </tr>
 <tr>
-<td style="text-align:center">\f</td>
-<td style="text-align:center">换页</td>
+<td align="center">\f</td>
+<td align="center">换页</td>
 </tr>
 <tr>
-<td style="text-align:center">\n</td>
-<td style="text-align:center">换行</td>
+<td align="center">\n</td>
+<td align="center">换行</td>
 </tr>
 <tr>
-<td style="text-align:center">\r</td>
-<td style="text-align:center">回车</td>
+<td align="center">\r</td>
+<td align="center">回车</td>
 </tr>
 <tr>
-<td style="text-align:center">\t</td>
-<td style="text-align:center">水平制表符</td>
+<td align="center">\t</td>
+<td align="center">水平制表符</td>
 </tr>
 <tr>
-<td style="text-align:center">\v</td>
-<td style="text-align:center">垂直制表符</td>
+<td align="center">\v</td>
+<td align="center">垂直制表符</td>
 </tr>
 <tr>
-<td style="text-align:center">\</td>
-<td style="text-align:center">反斜杠()</td>
+<td align="center">\</td>
+<td align="center">反斜杠()</td>
 </tr>
 <tr>
-<td style="text-align:center">'</td>
-<td style="text-align:center">单引号</td>
+<td align="center">'</td>
+<td align="center">单引号</td>
 </tr>
 <tr>
-<td style="text-align:center">&quot;</td>
-<td style="text-align:center">双引号</td>
+<td align="center">&quot;</td>
+<td align="center">双引号</td>
 </tr>
 <tr>
-<td style="text-align:center">?</td>
-<td style="text-align:center">问号</td>
+<td align="center">?</td>
+<td align="center">问号</td>
 </tr>
 <tr>
-<td style="text-align:center">\0oo</td>
-<td style="text-align:center">八进制值</td>
+<td align="center">\0oo</td>
+<td align="center">八进制值</td>
 </tr>
 <tr>
-<td style="text-align:center">\xhh</td>
-<td style="text-align:center">十六进制值</td>
+<td align="center">\xhh</td>
+<td align="center">十六进制值</td>
 </tr>
 </tbody>
 </table>
@@ -552,8 +559,8 @@ sizeof是C语言的内置运算符，以字节为单位给出指定类型的大�
 <span style="color:#66d9ef">float</span> pi <span style="color:#f92672">=</span> <span style="color:#ae81ff">3.1415926536</span>;<span style="color:#75715e">/* 用double类型的值初始化float类型的变量 */</span>
 </code></pre></div><p>第1个声明，cost的值是12。C编译器把浮点数转换成整数时，会直接丢弃小数部分，而不进行四舍五入。第2个声明会损失一些精度，因为C只保证了float类型前6位的精度。编译器对这样的初始化可能给出警告。</p>
 <h4 id="参数和陷阱">参数和陷阱</h4>
-<p>printf()函数的用法。读者应该还记得，传递给函数的信息被称为参数。例如printf(&ldquo;Hello&rdquo;)函数调用有一个参数&quot;Hello&quot;。双引号中的字符序列被称为字符串(string),无论双引号中包含多少个字符和标点符号，一个字符串就是一个参数。<br>
-与此类似，scanf(&quot;%d&quot;,&amp;weight)函数调用有两个参数:&quot;%d&quot;和&amp;weight。C语言用逗号分隔函数中的参数。printf()和scanf()函数与一般函数不同，它们的参数个数是可变的。程序要知道函数的参数个数才能正常工作。printf()和scanf()函数用第1个参数表明后续有多少个参数，即第1个字符串中的转换说明与后面的参数一一对应。<br>
+<p>printf()函数的用法。读者应该还记得，传递给函数的信息被称为参数。例如printf(&ldquo;Hello&rdquo;)函数调用有一个参数&quot;Hello&rdquo;。双引号中的字符序列被称为字符串(string),无论双引号中包含多少个字符和标点符号，一个字符串就是一个参数。<br>
+与此类似，scanf(&quot;%d&rdquo;,&amp;weight)函数调用有两个参数:&quot;%d&quot;和&amp;weight。C语言用逗号分隔函数中的参数。printf()和scanf()函数与一般函数不同，它们的参数个数是可变的。程序要知道函数的参数个数才能正常工作。printf()和scanf()函数用第1个参数表明后续有多少个参数，即第1个字符串中的转换说明与后面的参数一一对应。<br>
 程序员要负责确保转换说明的数量、类型与后面参数的数量、类型相匹配。现在，C语言通过函数原型机制检查函数调用时参数的个数和类型是否正确。但是，该机制对printf()和scanf()不起作用，因为这两个函数的参数个数可变。如果参数在匹配上有问题，会出现什么情况？如下：<br>
 <a href="../../c-example/badcount.c">badcount.c</a><br>
 所有编译器都能顺利编译并运行该程序，但其中大部分会给出警告。的确，有些编译器会捕获到这类问题，然而C标准对此未作要求。因此，计算机在运行时可能不会捕获这类错误。</p>
@@ -663,33 +670,33 @@ C头文件limits.h和float.h分别提供了与整数类型和浮点类型大小�
 <table>
 <thead>
 <tr>
-<th style="text-align:right">修饰符</th>
-<th style="text-align:left">含义</th>
+<th align="right">修饰符</th>
+<th align="left">含义</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:right">标记</td>
-<td style="text-align:left">表4.5描述了5种标记(-、+、空格、#和0),可以不使用标记或使用多个标记，如:&quot;%-10d&quot;</td>
+<td align="right">标记</td>
+<td align="left">表4.5描述了5种标记(-、+、空格、#和0),可以不使用标记或使用多个标记，如:&quot;%-10d&rdquo;</td>
 </tr>
 <tr>
-<td style="text-align:right">数字</td>
-<td style="text-align:left">最小字段宽度,如:&quot;%4d&quot;</td>
+<td align="right">数字</td>
+<td align="left">最小字段宽度,如:&quot;%4d&rdquo;</td>
 </tr>
 <tr>
-<td style="text-align:right">.数字</td>
-<td style="text-align:left">精度，如&quot;%5.2f&quot;</td>
+<td align="right">.数字</td>
+<td align="left">精度，如&rdquo;%5.2f&rdquo;</td>
 </tr>
 <tr>
-<td style="text-align:right">t</td>
-<td style="text-align:left">和整型转换说明一起使用，表示ptrdiff_t类型的值。ptrdiff_t是两个指针差值的类型，如:&quot;%td&quot;</td>
+<td align="right">t</td>
+<td align="left">和整型转换说明一起使用，表示ptrdiff_t类型的值。ptrdiff_t是两个指针差值的类型，如:&quot;%td&rdquo;</td>
 </tr>
 <tr>
-<td style="text-align:right">z</td>
-<td style="text-align:left">和整数转换说明一起使用，表示size_t类型的值。size_t是sizeof返回的类型，如:&quot;%zd&quot;</td>
+<td align="right">z</td>
+<td align="left">和整数转换说明一起使用，表示size_t类型的值。size_t是sizeof返回的类型，如:&quot;%zd&rdquo;</td>
 </tr>
 <tr>
-<td style="text-align:right"><em><strong>表4.5</strong></em></td>
+<td align="right"><em><strong>表4.5</strong></em></td>
 <td></td>
 </tr>
 </tbody>
@@ -697,30 +704,30 @@ C头文件limits.h和float.h分别提供了与整数类型和浮点类型大小�
 <table>
 <thead>
 <tr>
-<th style="text-align:right">标记符</th>
-<th style="text-align:left">含义</th>
+<th align="right">标记符</th>
+<th align="left">含义</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:right">-</td>
-<td style="text-align:left">待打印项左对齐，即，从字段的左侧开始打印该项，如&quot;%-20s&quot;</td>
+<td align="right">-</td>
+<td align="left">待打印项左对齐，即，从字段的左侧开始打印该项，如&rdquo;%-20s&rdquo;</td>
 </tr>
 <tr>
-<td style="text-align:right">+</td>
-<td style="text-align:left">有符号值若为正，则在值前面显示加号；若为负，则在值前面显示减号,如&quot;+6.2f&quot;</td>
+<td align="right">+</td>
+<td align="left">有符号值若为正，则在值前面显示加号；若为负，则在值前面显示减号,如&quot;+6.2f&rdquo;</td>
 </tr>
 <tr>
-<td style="text-align:right">空格</td>
-<td style="text-align:left">有符号值若为正，则在值前面显示前导空格(不显示任何符号)</td>
+<td align="right">空格</td>
+<td align="left">有符号值若为正，则在值前面显示前导空格(不显示任何符号)</td>
 </tr>
 <tr>
-<td style="text-align:right">#</td>
-<td style="text-align:left">把结果转换为另一种形式，如果是%o格式，则以0开始;如果是%x或%X格式，则以0x或0X开始；如：&quot;%#o&quot;、&quot;%#8.0f&quot;、&quot;%+#10.3e&quot;</td>
+<td align="right">#</td>
+<td align="left">把结果转换为另一种形式，如果是%o格式，则以0开始;如果是%x或%X格式，则以0x或0X开始；如：&quot;%#o&rdquo;、&quot;%#8.0f&rdquo;、&quot;%+#10.3e&rdquo;</td>
 </tr>
 <tr>
-<td style="text-align:right">0</td>
-<td style="text-align:left">对于数值格式，用前导0代替空格填充字段宽度。对于整数格式，如果出现-标记或指定精度，则忽略该标记</td>
+<td align="right">0</td>
+<td align="left">对于数值格式，用前导0代替空格填充字段宽度。对于整数格式，如果出现-标记或指定精度，则忽略该标记</td>
 </tr>
 </tbody>
 </table>
@@ -749,7 +756,7 @@ C头文件limits.h和float.h分别提供了与整数类型和浮点类型大小�
 第3行输出显示，如果printf()语句有其他不匹配的地方，即使用对了 转换说明也会生成虚假的结果。用%ld转换说明打印浮点数会失败，但是在这里，用%ld打印long类型的数竟然也失败了！问题出在C如何把信息传递给函数。具体情况因编译器实现而异。“参数传递”框中针对一个有代表性的系统进行了讨论。<br>
 <em><strong>参数传递</strong></em><br>
 分析参数传递的原理，函数调用如下:<br>
-printf(&quot;%ld %ld %ld %ld\n&quot;,n1,n2,n3,n4);<br>
+printf(&quot;%ld %ld %ld %ld\n&rdquo;,n1,n2,n3,n4);<br>
 该调用告诉计算机把变量n1、n2、n3、n4的值传递给程序。这是一种常见的参数传递方式。程序把传入的值放入被称为栈(stack)的内存区域。计算机根据变量类型(不是根据转换说明)把这些值放入栈中。因此，n1被存储在栈中，占8字节(float被转换成double类型)。同样，n2也在栈中占8字节，而n3和n4在栈中分别占4字节。然后，控制转到printf()函数。该函数根据转换说明(不是根据变量类型)从栈中读取值。%ld转换说明表明printf()应该读取4字节，所以printf()读取栈中的前4字节作为第1个值。这是n1的前半部分，将被解释成一个long类型的整数。根据下一个%ld转换说明，printf()再读取4字节 ，这是n1的后半部分，将 被解释成第2个long类型的整数。类似地，根据第3个和第4个%ld，printf()读取n2的前半部分和后半部分，并解释成两个long类型的整数。因此对于n3和n4，虽然用对了转换说明，但printf()还是读错了字节。如下图所示<br>
 <img src="../../images/C-Learning/%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0.png" alt="传递参数"></li>
 </ul>

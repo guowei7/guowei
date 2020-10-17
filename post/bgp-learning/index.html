@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-cn" data-theme=""><head>
     <title> Guo Wei | BGP Learning </title>
-    <meta charset="utf-8"><meta name="generator" content="Hugo 0.76.4" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-    <meta name="description" content="祝罗晓萱生日快乐">
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="人真正变强大，不是因为守护着自尊心，而是抛开自尊心的时候！">
     
     <link rel="stylesheet" href="http://guowei7.gitee.io/guowei/css/style.min.5be3a155aa89a24586c761b1b5538c4040e3735ee32ac12a708dc1696c0982f5.css" integrity="sha256-W&#43;OhVaqJokWGx2GxtVOMQEDjc17jKsEqcI3BaWwJgvU=" crossorigin="anonymous" type="text/css"><link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     
@@ -24,13 +24,20 @@
     <div class="logo-title">
       <div class="title">
         <img src="http://guowei7.gitee.io/guowei/images/profile.jpg" alt="profile picture">
-        <h3 title=""><a href="/">我是郭微</a></h3>
+        <h3 title=""><a href="/">请回答1988</a></h3>
         <div class="description">
-          <p>祝罗晓萱生日快乐</p>
+          <p>人真正变强大，不是因为守护着自尊心，而是抛开自尊心的时候！</p>
         </div>
       </div>
     </div>
     <ul class="social-links">
+        
+        <li>
+        <a href="https://github.com/guowei7" rel="me" aria-label="GitHub">
+          <i class="fa fa-2x fa-github" aria-hidden="true"></i>
+        </a>          
+        </li>
+
         
         <li>
         <a href="mailto:770857344@qq.com" rel="me" aria-label="e-mail">
@@ -109,26 +116,26 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:center">种类</th>
-<th style="text-align:center">作用</th>
+<th align="center">种类</th>
+<th align="center">作用</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">OPEN</td>
-<td style="text-align:center">触发BGP关系建立过程</td>
+<td align="center">OPEN</td>
+<td align="center">触发BGP关系建立过程</td>
 </tr>
 <tr>
-<td style="text-align:center">UPDATE</td>
-<td style="text-align:center">进行路由的发布和撤销</td>
+<td align="center">UPDATE</td>
+<td align="center">进行路由的发布和撤销</td>
 </tr>
 <tr>
-<td style="text-align:center">NOTIFICATION</td>
-<td style="text-align:center">通告出现错误</td>
+<td align="center">NOTIFICATION</td>
+<td align="center">通告出现错误</td>
 </tr>
 <tr>
-<td style="text-align:center">KEEPALIVE</td>
-<td style="text-align:center">对BGP关系进行保活</td>
+<td align="center">KEEPALIVE</td>
+<td align="center">对BGP关系进行保活</td>
 </tr>
 </tbody>
 </table>
@@ -148,30 +155,30 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:center">RFC版本</th>
-<th style="text-align:center">提出的功能</th>
+<th align="center">RFC版本</th>
+<th align="center">提出的功能</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">RFC1965</td>
-<td style="text-align:center">BGP联盟技术</td>
+<td align="center">RFC1965</td>
+<td align="center">BGP联盟技术</td>
 </tr>
 <tr>
-<td style="text-align:center">RFC1966</td>
-<td style="text-align:center">路由反射技术</td>
+<td align="center">RFC1966</td>
+<td align="center">路由反射技术</td>
 </tr>
 <tr>
-<td style="text-align:center">RFC1997</td>
-<td style="text-align:center">BGP路由扩展团体</td>
+<td align="center">RFC1997</td>
+<td align="center">BGP路由扩展团体</td>
 </tr>
 <tr>
-<td style="text-align:center">RFC2918</td>
-<td style="text-align:center">路由刷新功能，新的BGP消息Route-REFRESH</td>
+<td align="center">RFC2918</td>
+<td align="center">路由刷新功能，新的BGP消息Route-REFRESH</td>
 </tr>
 <tr>
-<td style="text-align:center">RFC2439</td>
-<td style="text-align:center">BGP路由惩罚机制</td>
+<td align="center">RFC2439</td>
+<td align="center">BGP路由惩罚机制</td>
 </tr>
 </tbody>
 </table>
@@ -695,31 +702,31 @@ RFC4360中给出了具体的扩展团体属性各字段的定义以及若干种�
 <table>
 <thead>
 <tr>
-<th style="text-align:center">客户的路由</th>
-<th style="text-align:center">Community</th>
-<th style="text-align:center">Local_Pref</th>
+<th align="center">客户的路由</th>
+<th align="center">Community</th>
+<th align="center">Local_Pref</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">客户主用路由</td>
-<td style="text-align:center">供应商ASN:100</td>
-<td style="text-align:center">100</td>
+<td align="center">客户主用路由</td>
+<td align="center">供应商ASN:100</td>
+<td align="center">100</td>
 </tr>
 <tr>
-<td style="text-align:center">客户备份路由</td>
-<td style="text-align:center">供应商ASN:90</td>
-<td style="text-align:center">90</td>
+<td align="center">客户备份路由</td>
+<td align="center">供应商ASN:90</td>
+<td align="center">90</td>
 </tr>
 <tr>
-<td style="text-align:center">从其他ISP学习到的客户路由</td>
-<td style="text-align:center">供应商ASN:80</td>
-<td style="text-align:center">80</td>
+<td align="center">从其他ISP学习到的客户路由</td>
+<td align="center">供应商ASN:80</td>
+<td align="center">80</td>
 </tr>
 <tr>
-<td style="text-align:center">客户提供的其他客户的备份路由</td>
-<td style="text-align:center">供应商ASN:70</td>
-<td style="text-align:center">70</td>
+<td align="center">客户提供的其他客户的备份路由</td>
+<td align="center">供应商ASN:70</td>
+<td align="center">70</td>
 </tr>
 </tbody>
 </table>

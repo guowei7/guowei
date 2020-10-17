@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-cn" data-theme=""><head>
     <title> Guo Wei | Vim Learning </title>
-    <meta charset="utf-8"><meta name="generator" content="Hugo 0.76.4" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-    <meta name="description" content="祝罗晓萱生日快乐">
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="人真正变强大，不是因为守护着自尊心，而是抛开自尊心的时候！">
     
     <link rel="stylesheet" href="http://guowei7.gitee.io/guowei/css/style.min.5be3a155aa89a24586c761b1b5538c4040e3735ee32ac12a708dc1696c0982f5.css" integrity="sha256-W&#43;OhVaqJokWGx2GxtVOMQEDjc17jKsEqcI3BaWwJgvU=" crossorigin="anonymous" type="text/css"><link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     
@@ -24,13 +24,20 @@
     <div class="logo-title">
       <div class="title">
         <img src="http://guowei7.gitee.io/guowei/images/profile.jpg" alt="profile picture">
-        <h3 title=""><a href="/">我是郭微</a></h3>
+        <h3 title=""><a href="/">请回答1988</a></h3>
         <div class="description">
-          <p>祝罗晓萱生日快乐</p>
+          <p>人真正变强大，不是因为守护着自尊心，而是抛开自尊心的时候！</p>
         </div>
       </div>
     </div>
     <ul class="social-links">
+        
+        <li>
+        <a href="https://github.com/guowei7" rel="me" aria-label="GitHub">
+          <i class="fa fa-2x fa-github" aria-hidden="true"></i>
+        </a>          
+        </li>
+
         
         <li>
         <a href="mailto:770857344@qq.com" rel="me" aria-label="e-mail">
@@ -186,6 +193,54 @@ vim开发者认为删除行的命令用的比较频繁，故使用dd作为行删
 <li>:%s/old/new/g: 将整个文件的old替换成new</li>
 <li>:%s/old/new/gc: 带提示的将整个文件的old替换成new</li>
 </ul>
+<h4 id="51-how-to-execute-an-external-command">5.1 How to execute an external command</h4>
+<p>在&rdquo;:!&ldquo;后面接一个外部的命令(如:ls)即可以去执行该命令</p>
+<h4 id="52-more-on-writing-files">5.2 More on writing files</h4>
+<p>使用&rdquo;:w filename&quot;将当前的文件内容写入filename文件中</p>
+<h4 id="53-selecting-text-to-write">5.3 Selecting text to write</h4>
+<p>使用v视图选择部分内容，然后键入&rdquo;:&quot;，尾行会显示&rdquo;:&lsquo;&lt;,&lsquo;&gt;&rdquo;，然后键入&quot;w filename&quot;即可将所选内容写入到filename文件中。</p>
+<h4 id="54-retrieving-and-merging-files">5.4 Retrieving and merging files</h4>
+<p>使用&rdquo;:r filename&quot;插入文件中的内容<br>
+同时可以将外部命令的输出值写入文件中，如&rdquo;:r !ls&rdquo;</p>
+<h4 id="61-openappendreplace-command">6.1 Open&amp;APPEND&amp;REPLACE Command</h4>
+<ul>
+<li>Open: 键入&quot;o&quot;可以在当前光标后面添加一行，键入&quot;O&quot;可以在当前光标前面添加一行，两者皆可进入插入模式</li>
+<li>Append: 键入&quot;a&quot;和&quot;i&quot;皆可在当前光标处进入插入模式进行输入，键入&quot;A&quot;和&quot;I&rdquo;,分别实在光标所在行尾和行首处进入插入模式</li>
+<li>Replace: 键入&quot;R&quot;即可在光标处进入插入模式，并是替换的方式进行文本修改</li>
+</ul>
+<h4 id="62-copy-and-paste-text">6.2 Copy and Paste text</h4>
+<p>先键入&quot;v&quot;进入可视模式，并选择要拷贝的文本，再使用&quot;y&quot;将其复制到粘贴板中。最后移动光标到需要粘贴的位置，键入&quot;p&quot;进行粘贴</p>
+<h4 id="63-set-option">6.3 Set option</h4>
+<ul>
+<li>&ldquo;:set ic&rdquo;(ignore case)表示进行搜索时忽略大小写，&quot;:set noic&quot;可取消该设置</li>
+<li>&ldquo;:set hls is&rdquo;(highlight search,incsearch)表示将搜索内容进行高亮显示，&quot;:set nohls&quot;表示取消该设置</li>
+<li>当只一次搜索进行大小写忽略时可以使用&rdquo;\c&rdquo;，如&rdquo;/phare\c &quot;</li>
+</ul>
+<h4 id="71-getting-help">7.1 Getting help</h4>
+<p>Vim有三种方式打开在线帮助系统，分别是&quot;HELP&quot;键、&ldquo;F1&quot;键和键入&rdquo;:help&rdquo;<br>
+当打开另一个窗口后，可以使用CTRL-W、CTRL-W进行窗口间的跳转<br>
+如果你想查询任何&quot;子帮助&quot;可以在&rdquo;:help&quot;后面带上相应的参数如&rdquo;:help w&rdquo;</p>
+<h4 id="72">7.2</h4>
+<p>vim相较于Vi来说有更多的功能，但是绝大多数功能默认都是关闭的。要启用这些功能你必须创建一个&quot;vimrc&quot;文件。</p>
+<ul>
+<li>当没有vimrc文件时进行文件的创建，主要依赖于你的操作系统
+<ul>
+<li>Unix :e ~/.vimrc</li>
+<li>Windows :$VIM/_vimrc</li>
+</ul>
+</li>
+<li>读取示例&quot;vimrc&quot;文件的内容，添加到上一步创建的文件中
+:r $VIMRUNTIME/vimrc_example.vim</li>
+<li>保存文件<br>
+:w<br>
+这样当你第二次使用Vim时，就会有各种语法高亮</li>
+</ul>
+<h4 id="73-completion">7.3 COMPLETION</h4>
+<p>使用CTRL-D和tab键进行命令的补全<br>
+CTRL-D会以列表的形式将&quot;e&quot;开头的命令显示出来<br>
+tab则会将命令进行补全</p>
+<h3 id="3-进一步学习vim">3. 进一步学习vim</h3>
+<p>可以使用:help user-manual进行进一步的学习vim</p>
     </div>
     <div class="post-footer">
       <div class="info">
