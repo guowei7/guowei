@@ -4,22 +4,52 @@
   
   <url>
     <loc>http://guowei7.gitee.io/guowei/categories/</loc>
-    <lastmod>2020-10-11T17:08:05+08:00</lastmod>
+    <lastmod>2020-10-22T08:32:21+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://guowei7.gitee.io/guowei/categories/linux/</loc>
-    <lastmod>2020-10-11T17:08:05+08:00</lastmod>
+    <loc>http://guowei7.gitee.io/guowei/tags/evpn/</loc>
+    <lastmod>2020-10-22T08:32:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://guowei7.gitee.io/guowei/post/evpn-learning/</loc>
+    <lastmod>2020-10-22T08:32:21+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://guowei7.gitee.io/guowei/post/</loc>
-    <lastmod>2020-10-11T17:08:05+08:00</lastmod>
+    <lastmod>2020-10-22T08:32:21+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://guowei7.gitee.io/guowei/tags/</loc>
-    <lastmod>2020-10-11T17:08:05+08:00</lastmod>
+    <lastmod>2020-10-22T08:32:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://guowei7.gitee.io/guowei/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2020-10-22T08:32:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://guowei7.gitee.io/guowei/</loc>
+    <lastmod>2020-10-22T08:32:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://guowei7.gitee.io/guowei/post/gdb-learning/</loc>
+    <lastmod>2020-10-21T21:00:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://guowei7.gitee.io/guowei/categories/linux/</loc>
+    <lastmod>2020-10-21T21:00:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://guowei7.gitee.io/guowei/tags/%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2020-10-21T21:00:21+08:00</lastmod>
   </url>
   
   <url>
@@ -33,22 +63,12 @@
   </url>
   
   <url>
-    <loc>http://guowei7.gitee.io/guowei/</loc>
-    <lastmod>2020-10-11T17:08:05+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://guowei7.gitee.io/guowei/tags/mpls/</loc>
     <lastmod>2020-09-12T16:44:49+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://guowei7.gitee.io/guowei/post/mpls-learning/</loc>
-    <lastmod>2020-09-12T16:44:49+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://guowei7.gitee.io/guowei/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2020-09-12T16:44:49+08:00</lastmod>
   </url>
   

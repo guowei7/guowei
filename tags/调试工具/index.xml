@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>调试工具 on 郭微blog</title>
+    <link>http://guowei7.gitee.io/guowei/tags/%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7/</link>
+    <description>Recent content in 调试工具 on 郭微blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 21 Oct 2020 21:00:21 +0800</lastBuildDate>
+    
+	<atom:link href="http://guowei7.gitee.io/guowei/tags/%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gdb Learning</title>
+      <link>http://guowei7.gitee.io/guowei/post/gdb-learning/</link>
+      <pubDate>Wed, 21 Oct 2020 21:00:21 +0800</pubDate>
+      
+      <guid>http://guowei7.gitee.io/guowei/post/gdb-learning/</guid>
+      <description>&lt;p&gt;主要是学习《Debugging with GDB》的笔记&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

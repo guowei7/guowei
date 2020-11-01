@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-cn" data-theme=""><head>
+    <title> guowei | Gdb Learning </title>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="人不是从娘胎里出来就一成不变的，相反，生活会逼迫他一次又一次地脱胎换骨。">
+    
+    <link rel="stylesheet" href="http://guowei7.gitee.io/guowei/css/style.min.e09329dafc455b930cd0ec0c93b49a4f9590fe66cf5c74cbeed374ede58a5799.css" integrity="sha256-4JMp2vxFW5MM0OwMk7SaT5WQ/mbPXHTL7tN07eWKV5k=" crossorigin="anonymous" type="text/css"><link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link rel="shortcut icon" href="http://guowei7.gitee.io/guowei/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="http://guowei7.gitee.io/guowei/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://guowei7.gitee.io/guowei/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://guowei7.gitee.io/guowei/favicons/favicon-16x16.png">
+    <link rel="canonical" href="http://guowei7.gitee.io/guowei/post/gdb-learning/">
+    
+    
+    <script type="text/javascript" src="http://guowei7.gitee.io/guowei/js/anatole-header.min.7e2fc0724240b28c6e214687e73a4a6eb6c196bbace546b9dc86e94cca120b5c.js" integrity="sha256-fi/AckJAsoxuIUaH5zpKbrbBlrus5Ua53IbpTMoSC1w=" crossorigin="anonymous"></script>
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://guowei7.gitee.io/guowei/images/site-feature-image.png"/>
+
+<meta name="twitter:title" content="Gdb Learning"/>
+<meta name="twitter:description" content="主要是对《Debugging with GDB》进行的学习"/>
+
+    <audio id="audio-main" src="images/tokyo-love.mp3" style="opacity: 0" autoplay loop hidden="true"></audio>
+</head><body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="http://guowei7.gitee.io/guowei/images/profile.jpg" alt="profile picture">
+        <h3 title=""><a href="/">霍乱时期的爱情</a></h3>
+        <div class="description">
+          <p>人不是从娘胎里出来就一成不变的，相反，生活会逼迫他一次又一次地脱胎换骨。</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <li>
+        <a href="https://github.com/guowei7" rel="me" aria-label="GitHub">
+          <i class="fa fa-2x fa-github" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+        <li>
+        <a href="mailto:770857344@qq.com" rel="me" aria-label="e-mail">
+          <i class="fa fa-2x fa-envelope" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; guowei 2020 </div>
+      </div>
+    </div>
+</div><div class="main">
+            <div class="page-top animated fadeInDown">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    <ul class="nav" id="navMenu">
+        
+        
+        
+        <li><a  href="/guowei/" title="">Home</a></li>
+        
+        
+        <li><a  href="/guowei/post/" title="">Post</a></li>
+        
+        
+        <li class="theme-switch-item">
+        <a class="theme-switch" title="Switch Theme">
+            <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        </a>
+        </li>
+    </ul>
+</div>
+
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+      <div class="post-title">
+        <h3>Gdb Learning
+        </h3>
+        
+        <div class="info">
+          <i class="fa fa-sun-o"></i>
+          <span class="date">Wed, Oct 21, 2020</span>
+          <i class="fa fa-clock-o"></i><span class="reading-time"></span>
+        </div>
+        
+        </div>
+
+    <p>主要是学习《Debugging with GDB》的笔记</p>
+<h3 id="1-gdb简介">1. gdb简介</h3>
+<p>像gdb这样的调试工具的目的是让你进入另一个程序内部了解它是怎么运行的或者当程序crash的时候发生了什么。<br>
+gdb能做四件事来帮助你捕获bugs:</p>
+<ul>
+<li>启动程序，可以按照你想要的方式启动</li>
+<li>在特定的条件下暂停你的程序</li>
+<li>在程序暂停时查看程序当前的状态</li>
+<li>改变你程序的状态，尝试修正bug的错误进行到下一步</li>
+</ul>
+<h3 id="2-简单的gdb使用例子">2. 简单的gdb使用例子</h3>
+<p>在早期版本的GNU m4程序存在一个bug:有时，当改变默认的标签字符串时，用一个宏来定义另一个宏的命令就无法工作了，如下列的m4工作会话，定义了一个宏foo来表示0000，然后用m4的defn来定义宏bar表示foo。然而当修改开标签为<!-- raw HTML omitted -->和闭标签为<!-- raw HTML omitted -->时，就不能用相同的操作定义一个新的同样的宏baz：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ cd /gun/m4  
+$ ./m4  
+define<span style="color:#f92672">(</span>foo,0000<span style="color:#f92672">)</span>  
+
+foo  
+<span style="color:#ae81ff">0000</span>  
+define<span style="color:#f92672">(</span>bar,defn<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;foo&#39;</span><span style="color:#f92672">))</span>  
+
+bar  
+<span style="color:#ae81ff">0000</span>  
+changequote<span style="color:#f92672">(</span>&lt;QUOTE&gt;,&lt;UNQUOTE&gt;<span style="color:#f92672">)</span>  
+
+define<span style="color:#f92672">(</span>baz,defn<span style="color:#f92672">(</span>&lt;QUOTE&gt;foo&lt;UNQUOTE&gt;<span style="color:#f92672">))</span>  
+baz
+</code></pre></div><p>接下来可以使用gdb进行调试m4了</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ gdb m4  
+<span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span>  
+<span style="color:#75715e">#设置gdb显示的宽度，包括命令前的“(gdb)”这几个字符的宽度</span>
+<span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> set width <span style="color:#ae81ff">70</span>  
+<span style="color:#75715e">#根据m4的源码找到对应的函数，并设置断点</span>
+<span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> break m4_changequote  
+<span style="color:#75715e">#使用run命令在gdb下启动m4</span>  
+<span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> run  
+
+define<span style="color:#f92672">(</span>foo,0000<span style="color:#f92672">)</span>  
+
+foo  
+<span style="color:#ae81ff">0000</span>  
+
+<span style="color:#75715e">#调用changequote来触发断点。此时gdb会中断m4的执行，并展示当前的上下文相关信息</span>  
+changequote<span style="color:#f92672">(</span>&lt;QUOTE&gt;,&lt;UNQUOTE&gt;<span style="color:#f92672">)</span>  
+
+Breakpoint 1,m4_changequote<span style="color:#f92672">(</span>argc<span style="color:#f92672">=</span>3,argv<span style="color:#f92672">=</span>0x33c70<span style="color:#f92672">)</span> at builtin.c:879  
+<span style="color:#ae81ff">879</span>     <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>bad_argc<span style="color:#f92672">(</span>TOKEN_DATA<span style="color:#f92672">(</span>argv<span style="color:#f92672">[</span>0<span style="color:#f92672">])</span>,argc,1,3<span style="color:#f92672">))</span>  
+
+<span style="color:#75715e">#可以使用n(next)命令来继续执行当前函数的下一行</span>  
+<span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> n  
+<span style="color:#ae81ff">882</span>     set_quotes<span style="color:#f92672">((</span>argcc&gt;<span style="color:#f92672">=</span>2<span style="color:#f92672">)</span>?TOKEN_DATA_TEXT<span style="color:#f92672">(</span>argv<span style="color:#f92672">[</span>1<span style="color:#f92672">])</span><span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    :nil,    
+
+<span style="color:#75715e">#set_quotes看起来又像一个函数，可以使用s(step)命令代替next，step可以进入到执行子函数的下一行</span>  
+<span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> s  
+set_quotes<span style="color:#f92672">(</span>lq<span style="color:#f92672">=</span>0x34c78 <span style="color:#e6db74">&#34;&lt;QUOTE&gt;&#34;</span>,rq<span style="color:#f92672">=</span>0x34c88 <span style="color:#e6db74">&#34;UNQUOTE&#34;</span><span style="color:#f92672">)</span> at input.c:530  
+<span style="color:#ae81ff">530</span>     <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>lqutoe ! <span style="color:#f92672">=</span> def_lquote<span style="color:#f92672">)</span>  
+
+<span style="color:#75715e">#可以使用backtrace(简写为bt)来展示被挂起的子函数的堆栈信息(包括参数信息)</span>  
+<span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> bt  
+
+<span style="color:#75715e">#可以使用p(print)命令来查看变量的值</span>  
+<span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> p lquote  
+$1 <span style="color:#f92672">=</span> 0x35d40 <span style="color:#e6db74">&#34;&lt;QUOTE&gt;&#34;</span>  
+
+<span style="color:#75715e">#可以使用l(list)命令来列出当前行前后10行的内容</span>  
+<span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> l  
+
+<span style="color:#75715e">#因为变量的值有问题而需要对变量进行修改的时候，同样可以使用p命令</span>  
+<span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> p len_lquote <span style="color:#f92672">=</span> strlen<span style="color:#f92672">(</span>lquote<span style="color:#f92672">)</span>  
+<span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> p len_rquote <span style="color:#f92672">=</span> strlen<span style="color:#f92672">(</span>rquote<span style="color:#f92672">)</span>  
+
+<span style="color:#75715e">#使用c(continue)命令让程序继续执行</span>  
+<span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> c  
+
+<span style="color:#75715e">#使用ctrl+d结束程序，并使用q(quit)退出gdb</span>  
+<span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> q
+</code></pre></div>
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+<span class="separator"><a class="category" href="/guowei/categories/linux/">Linux</a></span>
+
+        
+    <span class="separator"><a class="tag" href="/guowei/tags/%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7/">调试工具</a></span>
+
+      </div>
+    </div>
+
+    
+           
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+
+
+
+<script type="text/javascript" src="http://guowei7.gitee.io/guowei/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js" integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="http://guowei7.gitee.io/guowei/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js" integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="http://guowei7.gitee.io/guowei/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js" integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro=" crossorigin="anonymous"></script></html></body>
+
+</html>
