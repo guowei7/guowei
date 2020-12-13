@@ -6,10 +6,28 @@
     <description>Recent content in Tags on 郭微blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 22 Oct 2020 08:32:21 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 12 Dec 2020 19:05:35 +0800</lastBuildDate>
     
 	<atom:link href="http://guowei7.gitee.io/guowei/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>C</title>
+      <link>http://guowei7.gitee.io/guowei/tags/c/</link>
+      <pubDate>Sat, 12 Dec 2020 19:05:35 +0800</pubDate>
+      
+      <guid>http://guowei7.gitee.io/guowei/tags/c/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Premiere</title>
+      <link>http://guowei7.gitee.io/guowei/tags/premiere/</link>
+      <pubDate>Sun, 15 Nov 2020 10:55:30 +0800</pubDate>
+      
+      <guid>http://guowei7.gitee.io/guowei/tags/premiere/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>EVPN</title>
@@ -80,15 +98,6 @@
       <pubDate>Tue, 18 Aug 2020 12:25:25 +0800</pubDate>
       
       <guid>http://guowei7.gitee.io/guowei/tags/%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>C</title>
-      <link>http://guowei7.gitee.io/guowei/tags/c/</link>
-      <pubDate>Sun, 16 Aug 2020 13:13:46 +0800</pubDate>
-      
-      <guid>http://guowei7.gitee.io/guowei/tags/c/</guid>
       <description></description>
     </item>
     

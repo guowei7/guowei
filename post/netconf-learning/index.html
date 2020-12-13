@@ -220,15 +220,25 @@
  l2transport<br>
  encapsulation dot1q<br>
  vlan-type dot1q 200<br>
+!<br>
+interface eth-1gi 0/3/1/4.2
+ l2transport<br>
+ encapsulation dot1q<br>
+ vlan-type dot1q 200
 !</p>
 </blockquote>
 <ul>
 <li>绑定evpn实例到子接口</li>
 </ul>
 <blockquote>
-<p>evpl binding evpn vpn-instance 1<br>
- interface eth-1gi 0/3/1/4.1 
- neighbor target 1 source 2<br>
+<p>evpl 15
+ neighbor evpn vpn-instance 1  target 1 source 2
+ interface eth-1gi 0/3/1/4.1<br>
+!<br>
+*vpls配置
+bridge-domain bid<br>
+ evpn binding vpn-instance 1<br>
+ interface eth-1gi 0/3/1/4.2<br>
 !</p>
 </blockquote>
 <ul>

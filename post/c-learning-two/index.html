@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-cn" data-theme=""><head>
+    <title> guowei | C Learning Two </title>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="人不是从娘胎里出来就一成不变的，相反，生活会逼迫他一次又一次地脱胎换骨。">
+    
+    <link rel="stylesheet" href="http://guowei7.gitee.io/guowei/css/style.min.e09329dafc455b930cd0ec0c93b49a4f9590fe66cf5c74cbeed374ede58a5799.css" integrity="sha256-4JMp2vxFW5MM0OwMk7SaT5WQ/mbPXHTL7tN07eWKV5k=" crossorigin="anonymous" type="text/css"><link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link rel="shortcut icon" href="http://guowei7.gitee.io/guowei/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="http://guowei7.gitee.io/guowei/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://guowei7.gitee.io/guowei/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://guowei7.gitee.io/guowei/favicons/favicon-16x16.png">
+    <link rel="canonical" href="http://guowei7.gitee.io/guowei/post/c-learning-two/">
+    
+    
+    <script type="text/javascript" src="http://guowei7.gitee.io/guowei/js/anatole-header.min.d36501b655705d6817c7fe7a88d70fc3f7abe895009c02a3a0a41fa35d9334f6.js" integrity="sha256-02UBtlVwXWgXx/56iNcPw/er6JUAnAKjoKQfo12TNPY=" crossorigin="anonymous"></script>
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://guowei7.gitee.io/guowei/images/site-feature-image.png"/>
+
+<meta name="twitter:title" content="C Learning Two"/>
+<meta name="twitter:description" content="C primer Plus继续学习"/>
+
+</head><body>
+        <audio controls="controls" autoplay="autoplay" hidden="true">
+            <source src="/guowei/images/tokyo-love.mp3" type="audio/mpeg">
+        </audio><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="http://guowei7.gitee.io/guowei/images/profile.jpg" alt="profile picture">
+        <h3 title=""><a href="/">霍乱时期的爱情</a></h3>
+        <div class="description">
+          <p>人不是从娘胎里出来就一成不变的，相反，生活会逼迫他一次又一次地脱胎换骨。</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <li>
+        <a href="https://github.com/guowei7" rel="me" aria-label="GitHub">
+          <i class="fa fa-2x fa-github" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+        <li>
+        <a href="mailto:770857344@qq.com" rel="me" aria-label="e-mail">
+          <i class="fa fa-2x fa-envelope" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; guowei 2020 </div>
+      </div>
+    </div>
+</div><div class="main">
+            <div class="page-top animated fadeInDown">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    <ul class="nav" id="navMenu">
+        
+        
+        
+        <li><a  href="/guowei/" title="">Home</a></li>
+        
+        
+        <li><a  href="/guowei/post/" title="">Post</a></li>
+        
+        
+        <li class="theme-switch-item">
+        <a class="theme-switch" title="Switch Theme">
+            <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        </a>
+        </li>
+    </ul>
+</div>
+
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+      <div class="post-title">
+        <h3>C Learning Two
+        </h3>
+        
+        <div class="info">
+          <i class="fa fa-sun-o"></i>
+          <span class="date">Sat, Dec 12, 2020</span>
+          <i class="fa fa-clock-o"></i><span class="reading-time"></span>
+        </div>
+        
+        </div>
+
+    <p>由于C-Learning.md存在损坏，故重开一篇继续记录</p>
+<h3 id="7-c控制语句分支和跳转">7. C控制语句：分支和跳转</h3>
+<p>本章介绍以下内容：<br>
+关键字：if、else、switch、continue、break、case、default、goto<br>
+运算符：&amp;&amp;、||、？ ：<br>
+函数：getchar()、putchar()、ctype.h系列<br>
+如何使用if和if else语句，如何嵌套它们<br>
+在更复杂的测试表达式中用逻辑运算符组合关系表达式<br>
+C的条件运算符<br>
+switch语句<br>
+break、continue和goto语句 <br>
+使用C的字符I/O函数：getchar()和puchar()<br>
+ctype.h头文件提供的字符分析函数系列</p>
+<h4 id="if语句">if语句</h4>
+<p>下面的程序是读取一系列数据，每个数据都表示每日的最低问题，然后打印统计的总天数和最低温度在0°以下的天数占总天数的百分比。程序中的循环通过scanf()读入温度值。while循环每迭代一次，就递增计数器增加天数，其中的if语句负责判断0°以下的温度并单独统计相应的天数。<br>
+<a href="../../c-example/colddays.c">colddays.c</a><br>
+为避免整数除法，该程序示例把计算后的百分比强制转换为float类型。其实，也不必使用强制类型转换，因为在表达式100.0  * cold_dyas / all_days中，将首先对表达式100.0 * cold_days求值，由于C的自动转换类型规则，乘积会被强制转换成浮点数。但是，使用强制类型转换可以明确表达式转换类型的意图，保护程序免受不同版本编译器的影响。if语句被称为分支语句(branching statement)或选择语句(selection statement)，因为它相当于一个交叉点，程序要在两条分支中选择一条执行。if语句的通用形式如下：</p>
+<blockquote>
+<p>if(expression)<br>
+statement</p>
+</blockquote>
+<p>如果对expression求值为真(非0),则执行statement：否则，跳过statement。与while循环一样，statement可以是一条简单语句或复合语句。if语句的结构和while语句很相似，它们的主要区别是：如果满足条件执行的话，if语句 只能测试和执行一次，而while语句可以测试和执行多次。<br>
+通常，expression是关系表达式，即比较两个量的大小(如，表达式x &gt; y或c == 6)。如果expression为真(即x大于y，或c == 6),则执行statement。否则，忽略statement。概括地说，可以使用任意表达式，表达式的值为0则为假。<br>
+statement部分可以是一条简单语句，如本例所示，或者是一条用花括号括起来的复合语句(或块)<br>
+注意，即使if语句由复合语句构成，整个if语句仍被视为一条语句。</p>
+<h4 id="if-else语句">if else语句</h4>
+<p>简单形式的if语句可以让程序选择执行一条语句，或者跳过这条语句。C还提供了if else形式，可以在两条语句之间作选择。<br>
+注意，if else语句的通用形式是：</p>
+<blockquote>
+<p>if(expression)
+statement1
+else
+statement2</p>
+</blockquote>
+<p>如果expression为真(非0),则执行statement1；如果expression为假或0，则执行else后面的statement2。statement1和statement2可以是一条简单语句或复合语句。C并不要求一定要缩进，但这是标准风格。缩进让根据测试条件的求值结果来判断执行哪部分语句一目了然。<br>
+如果要在if和else之间执行多条语句，必须用花括号把这些语句括起来成为一个块。</p>
+<ul>
+<li>介绍getchar()和putchar()<br>
+getchar()函数不带任何参数，它从输入队列中返回下一个字符。例如，下面的语句读取下一个字符输入，并把该字符的值赋给变量ch：
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C">ch <span style="color:#f92672">=</span> getchar();
+</code></pre></div><p>该语句与下面的语句效果相同：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C">scanf(<span style="color:#e6db74">&#34;%c&#34;</span>,<span style="color:#f92672">&amp;</span>ch);
+</code></pre></div><p>putchar函数打印它的参数。例如，下面的语句把之前赋给ch的值作为字符打印出来：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C">putchar(ch);
+</code></pre></div><p>该语句与下面的语句效果相同：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C">printf(<span style="color:#e6db74">&#34;%c&#34;</span>,ch);
+</code></pre></div><p>由于这些函数只处理字符，所以它们比更通用的scanf()和printf()函数更快、更简洁。而且，注意getchar()和putchar()不需要转换说明，因为它们只处理字符。这两个函数通常定义在stdio.h头文件中(而且，他们通常是预处理宏，而不是真正的函数，第16章会讨论类似函数的宏)。</p>
+</li>
+</ul>
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+<span class="separator"><a class="category" href="/guowei/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></span>
+
+        
+    <span class="separator"><a class="tag" href="/guowei/tags/c/">C</a></span>
+
+      </div>
+    </div>
+
+    
+           
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+
+
+
+<script type="text/javascript" src="http://guowei7.gitee.io/guowei/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js" integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="http://guowei7.gitee.io/guowei/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js" integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="http://guowei7.gitee.io/guowei/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js" integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro=" crossorigin="anonymous"></script></html></body>
+
+</html>
