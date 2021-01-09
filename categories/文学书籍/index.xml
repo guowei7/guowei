@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>文学书籍 on 郭微blog</title>
+    <link>http://guowei7.gitee.io/guowei/categories/%E6%96%87%E5%AD%A6%E4%B9%A6%E7%B1%8D/</link>
+    <description>Recent content in 文学书籍 on 郭微blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 26 Dec 2020 12:14:49 +0800</lastBuildDate>
+    
+	<atom:link href="http://guowei7.gitee.io/guowei/categories/%E6%96%87%E5%AD%A6%E4%B9%A6%E7%B1%8D/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Nahan Learning</title>
+      <link>http://guowei7.gitee.io/guowei/post/nahan-learning/</link>
+      <pubDate>Sat, 26 Dec 2020 12:14:49 +0800</pubDate>
+      
+      <guid>http://guowei7.gitee.io/guowei/post/nahan-learning/</guid>
+      <description>&lt;p&gt;记录呐喊中的一些名句和梗&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
