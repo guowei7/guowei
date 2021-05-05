@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>C on 郭微blog</title>
-    <link>http://guowei7.gitee.io/guowei/categories/c/</link>
-    <description>Recent content in C on 郭微blog</description>
+    <title>debug on 郭微blog</title>
+    <link>http://guowei7.gitee.io/guowei/tags/debug/</link>
+    <description>Recent content in debug on 郭微blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sun, 28 Mar 2021 10:19:53 +0800</lastBuildDate>
     
-	<atom:link href="http://guowei7.gitee.io/guowei/categories/c/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://guowei7.gitee.io/guowei/tags/debug/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

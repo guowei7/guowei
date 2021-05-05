@@ -4,17 +4,17 @@
 
     
     <meta charset="utf-8"><meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-    <meta name="description" content="希望是本无所谓有，无所谓无的。这正如地上的路，其实地上本没有路；走的人多了，也便成了路。">
+    <meta name="description" content="以心为原动力，向着明日前进">
     
     <link rel="stylesheet"
-          href="http://guowei7.gitee.io/guowei/css/style.min.fd8782302bada081c87839b0babafdcb62d89c344275ef480382a6471d4b9f8f.css"
-          integrity="sha256-/YeCMCutoIHIeDmwurr9y2LYnDRCde9IA4KmRx1Ln48="
+          href="http://guowei7.gitee.io/guowei/css/style.min.89e1916d605c8846c2f5a79a6aaeccfbc97502632fc692dbcfc743e65b272c19.css"
+          integrity="sha256-ieGRbWBciEbC9aeaaq7M&#43;8l1AmMvxpLbz8dD5lsnLBk="
           crossorigin="anonymous"
           type="text/css">
     
     <link rel="stylesheet"
-        href="http://guowei7.gitee.io/guowei/css/markupHighlight.min.9755453ffb7bc4cd220f86ebb5922107b49f193cc62fc17e9785d27b33a8bf5b.css"
-        integrity="sha256-l1VFP/t7xM0iD4brtZIhB7SfGTzGL8F&#43;l4XSezOov1s="
+        href="http://guowei7.gitee.io/guowei/css/markupHighlight.min.cc84ed683057cc175ddfa738ea6ba2d5c882b95cb64f50bf9be918cb3791887b.css"
+        integrity="sha256-zITtaDBXzBdd36c46mui1ciCuVy2T1C/m&#43;kYyzeRiHs="
         crossorigin="anonymous"
         type="text/css">
     
@@ -60,9 +60,9 @@
     <div class="logo-title">
         <div class="title">
             <img src="http://guowei7.gitee.io/guowei/images/profile.jpg" alt="profile picture">
-            <h3 title=""><a href="/">故乡</a></h3>
+            <h3 title=""><a href="/">鬼灭之刃</a></h3>
             <div class="description">
-                <p>希望是本无所谓有，无所谓无的。这正如地上的路，其实地上本没有路；走的人多了，也便成了路。</p>
+                <p>以心为原动力，向着明日前进</p>
             </div>
         </div>
     </div>
@@ -131,7 +131,7 @@
                         <span class="date"> Sat, Dec 12, 2020 
                                            </span>
                         <em class="fas fa-stopwatch"></em>
-                        <span class="reading-time">阅读时间 7 分钟</span>
+                        <span class="reading-time">阅读时间 8 分钟</span>
                     </div>
                 
             </div>
@@ -1135,7 +1135,167 @@ float *pf, *pg; //pf、pg都是指向float类型变量的指针</p>
 编写程序时，可以认为变量有两个属性：名称和值。计算机编译和加载程序后，认为变量也有两个属性：地址和值。地址就是变量在计算机内部的名称。 <br>
 在许多语言中，地址都归计算机管，对程序员隐藏。然而在C中，可以通过&amp;运算符访问地址，通过<em>运算符获得地址上的值。例如，&amp;barn表示变量barn的地址，使用变量名即可获得变量的数值。如：printf(&quot;%d\n&rdquo;,barn)打印barn的值，使用</em>运算符即可获得储存在地址上的值。如果pbarn = &amp;barn，那么<em>pbarn表示的是储存在&amp;barn地址上的值。<br>
 简而言之，普通变量把值作为基本量，把地址作为通过&amp;运算符获得的派生量，而指针变量把地址作为基本量，把值作为通过</em>运算符获得的派生量。<br>
-虽然打印地址可以满足读者好奇心，但是这并不是&amp;运算符的主要用途。更重要的是使用&amp;、*和指针可以操纵地址和地址上的内容，如swap3.c所示。</p></div>
+虽然打印地址可以满足读者好奇心，但是这并不是&amp;运算符的主要用途。更重要的是使用&amp;、*和指针可以操纵地址和地址上的内容，如swap3.c所示。</p>
+<h3 id="10-数组和指针">10. 数组和指针</h3>
+<p>本章介绍以下内容<br>
+关健字：static<br>
+运算符：&amp;、*（一元)<br>
+如何创建并初始化数组<br>
+指针、指针和数组的关系<br>
+编写处理数组的函数<br>
+二维数组</p>
+<h4 id="数组">数组</h4>
+<p>数组由数据类型相同的一系列元素组成。需要使用数组时，通过声明数组告诉编译器数组内含多少元素和这些元素的类型。编译器根据这些信息正确地创建数组。普通变量可以使用的类型，数组元素都可以用。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>)
+{
+    <span style="color:#66d9ef">float</span> candy[<span style="color:#ae81ff">365</span>]; <span style="color:#75715e">/* 内含365个float类型元素的数组 */</span>
+    <span style="color:#66d9ef">char</span> code[<span style="color:#ae81ff">12</span>]; <span style="color:#75715e">/* 内含12个char类型元素的数组 */</span>
+    <span style="color:#66d9ef">int</span> states[<span style="color:#ae81ff">50</span>]; <span style="color:#75715e">/* 内含50个int类型元素的数组 */</span>
+    ...
+}
+</code></pre></div><p>方括号([])表明candy、code和states都是数组，方括号中的数字表明数组中的元素个数。<br>
+要访问数组中的元素，通过使用数组下标数(也称为索引)表示数组中的各元素。数组元素的编号从0开始，所以candy[0]表示candy数组的第1个元素，candy[364]表示第365个元素，也就是最后一个元素。</p>
+<ol>
+<li>初始化数组<br>
+数组通常被用来储存程序需要的数据。例如，一个内含12个整数元素的数组可以储存12个月的天数。在这种情况下，在程序一开始就初始化数组比较好。下面介绍初始化数组的方法。<br>
+只储存单个值的变量有时也称为标量变量(scalar variable)，我们已经很熟悉如何初始化这种变量：</li>
+</ol>
+<blockquote>
+<p>int fix = 1;
+float flax = PI*2;</p>
+</blockquote>
+<p>代码中的PI已定义为宏。C使用新的语法来初始化数组，如下所示：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>)
+{
+    <span style="color:#66d9ef">int</span> powers[<span style="color:#ae81ff">8</span>] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">16</span>,<span style="color:#ae81ff">32</span>,<span style="color:#ae81ff">64</span>}; <span style="color:#75715e">/* 从ANSI C开始支持这种初始化 */</span>
+    ...
+}
+</code></pre></div><p>如上所示，用以逗号分隔的值列表(用花括号括起来)来初始化数组，各值之间用逗号分隔。在逗号和值之间可以使用空格。根据上面的初始化，把1赋给数组的首元素(powers[0])，以此类推(不支持ANSI的编译器会把这种形式的初始化识别为语法错误，在数组声明前加上关健字static可解决此问题)。<br>
+下面的程序演示了一个小程序，打印每个月的天数。<br>
+<a href="../../c-example/day_mon1.c">day_mon1.c</a><br>
+这个程序还不够完善，每4年打错一个月份的天数(即，2月份的天数)。该程序用初始化列表初始化days[]，列表(用花括号括起来)中用逗号分隔各值。<br>
+注意该例使用了符号常量MONTHS表示数组大小，这是我们推荐且常用的做法。例如，如果要采用一年13个月的记法，只需要修改#define这行代码即可，不用在程序中查找所有使用过数组大小的地方。<br>
+<em><strong>注意 使用const声明数组</strong></em><br>
+有时需要把数组设置为只读。这样，程序只能从数组中检索值，不能把新值写入数组。要创建只读数组，应该用const声明和初始化数组。因此，程序day_mon1.c中初始化数组应改成:</p>
+<blockquote>
+<p>const int days[MONTHS] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};</p>
+</blockquote>
+<p>这样修改后，程序在运行过程中就不能修改该数组中的内容。和普通变量一样，应该使用声明来初始化const数据，因为一旦声明为const，便不能再给它赋值。明确了这一点，就可以在后面的例子中使用const了。<br>
+如果初始化数组失败怎么办？如下程序所示：<br>
+<a href="../../c-example/no_data.c">no_data.c</a><br>
+使用数组前必须先初始化它。与普通变量类似，在使用数组元素之前，必须先给它们赋初值。编译器使用的值是内存相应位置上的现有值，因此，读者运行该程序后的输出会与该示例不同。<br>
+<em><strong>注意 存储类别警告</strong></em><br>
+数组和其他变量类似，可以把数组创建成不同的存储类别(storage class)。本章描述的数组属于自动存储类别，意思是这些数组在函数内部声明，且声明时未使用关健字static。到目前为止，本书所用的变量和数组都是自动存储类别。<br>
+在这里提到存储类别的原因是，不同的存储类别有不同的属性，所以不能把本章的内容推广到其他存储类别。对于一些其他存储类别的变量和数组，如果在声明时未初始化，编译器会自动把它们的值设置为0。<br>
+初始化列表中的项数应与数组的大小一致。如果不一致会怎样？如下所示：<br>
+<a href="../../c-example/somedata.c">somedata.c</a><br>
+当初始化列表中的值少于数组元素个数时，编译器会把剩余的元素都初始化为0。也就是说，如果不初始化数组，数组元素和未初始化的普通变量一样，其中储存的都是垃圾值;但是，如果部分初始化数组，剩余的元素就会被初始化为0。<br>
+如果初始化列表的项数多于数组元素个数，编译器可没那么仁慈，它会毫不留情地将其视为错误。其实，可以省略方括号中的数字，让编译器自动匹配数组大小和初始化列表中的项数。<br>
+<a href="../../c-example/day_mon2.c">day_mon2.c</a></p>
+<ol start="2">
+<li>
+<p>指定初始化器(C99)<br>
+C99增加了一个新特性：指定初始化器(designated initializer)。利用该特性可以 初始化指定的数组元素。例如，只初始化数组中的最后一个元素。对于传统的C初始化语法，必须初始化最后一个元素之前的所有元素，才能初始化它：</p>
+<blockquote>
+<p>int arr[6] = {0,0,0,0,0,212};</p>
+</blockquote>
+<p>而C99规定，可以在初始化列表中使用带方括号的下标指明待初始化的元素：</p>
+<blockquote>
+<p>int arr[6]  =  {[5]=212};</p>
+</blockquote>
+<p>对于一般的初始化，在初始化一个元素后，未初始化的元素都会被设置为0。如下程序:<br>
+<a href="../../c-example/designate.c">designate.c</a><br>
+以上输出揭示了指定初始化器的两个重要特性。第一，如果指定初始化器后面有更多的值，如该例中的的片段：[4] = 31,30,31,那么后面这些值将被用于初始化指定元素后面的元素。也就是说，在days[4]被初始化为31后，days[5]和days[6]将分别被初始化为30和31。第二，如果再次初始化指定的元素，那么最后的初始化将会取代之前的初始化。例如程序中，初始化列表开始时把days[1]初始化为28，但是days[1]又被后面的指定初始化[1]=29初始化为29。<br>
+如果未指定元素大小会怎样？</p>
+<blockquote>
+<p>int stuff[] = {1,[6] = 23};<br>
+int staff[] = {1,[6] = 4,9,10};</p>
+</blockquote>
+<p>编译器会把数组的大小设置为足够装得下初始化的值。所以，stuff数组有7个元素，编号为0~6;而staff数组的元素比stuff数组多两个(即有9个元素)。</p>
+</li>
+<li>
+<p>给数组元素赋值<br>
+声明数组后，可以借助数组下标(或索引)给数组元素赋值。例如 ，下面的程序给数组的所有元素赋值：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#define SIZE 50
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>)
+{
+    <span style="color:#66d9ef">int</span> counter,evens[SIZE];
+    <span style="color:#66d9ef">for</span>(counter <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;counter <span style="color:#f92672">&lt;</span> SIZE; counter<span style="color:#f92672">++</span>)
+        evens[counter] <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> counter<span style="color:#960050;background-color:#1e0010">；</span>
+    ...
+}
+</code></pre></div><p>注意这段代码中使用循环给数组的元素依次赋值。C不允许把数组作为一个单元赋给另一个数组 ，除初始化外也不允许使用花括号列表的形式赋值。如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#define SIZE 5
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span>  <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>)
+{
+    <span style="color:#66d9ef">int</span> oxen[SIZE] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">8</span>}; <span style="color:#75715e">//初始化没问题
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> yaks[SIZE];
+    yaks <span style="color:#f92672">=</span> oxen;  <span style="color:#75715e">//不允许
+</span><span style="color:#75715e"></span>    yaks[SIZE] <span style="color:#f92672">=</span> oxen[SIZE]; <span style="color:#75715e">//数组下标越界
+</span><span style="color:#75715e"></span>    yaks[SIZE] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">8</span>};
+}
+</code></pre></div><p>oxen数组的最后一个元素是oxen[SIZE-1]，所以oxen[SIZE]和yaks[SIZE]都超出了两个数组的末尾。</p>
+</li>
+<li>
+<p>数组边界<br>
+在使用数组时，要防止数组下标超出边界。也就是说，必须确保下标是有效的值。例如，假设有下面的声明：</p>
+<blockquote>
+<p>int doofi[20];</p>
+</blockquote>
+<p>那么在使用该数组时，要确保程序中使用的数组下标在0~19的范围内，因为编译器不会检查出这种错误。<br>
+考虑程序bounds.c的问题。该程序创建了一个内含4个元素的数组，然后错误地使用了-1~6的下标。<br>
+<a href="../../c-example/bounds.c">bounds.c</a><br>
+编译器不会检查数组下标是否使用得当。在C标准中，使用越界下标的结果是未定义的。这意味着程序看上去可以运行，但是运行结果很奇怪，或异常中止。
+编译器似乎把value2储存在数组的前一个位置，把value1储存在数组的后一个位置(其他编译器在内存中储存数据的顺序可能不同)。在上面的输出中，arr[-1]与value2对应的内存地址相同，arr[4]和value1对应的内存地址相同。因此，使用越界的数组下标会导致程序改变其他变量的值。不同的编译器运行该程序的结果可能不同，有些会导致程序异常中止。<br>
+C语言为何会允许这种麻烦事发生？这要归功于C信任程序员的原则。不检查边界，C程序可以运行更快。编译器没必要捕获所有的下标错误，因为在程序运行之前，数组的下标值可能尚未确定。因此，为安全起见，编译器必须在运行时添加额外代码检查数组的每个下标值，这会降低程序的运行速度。C相信程序员能编写正确的代码，这样的程序运行速度更快。<br>
+还要记住一点：数组元素的编号从0开始。最好是在声明数组时使用符号常量来表示数组的大小。这样做能确保整个程序中的数组大小始终一致。</p>
+</li>
+<li>
+<p>指定数组的大小<br>
+之前的程序示例都使用整型常量来声明数组：<br>
+在C99标准之前，声明数组时只能在方括号中使用整型常量表达式。所谓整型常量表达式，是由整形常量构成的表达式。sizeof表达式被视为整型常量，但是const值不是。另外，表达式的值必须大于0：</p>
+<blockquote>
+<p>int n = 5;
+int m = 8;
+float a1[5];  //可以
+float a2[5*2 + 1]; //可以
+float a3[sizeof(int)+1] //可以
+float a4[-4];  //不可以，数组大小必须大于0
+float a5[0];   //不可以，数组大小必须大于0
+float a6[2.5]; //不可以，数组大小必须是整数
+float a7[(int)2.5];    //可以，已被强制转换为整型常量
+float a8[n];   //C99之前不允许
+float a9[m];   //C99之前不允许</p>
+</blockquote>
+<p>以前支持C90标准的编译器不允许后两种声明方式。而C99标准允许这样声明，这创建了一种新型数组，称为变长数组(variable-length array)或简称VLA(C11放弃了这一创新的举措，把VLA设定为可选，而不是语言必备的特性)。</p>
+</li>
+</ol>
+<h4 id="多维数组">多维数组</h4>
+<ol>
+<li>初始化二维数组</li>
+<li>其他多维数组</li>
+</ol>
+<h4 id="指针和数组">指针和数组</h4>
+<h4 id="函数数组和指针">函数、数组和指针</h4>
+<ol>
+<li>使用指针形参</li>
+<li>指针表示法和数组表示法</li>
+</ol>
+<h4 id="指针操作">指针操作</h4>
+<h4 id="保护数组中的数据">保护数组中的数据</h4>
+<ol>
+<li>对形式参数使用const</li>
+<li>const的其他内容</li>
+</ol>
+<h4 id="指针和多维数组">指针和多维数组</h4>
+<ol>
+<li>指向多维数组的指针</li>
+<li>指针的兼容性</li>
+<li>函数和多维数组</li>
+</ol>
+<h4 id="变长数组">变长数组</h4>
+<h4 id="复合字面量">复合字面量</h4></div>
         <div class="post-footer">
             <div class="info">
                 <span class="separator"><a class="category" href="/guowei/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></span>
