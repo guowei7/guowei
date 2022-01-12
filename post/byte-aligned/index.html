@@ -8,7 +8,7 @@
     
       guowei
         |
-        Tcpdump Learning
+        Byte Aligned
 
 
       
@@ -22,7 +22,7 @@
   <meta
     name="description"
     content="
-      记录常用的tcpdump命令
+      记录字节对齐的一些规则
 
 
     "
@@ -59,7 +59,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/guowei/favicons/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/guowei/favicons/favicon-16x16.png" />
 
-  <link rel="canonical" href="http://guowei7.gitee.io/guowei/post/tcpdump-learning/" />
+  <link rel="canonical" href="http://guowei7.gitee.io/guowei/post/byte-aligned/" />
 
   
   
@@ -86,8 +86,8 @@
   <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="http://guowei7.gitee.io/guowei/images/site-feature-image.png"/>
 
-<meta name="twitter:title" content="Tcpdump Learning"/>
-<meta name="twitter:description" content="记录常用的tcpdump命令"/>
+<meta name="twitter:title" content="Byte Aligned"/>
+<meta name="twitter:description" content="记录字节对齐的一些规则"/>
 
 
 
@@ -103,11 +103,11 @@
         "@context": "http://schema.org",
         "@type": "BlogPosting",
         "articleSection": "post",
-        "name": "Tcpdump Learning",
-        "headline": "Tcpdump Learning",
+        "name": "Byte Aligned",
+        "headline": "Byte Aligned",
         "alternativeHeadline": "",
         "description": "
-      记录常用的tcpdump命令
+      记录字节对齐的一些规则
 
 
     ",
@@ -115,7 +115,7 @@
         "isFamilyFriendly": "true",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "http:\/\/guowei7.gitee.io\/guowei\/post\/tcpdump-learning\/"
+            "@id": "http:\/\/guowei7.gitee.io\/guowei\/post\/byte-aligned\/"
         },
         "author" : {
             "@type": "Person",
@@ -134,9 +134,9 @@
             "name": "guowei"
         },
         "copyrightYear" : "2021",
-        "dateCreated": "2021-07-23T15:57:09.00Z",
-        "datePublished": "2021-07-23T15:57:09.00Z",
-        "dateModified": "2021-07-23T15:57:09.00Z",
+        "dateCreated": "2021-12-20T14:31:31.00Z",
+        "datePublished": "2021-12-20T14:31:31.00Z",
+        "dateModified": "2021-12-20T14:31:31.00Z",
         "publisher":{
             "@type":"Organization",
             "name": "guowei",
@@ -158,16 +158,16 @@
       ]
 
     ,
-        "url" : "http:\/\/guowei7.gitee.io\/guowei\/post\/tcpdump-learning\/",
-        "wordCount" : "53",
+        "url" : "http:\/\/guowei7.gitee.io\/guowei\/post\/byte-aligned\/",
+        "wordCount" : "57",
         "genre" : [ 
       
-      "计算机网络"
+      "数据结构"
 
     ],
         "keywords" : [ 
       
-      "tcpdump"
+      "C"
 
     ]
     }
@@ -303,13 +303,13 @@
     <div class="post-content">
       
       <div class="post-title">
-        <h1>Tcpdump Learning</h1>
+        <h1>Byte Aligned</h1>
         
           <div class="info">
             <em class="fas fa-calendar-day"></em>
             <span class="date"
               >
-                Fri, Jul 23, 2021
+                Mon, Dec 20, 2021
 
 
               </span
@@ -319,68 +319,47 @@
           </div>
 
         
-      </div><p>主要记录常用的tcpdump命令</p>
-<h3 id="常用的tcpdump命令">常用的TCPDUMP命令</h3>
+      </div><p>记录字节对齐的一些规则</p>
+<p>###1. 结构体对齐</p>
+<h4 id="对齐准则">对齐准则</h4>
 <ol>
-<li>
-<p>抓取所有网络包，并在terminal中显示抓取的结果，将包以十六进制的形式显式。</p>
-<blockquote>
-<p>tcpdump</p>
-</blockquote>
-</li>
-<li>
-<p>抓取所有的网络包，并存到result.pcap文件中。</p>
-<blockquote>
-<p>tcpdump -w result.pcap</p>
-</blockquote>
-</li>
-<li>
-<p>抓取所有的经过eth0网卡的网络包，并存到result.pcap文件中。</p>
-<blockquote>
-<p>tcpdump -i eth0 -w result.pcap</p>
-</blockquote>
-</li>
-<li>
-<p>抓取源地址是192.168.1.100的包，并将结果保存到result.pacp文件中。</p>
-<blockquote>
-<p>tcpdump src host 192.168.1.100 -w result.pcap</p>
-</blockquote>
-</li>
-<li>
-<p>抓取地址包含192.168.1.100的包，并将结果保存到result.pcap文件中。</p>
-<blockquote>
-<p>tcpdump host 192.168.1.100 -w result.pcap</p>
-</blockquote>
-</li>
-<li>
-<p>抓取目的地址包含192.168.1.100的包，并将结果保存到result.pcap文件中。</p>
-<blockquote>
-<p>tcpdump dest host 192.168.1.100 -w result.pcap</p>
-</blockquote>
-</li>
-<li>
-<p>抓取包含192.168.1.0/24网段的数据包</p>
-<blockquote>
-<p>tcpdump -i eth0 -vnn net 192.168.1.0/24</p>
-</blockquote>
-</li>
-<li>
-<p>抓取网卡eth0上所有包含端口22的数据包</p>
-<blockquote>
-<p>tcpdump -i eth0 -vnn port</p>
-</blockquote>
-</li>
-<li>
-<p>抓取指定协议格式的数据包，协议格式可以是[udp，iccmp，arp，ip]中的任何一种</p>
-<blockquote>
-<p>tcpdump udp -i eth0 -vnn</p>
-</blockquote>
-</li>
-</ol></div>
+<li>数据类型自身的对齐值:char型数据自身对齐为1字节，short型数据为2字节，int/float型为4字节，double型为8字节。</li>
+<li>结构体或类的自身对齐值:其成员中自身对齐值最大的那个值。</li>
+<li>指定对齐值:一般会有一个默认对齐值，同时也可以通过#pragma pack(value)来指定对齐值。</li>
+<li>数据成员、结构体和类的有效对齐值:自身对齐值和指定对齐值中较小者，即有效对齐值=min{自身对齐值，当前指定对齐值}<br>
+其中，有效对齐值N是最终用来决定数据存放地质的值。有效对齐N表示“对齐在N上”，即该数据的“存放起始地址%N=0”。而数据结构中的数据变量都是按定义的先后顺序存放。第一个数据变量的起始地质就是数据结构的起始地址。<em><strong>结构体的成员变量要对齐存放，结构体本身也要根据自身的有效对齐值圆整</strong></em>(即结构体成员变量占用总长度为结构体有效对齐值的整数倍)</li>
+</ol>
+<h4 id="对齐隐患">对齐隐患</h4>
+<ol>
+<li>数据类型转换</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>)
+{
+	<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x12345678</span>;
+
+	<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> (<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>)<span style="color:#f92672">&amp;</span>i;
+	<span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x00</span>;
+
+	<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">short</span> <span style="color:#f92672">*</span>p1 <span style="color:#f92672">=</span> (<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">short</span> <span style="color:#f92672">*</span>)(p<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>);
+	<span style="color:#f92672">*</span>p1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x0000</span>;
+	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><p>最后两句代码，从不是short(2)的边界去访问了unsigned short型变量，不符合对齐规定。在X86上，这样的操作只会影响效率；但是有些处理器可能会导致错误。<br>
+2. 处理器间数据通信<br>
+处理器间通过消息进行通信时，需要注意字节对齐以及字节序的问题。<br>
+对于本地使用的数据结构，为提高内存访问效率，采用四字节对齐方式；同时为了减少内存的开销，合理安排结构体成员的位置，减少四字节对齐导致的成员之间的空隙，降低内存开销。<br>
+对于处理器之间的数据结构，需要保证消息长度不会因不同编译平台或处理器而导致消息结构体长度发生变化，使用一字节对齐方式对消息结构进行紧缩；为保证处理器之间的消息数据结构的内存访问效率，采用字节填充的方式自己对消息中成员进行四字节对齐。</p>
+<h4 id="更改对齐方式">更改对齐方式</h4>
+<ul>
+<li>使用伪指令#pragma pack(n):C编译器将按照n个字节对齐</li>
+<li>使用伪指令#pragma pack():取消自定义字节对齐方式</li>
+</ul>
+<h3 id="栈内存对齐">栈内存对齐</h3>
+<p>栈对齐方式不受结构体成员对齐选项的影响。总是保持对齐且对齐在4字节边界上。</p></div>
     <div class="post-footer">
       <div class="info">
         
-          <span class="separator"><a class="category" href="/guowei/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></span>
+          <span class="separator"><a class="category" href="/guowei/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span>
 
 
 
@@ -388,7 +367,7 @@
         
 
         
-          <span class="separator"><a class="tag" href="/guowei/tags/tcpdump/">tcpdump</a></span>
+          <span class="separator"><a class="tag" href="/guowei/tags/c/">C</a></span>
 
 
 

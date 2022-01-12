@@ -6,18 +6,16 @@
     <description>Recent content in 鲁迅 on 郭微blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 26 Dec 2020 12:14:49 +0800</lastBuildDate>
-    
-	<atom:link href="http://guowei7.gitee.io/guowei/tags/%E9%B2%81%E8%BF%85/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 26 Dec 2020 12:14:49 +0800</lastBuildDate><atom:link href="http://guowei7.gitee.io/guowei/tags/%E9%B2%81%E8%BF%85/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Nahan Learning</title>
       <link>http://guowei7.gitee.io/guowei/post/nahan-learning/</link>
       <pubDate>Sat, 26 Dec 2020 12:14:49 +0800</pubDate>
       
       <guid>http://guowei7.gitee.io/guowei/post/nahan-learning/</guid>
-      <description>&lt;p&gt;记录呐喊中的一些名句和梗&lt;/p&gt;</description>
+      
+        <description>&lt;p&gt;记录呐喊中的一些名句和梗&lt;/p&gt;</description>
+      
     </item>
     
   </channel>

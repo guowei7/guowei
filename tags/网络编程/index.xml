@@ -6,18 +6,16 @@
     <description>Recent content in 网络编程 on 郭微blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 28 Jul 2021 22:06:50 +0800</lastBuildDate>
-    
-	<atom:link href="http://guowei7.gitee.io/guowei/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 28 Jul 2021 22:06:50 +0800</lastBuildDate><atom:link href="http://guowei7.gitee.io/guowei/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Netprogram Learning</title>
       <link>http://guowei7.gitee.io/guowei/post/netprogram-learning/</link>
       <pubDate>Wed, 28 Jul 2021 22:06:50 +0800</pubDate>
       
       <guid>http://guowei7.gitee.io/guowei/post/netprogram-learning/</guid>
-      <description>&lt;p&gt;主要为网络编程的相关学习&lt;/p&gt;</description>
+      
+        <description>&lt;p&gt;主要为网络编程的相关学习&lt;/p&gt;</description>
+      
     </item>
     
   </channel>

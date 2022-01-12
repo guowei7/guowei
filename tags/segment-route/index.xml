@@ -6,18 +6,16 @@
     <description>Recent content in Segment Route on 郭微blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 05 Feb 2021 10:29:13 +0800</lastBuildDate>
-    
-	<atom:link href="http://guowei7.gitee.io/guowei/tags/segment-route/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 05 Feb 2021 10:29:13 +0800</lastBuildDate><atom:link href="http://guowei7.gitee.io/guowei/tags/segment-route/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SR Learning</title>
       <link>http://guowei7.gitee.io/guowei/post/sr-learning/</link>
       <pubDate>Fri, 05 Feb 2021 10:29:13 +0800</pubDate>
       
       <guid>http://guowei7.gitee.io/guowei/post/sr-learning/</guid>
-      <description>&lt;p&gt;主要是对Segment Route学习的记录&lt;/p&gt;</description>
+      
+        <description>&lt;p&gt;主要是对Segment Route学习的记录&lt;/p&gt;</description>
+      
     </item>
     
   </channel>

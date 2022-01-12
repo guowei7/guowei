@@ -6,10 +6,17 @@
     <description>Recent content on 郭微blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 26 Nov 2021 13:53:41 +0800</lastBuildDate>
-    
-	<atom:link href="http://guowei7.gitee.io/guowei/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Mon, 20 Dec 2021 14:31:31 +0800</lastBuildDate><atom:link href="http://guowei7.gitee.io/guowei/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Byte Aligned</title>
+      <link>http://guowei7.gitee.io/guowei/post/byte-aligned/</link>
+      <pubDate>Mon, 20 Dec 2021 14:31:31 +0800</pubDate>
+      
+      <guid>http://guowei7.gitee.io/guowei/post/byte-aligned/</guid>
+      
+        <description>&lt;p&gt;记录字节对齐的一些规则&lt;/p&gt;</description>
+      
+    </item>
     
     <item>
       <title>Operation System</title>
@@ -17,7 +24,9 @@
       <pubDate>Fri, 26 Nov 2021 13:53:41 +0800</pubDate>
       
       <guid>http://guowei7.gitee.io/guowei/post/operation-system/</guid>
-      <description>&lt;p&gt;主要为计算机操作系统相关学习记录&lt;/p&gt;</description>
+      
+        <description>&lt;p&gt;主要为计算机操作系统相关学习记录&lt;/p&gt;</description>
+      
     </item>
     
     <item>
@@ -26,7 +35,9 @@
       <pubDate>Wed, 28 Jul 2021 22:06:50 +0800</pubDate>
       
       <guid>http://guowei7.gitee.io/guowei/post/netprogram-learning/</guid>
-      <description>&lt;p&gt;主要为网络编程的相关学习&lt;/p&gt;</description>
+      
+        <description>&lt;p&gt;主要为网络编程的相关学习&lt;/p&gt;</description>
+      
     </item>
     
     <item>
@@ -35,7 +46,9 @@
       <pubDate>Fri, 23 Jul 2021 15:57:09 +0800</pubDate>
       
       <guid>http://guowei7.gitee.io/guowei/post/tcpdump-learning/</guid>
-      <description>&lt;p&gt;主要记录常用的tcpdump命令&lt;/p&gt;</description>
+      
+        <description>&lt;p&gt;主要记录常用的tcpdump命令&lt;/p&gt;</description>
+      
     </item>
     
     <item>
@@ -44,7 +57,9 @@
       <pubDate>Wed, 21 Jul 2021 09:46:28 +0800</pubDate>
       
       <guid>http://guowei7.gitee.io/guowei/post/igmpsnoop-learning/</guid>
-      <description>&lt;p&gt;主要记录IGMP Snoop的学习&lt;/p&gt;</description>
+      
+        <description>&lt;p&gt;主要记录IGMP Snoop的学习&lt;/p&gt;</description>
+      
     </item>
     
     <item>
@@ -53,7 +68,9 @@
       <pubDate>Tue, 01 Jun 2021 13:54:17 +0800</pubDate>
       
       <guid>http://guowei7.gitee.io/guowei/post/gdb-note/</guid>
-      <description>&lt;p&gt;gdb简单介绍即常用命令总结&lt;/p&gt;</description>
+      
+        <description>&lt;p&gt;gdb简单介绍即常用命令总结&lt;/p&gt;</description>
+      
     </item>
     
     <item>
@@ -62,7 +79,9 @@
       <pubDate>Sun, 28 Mar 2021 10:19:53 +0800</pubDate>
       
       <guid>http://guowei7.gitee.io/guowei/post/compiler-learing/</guid>
-      <description>&lt;p&gt;本文主要是针对编译调式等进行学习总结&lt;/p&gt;</description>
+      
+        <description>&lt;p&gt;本文主要是针对编译调式等进行学习总结&lt;/p&gt;</description>
+      
     </item>
     
     <item>
@@ -71,7 +90,9 @@
       <pubDate>Fri, 05 Feb 2021 10:29:13 +0800</pubDate>
       
       <guid>http://guowei7.gitee.io/guowei/post/sr-learning/</guid>
-      <description>&lt;p&gt;主要是对Segment Route学习的记录&lt;/p&gt;</description>
+      
+        <description>&lt;p&gt;主要是对Segment Route学习的记录&lt;/p&gt;</description>
+      
     </item>
     
     <item>
@@ -80,7 +101,9 @@
       <pubDate>Sat, 26 Dec 2020 12:14:49 +0800</pubDate>
       
       <guid>http://guowei7.gitee.io/guowei/post/nahan-learning/</guid>
-      <description>&lt;p&gt;记录呐喊中的一些名句和梗&lt;/p&gt;</description>
+      
+        <description>&lt;p&gt;记录呐喊中的一些名句和梗&lt;/p&gt;</description>
+      
     </item>
     
     <item>
@@ -89,7 +112,9 @@
       <pubDate>Sat, 12 Dec 2020 19:05:35 +0800</pubDate>
       
       <guid>http://guowei7.gitee.io/guowei/post/c-learning-two/</guid>
-      <description>&lt;p&gt;由于C-Learning.md存在损坏，故重开一篇继续记录&lt;/p&gt;</description>
+      
+        <description>&lt;p&gt;由于C-Learning.md存在损坏，故重开一篇继续记录&lt;/p&gt;</description>
+      
     </item>
     
     <item>
@@ -98,7 +123,9 @@
       <pubDate>Sun, 15 Nov 2020 10:55:30 +0800</pubDate>
       
       <guid>http://guowei7.gitee.io/guowei/post/premiere-learning/</guid>
-      <description>&lt;p&gt;主要是Premiere官方文档的学习记录&lt;/p&gt;</description>
+      
+        <description>&lt;p&gt;主要是Premiere官方文档的学习记录&lt;/p&gt;</description>
+      
     </item>
     
     <item>
@@ -107,7 +134,9 @@
       <pubDate>Thu, 22 Oct 2020 08:32:21 +0800</pubDate>
       
       <guid>http://guowei7.gitee.io/guowei/post/evpn-learning/</guid>
-      <description>&lt;p&gt;主要是对EVPN进行学习的笔记&lt;/p&gt;</description>
+      
+        <description>&lt;p&gt;主要是对EVPN进行学习的笔记&lt;/p&gt;</description>
+      
     </item>
     
     <item>
@@ -116,7 +145,9 @@
       <pubDate>Wed, 21 Oct 2020 21:00:21 +0800</pubDate>
       
       <guid>http://guowei7.gitee.io/guowei/post/gdb-learning/</guid>
-      <description>&lt;p&gt;主要是学习《Debugging with GDB》的笔记&lt;/p&gt;</description>
+      
+        <description>&lt;p&gt;主要是学习《Debugging with GDB》的笔记&lt;/p&gt;</description>
+      
     </item>
     
     <item>
@@ -125,7 +156,9 @@
       <pubDate>Sun, 11 Oct 2020 17:08:05 +0800</pubDate>
       
       <guid>http://guowei7.gitee.io/guowei/post/vim-learning/</guid>
-      <description>&lt;p&gt;本文主要介绍一些VIM的概念和基本使用&lt;/p&gt;</description>
+      
+        <description>&lt;p&gt;本文主要介绍一些VIM的概念和基本使用&lt;/p&gt;</description>
+      
     </item>
     
     <item>
@@ -134,7 +167,9 @@
       <pubDate>Sat, 12 Sep 2020 16:44:49 +0800</pubDate>
       
       <guid>http://guowei7.gitee.io/guowei/post/mpls-learning/</guid>
-      <description>&lt;p&gt;主要记录MPLS的学习&lt;/p&gt;</description>
+      
+        <description>&lt;p&gt;主要记录MPLS的学习&lt;/p&gt;</description>
+      
     </item>
     
     <item>
@@ -143,7 +178,9 @@
       <pubDate>Tue, 08 Sep 2020 17:15:38 +0800</pubDate>
       
       <guid>http://guowei7.gitee.io/guowei/post/netconf-learning/</guid>
-      <description>&lt;p&gt;主要记录网络配置命令学习的心得&lt;/p&gt;</description>
+      
+        <description>&lt;p&gt;主要记录网络配置命令学习的心得&lt;/p&gt;</description>
+      
     </item>
     
     <item>
@@ -152,9 +189,11 @@
       <pubDate>Tue, 08 Sep 2020 12:24:17 +0800</pubDate>
       
       <guid>http://guowei7.gitee.io/guowei/post/linux-learning/</guid>
-      <description>主要是Linux学习笔记
+      
+        <description>主要是Linux学习笔记
 1. Linux内存管理  Linux进程空间概述
 Linux操作系统采用虚拟内存管理技术，使得每个进程都有各自互不干涉的进程地址空间。该空间是一段线性虚拟空间，用户所看到和操作的都是该虚拟地址，无法操作实际的物理内存地址。    Linux进程空间(x86)</description>
+      
     </item>
     
     <item>
@@ -163,7 +202,9 @@ Linux操作系统采用虚拟内存管理技术，使得每个进程都有各自
       <pubDate>Tue, 18 Aug 2020 12:25:25 +0800</pubDate>
       
       <guid>http://guowei7.gitee.io/guowei/post/bgp-learning/</guid>
-      <description>&lt;p&gt;本文主要介绍BGP相关的概念&lt;/p&gt;</description>
+      
+        <description>&lt;p&gt;本文主要介绍BGP相关的概念&lt;/p&gt;</description>
+      
     </item>
     
     <item>
@@ -172,7 +213,9 @@ Linux操作系统采用虚拟内存管理技术，使得每个进程都有各自
       <pubDate>Sun, 16 Aug 2020 13:13:46 +0800</pubDate>
       
       <guid>http://guowei7.gitee.io/guowei/post/c-learning/</guid>
-      <description>&lt;p&gt;本文主要为学习《C primer  plus》进行的总结&lt;/p&gt;</description>
+      
+        <description>&lt;p&gt;本文主要为学习《C primer  plus》进行的总结&lt;/p&gt;</description>
+      
     </item>
     
   </channel>

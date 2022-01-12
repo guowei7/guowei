@@ -3,12 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://guowei7.gitee.io/guowei/categories/c/</loc>
-    <lastmod>2021-11-26T13:53:41+08:00</lastmod>
+    <loc>http://guowei7.gitee.io/guowei/post/byte-aligned/</loc>
+    <lastmod>2021-12-20T14:31:31+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://guowei7.gitee.io/guowei/tags/c/</loc>
+    <lastmod>2021-12-20T14:31:31+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://guowei7.gitee.io/guowei/categories/</loc>
+    <lastmod>2021-12-20T14:31:31+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://guowei7.gitee.io/guowei/post/</loc>
+    <lastmod>2021-12-20T14:31:31+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://guowei7.gitee.io/guowei/tags/</loc>
+    <lastmod>2021-12-20T14:31:31+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://guowei7.gitee.io/guowei/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+    <lastmod>2021-12-20T14:31:31+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://guowei7.gitee.io/guowei/</loc>
+    <lastmod>2021-12-20T14:31:31+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://guowei7.gitee.io/guowei/categories/c/</loc>
     <lastmod>2021-11-26T13:53:41+08:00</lastmod>
   </url>
   
@@ -24,21 +54,6 @@
   
   <url>
     <loc>http://guowei7.gitee.io/guowei/tags/os/</loc>
-    <lastmod>2021-11-26T13:53:41+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://guowei7.gitee.io/guowei/post/</loc>
-    <lastmod>2021-11-26T13:53:41+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://guowei7.gitee.io/guowei/tags/</loc>
-    <lastmod>2021-11-26T13:53:41+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://guowei7.gitee.io/guowei/</loc>
     <lastmod>2021-11-26T13:53:41+08:00</lastmod>
   </url>
   
@@ -125,11 +140,6 @@
   <url>
     <loc>http://guowei7.gitee.io/guowei/tags/%E9%B2%81%E8%BF%85/</loc>
     <lastmod>2020-12-26T12:14:49+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://guowei7.gitee.io/guowei/tags/c/</loc>
-    <lastmod>2020-12-12T19:05:35+08:00</lastmod>
   </url>
   
   <url>

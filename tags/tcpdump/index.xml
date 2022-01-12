@@ -6,18 +6,16 @@
     <description>Recent content in tcpdump on 郭微blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 23 Jul 2021 15:57:09 +0800</lastBuildDate>
-    
-	<atom:link href="http://guowei7.gitee.io/guowei/tags/tcpdump/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 23 Jul 2021 15:57:09 +0800</lastBuildDate><atom:link href="http://guowei7.gitee.io/guowei/tags/tcpdump/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tcpdump Learning</title>
       <link>http://guowei7.gitee.io/guowei/post/tcpdump-learning/</link>
       <pubDate>Fri, 23 Jul 2021 15:57:09 +0800</pubDate>
       
       <guid>http://guowei7.gitee.io/guowei/post/tcpdump-learning/</guid>
-      <description>&lt;p&gt;主要记录常用的tcpdump命令&lt;/p&gt;</description>
+      
+        <description>&lt;p&gt;主要记录常用的tcpdump命令&lt;/p&gt;</description>
+      
     </item>
     
   </channel>
