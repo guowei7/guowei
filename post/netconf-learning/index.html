@@ -3,8 +3,8 @@
     <title> guowei | Netconf Learning </title>
 
     
-    <meta charset="utf-8"><meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-    <meta name="description" content="以心为原动力，向着明日前进">
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.68.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="给岁月以文明，而不是给文明以岁月。">
     
     <link rel="stylesheet"
           href="http://guowei7.gitee.io/guowei/css/style.min.89e1916d605c8846c2f5a79a6aaeccfbc97502632fc692dbcfc743e65b272c19.css"
@@ -49,20 +49,23 @@
                 integrity="sha256-4onp67Kk56f4lYWciisNot4exz8izqWNhHWqBZcCODc="
                 crossorigin="anonymous"></script>
     
+
+    
     <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="http://guowei7.gitee.io/guowei/images/site-feature-image.png"/>
 
 <meta name="twitter:title" content="Netconf Learning"/>
 <meta name="twitter:description" content="网络配置命令学习的记录"/>
 
+    
 </head>
 <body><div class="sidebar animated fadeInDown ">
     <div class="logo-title">
         <div class="title">
             <img src="http://guowei7.gitee.io/guowei/images/profile.jpg" alt="profile picture">
-            <h3 title=""><a href="/">鬼灭之刃</a></h3>
+            <h3 title=""><a href="/">三体</a></h3>
             <div class="description">
-                <p>以心为原动力，向着明日前进</p>
+                <p>给岁月以文明，而不是给文明以岁月。</p>
             </div>
         </div>
     </div>
@@ -226,7 +229,7 @@
 <li>
 <p>配置BGP</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#进入bgp配置视图，并且本地AS为100</span>
-<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>config<span style="color:#f92672">)]</span> router bgp <span style="color:#ae81ff">100</span>
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>config<span style="color:#f92672">)]</span> router bgp 100
 <span style="color:#75715e">#进入需要配置的IBGP邻居视图</span>  
 <span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>router-bgp<span style="color:#f92672">)]</span> neighbor 1.1.1.56  
 <span style="color:#75715e">#配置邻居的AS号，以确定是IBGP还是EBGP邻居</span>
@@ -258,6 +261,22 @@
 <span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>bgp-af<span style="color:#f92672">)]</span> redistribute ospf <span style="color:#ae81ff">1</span>  
 <span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>bgp-af<span style="color:#f92672">)]</span> commit  
 </code></pre></div></li>
+<li>
+<p>路由延时下发<br>
+将bgp的路由延时下发给urm，并且只有当为frr或ecmp情况有多个下一跳时才会延时下发。</p>
+<pre><code>router bgp 100
+    bgp router-id 2.2.2.2
+    route-select delay 60
+!
+</code></pre></li>
+<li>
+<p>默认local-preference值修改</p>
+<pre><code>router bgp 100
+    bgp router-id 2.2.2.2
+    #默认值为100,设置为100和no的反向命令是相同的效果
+    bgp default local-preference 50 
+!
+</code></pre></li>
 </ul>
 </li>
 <li>
@@ -356,19 +375,19 @@ interface eth-1gi 0/3/1/4.2<br>
 <li>
 <p>VPNV4相关配置</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#配置vrf，包括rd rt的相关配置</span>
-<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>config<span style="color:#f92672">)]</span>vrf <span style="color:#ae81ff">1</span>
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>config<span style="color:#f92672">)]</span>vrf 1
 <span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>vrf<span style="color:#f92672">)]</span>address-family ipv4 unicast
 <span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>vrf-af-ipv4-uni<span style="color:#f92672">)]</span>rd 1:1
 <span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>vrf-af-ipv4-uni<span style="color:#f92672">)]</span>route-target both 1:1
 <span style="color:#75715e">#配置对应接口绑定vrf</span>
 <span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>config<span style="color:#f92672">)]</span>interface eth-1gi 0/3/1/4.1
-<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>eth-1gi 0/3/1/4.1<span style="color:#f92672">)]</span>ip vrf forwarding <span style="color:#ae81ff">1</span>
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>eth-1gi 0/3/1/4.1<span style="color:#f92672">)]</span>ip vrf forwarding 1
 <span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>eth-1gi 0/3/1/4.1<span style="color:#f92672">)]</span>ip address 192.168.3.1/24
 <span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>eth-1gi 0/3/1/4.1<span style="color:#f92672">)]</span>encapsulation dot1q
-<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>eth-1gi 0/3/1/4.1<span style="color:#f92672">)]</span>vlan-type dot1q <span style="color:#ae81ff">100</span>
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>eth-1gi 0/3/1/4.1<span style="color:#f92672">)]</span>vlan-type dot1q 100
 <span style="color:#75715e">#将vrf的路由通告给BGP</span>
-<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>config<span style="color:#f92672">)]</span>router bgp <span style="color:#ae81ff">100</span>
-<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>router-bgp<span style="color:#f92672">)]</span>vrf <span style="color:#ae81ff">1</span>
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>config<span style="color:#f92672">)]</span>router bgp 100
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>router-bgp<span style="color:#f92672">)]</span>vrf 1
 <span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>bgp-vrf<span style="color:#f92672">)]</span>address-family ipv4 unicast
 <span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>bgp-vrf-af-ipv4-uni<span style="color:#f92672">)]</span>redistribute connected
 </code></pre></div></li>
@@ -379,17 +398,82 @@ interface eth-1gi 0/3/1/4.2<br>
 <span style="color:#75715e">#配置rd-filter</span>
 <span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>config<span style="color:#f92672">)]</span>ip rd-filter filter-1 deny 5:5
 <span style="color:#75715e">#配置route-policy</span>
-<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>config<span style="color:#f92672">)]</span>route-policy policy_1_out deny node <span style="color:#ae81ff">1</span>
-<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>route-policy<span style="color:#f92672">)]</span><span style="color:#66d9ef">if</span>-match ipv4 address ipv4-prefix <span style="color:#ae81ff">1</span>
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>config<span style="color:#f92672">)]</span>route-policy policy_1_out deny node 1
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>route-policy<span style="color:#f92672">)]</span><span style="color:#66d9ef">if</span>-match ipv4 address ipv4-prefix 1
 <span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>route-policy<span style="color:#f92672">)]</span><span style="color:#66d9ef">if</span>-match rd-filter filter-1
 <span style="color:#75715e">#BGP应用对应的route-policy进行过滤。</span>
-<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>config<span style="color:#f92672">)]</span>router bgp <span style="color:#ae81ff">100</span>
+<span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>config<span style="color:#f92672">)]</span>router bgp 100
 <span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>router-bgp<span style="color:#f92672">)]</span>neighbor 2.2.2.2
 <span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>bgp-neighbor<span style="color:#f92672">)]</span>address-family vpnv4 unicast
 <span style="color:#f92672">[</span>VFOSWIND<span style="color:#f92672">(</span>bgp-vrf-af-vpnv4-uni<span style="color:#f92672">)]</span>route-policy policy_1_out out 
 </code></pre></div></li>
-<li></li>
-</ol></div>
+<li>
+<p>普通vpws和vpls的配置</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#配置二层子接口</span>
+interface eth-1gi 0/3/1/4.1
+    l2transport
+    encapsulation dot1q
+    vlan-type dot1q 100
+!
+<span style="color:#75715e">#配置vpws</span>
+vpws vpws1
+    interface eth-1gi 0/3/1/4.1
+    !
+    peer 4.4.4.4 vcid <span style="color:#ae81ff">3</span> encapsulation tagged
+    !
+!
+<span style="color:#75715e">#配置vpls</span>
+vfi vpls1
+    vsi-id <span style="color:#ae81ff">100</span>  <span style="color:#75715e">#pw两端的vsi-id必须一致，否则vpls无法建立成功</span>
+    interface eth-1gi 0/3/1/4.100
+    !
+    peer 2.2.2.2 vcid <span style="color:#ae81ff">10</span> encapsulation tagged
+    !
+!
+<span style="color:#75715e">#配置ldp中的peer</span>
+mpls ldp
+    router-id 1.1.1.1
+    interface eth-1gi 0/3/1/1
+    !
+    targeted-peer ipv4 2.2.2.2
+    !
+    targeted-peer ipv4 4.4.4.4
+    !
+!
+</code></pre></div></li>
+</ol>
+<h3 id="仪表常用配置">仪表常用配置</h3>
+<ul>
+<li>
+<p>配置普通的三层流</p>
+<ol>
+<li>连接仪表后，配置需要打流的端口port。</li>
+<li>添加devices。
+<ul>
+<li>配置对应的source ip和gateway。</li>
+<li>ARP/ND-&gt;start ARP/ND学习ARP。</li>
+</ul>
+</li>
+<li>添加三层流。
+<ul>
+<li>Add Bound Stream Block。</li>
+<li>port选择，源端口-&gt;目的端口。</li>
+<li>apply后，start ARP/ND进行学习arp。</li>
+</ul>
+</li>
+<li>可以利用capture来进行抓报。</li>
+</ol>
+</li>
+<li>
+<p>模拟isis的连接，并发送路由</p>
+<ol>
+<li>Devices-&gt;Add Multiple Device。</li>
+<li>选择对应Port、勾选ISIS和Generate Routes、Encapsulation配置默认、Devices中IPv4配置到连接的设备接口在同一个网段、配置ISIS、finish。</li>
+<li>2配置完成后会弹出“IS-IS LSP Generator”配置界面。Create Level2 LSPs、选择Port下对应的设备、Topology Type选择None、配置模拟的route前缀、Internal Routes条目选择0、External Routes模拟对应的条目。</li>
+<li>Start Devices启动设备。</li>
+</ol>
+</li>
+</ul></div>
         <div class="post-footer">
             <div class="info">
                 <span class="separator"><a class="category" href="/guowei/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></span>

@@ -3,8 +3,8 @@
     <title> guowei | Gdb Learning </title>
 
     
-    <meta charset="utf-8"><meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-    <meta name="description" content="以心为原动力，向着明日前进">
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.68.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="给岁月以文明，而不是给文明以岁月。">
     
     <link rel="stylesheet"
           href="http://guowei7.gitee.io/guowei/css/style.min.89e1916d605c8846c2f5a79a6aaeccfbc97502632fc692dbcfc743e65b272c19.css"
@@ -49,20 +49,23 @@
                 integrity="sha256-4onp67Kk56f4lYWciisNot4exz8izqWNhHWqBZcCODc="
                 crossorigin="anonymous"></script>
     
+
+    
     <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="http://guowei7.gitee.io/guowei/images/site-feature-image.png"/>
 
 <meta name="twitter:title" content="Gdb Learning"/>
 <meta name="twitter:description" content="主要是对《Debugging with GDB》进行的学习"/>
 
+    
 </head>
 <body><div class="sidebar animated fadeInDown ">
     <div class="logo-title">
         <div class="title">
             <img src="http://guowei7.gitee.io/guowei/images/profile.jpg" alt="profile picture">
-            <h3 title=""><a href="/">鬼灭之刃</a></h3>
+            <h3 title=""><a href="/">三体</a></h3>
             <div class="description">
-                <p>以心为原动力，向着明日前进</p>
+                <p>给岁月以文明，而不是给文明以岁月。</p>
             </div>
         </div>
     </div>
@@ -214,8 +217,8 @@ $1 <span style="color:#f92672">=</span> 0x35d40 <span style="color:#e6db74">&#34
 <span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> q
 </code></pre></div><h3 id="3-进入和退出gdb">3. 进入和退出GDB</h3>
 <ul>
-<li>输入&rsquo;gdb&rsquo;进入GDB</li>
-<li>输入&rsquo;quit&rsquo;或 Ctrl-d退出</li>
+<li>输入&rsquo;gdb'进入GDB</li>
+<li>输入&rsquo;quit'或 Ctrl-d退出</li>
 </ul>
 <h4 id="启动gdb">启动GDB</h4>
 <p>通过使用程序gdb来调用GDB。一旦启动，GDB会从终端读取命令直到你退出GDB。</p>
@@ -239,7 +242,7 @@ gdb --silent
 gdb -help
 </code></pre></div><ul>
 <li>选择文件<br>
-当GDB启动时，会读取选项以外的参数作为指定的可执行文件和core文件(或进程ID)。和分别使用&rsquo;-se&rsquo;和&rsquo;-c&rsquo;(或&rsquo;-p&rsquo;)选项指定的参数相同。(GDB会读取第一个和选项标识无关的参数作为可执行文件，同&rsquo;-se&rsquo;后面携带的参数一致。同理会读取第二个和选项标识无关的参数作为core文件，和&rsquo;-c&rsquo;/'-p&rsquo;选项后面鞋带的参数一致)。如果第二个参数是数字的形式，GDB首先会尝试将其作为进程号解释，如果失败，尝试做为一个core文件进行解释。如果你的core文件是以数字命名的，你可以是用前缀&rsquo;./&lsquo;来防止GDB将其作为进程号来对待。<br>
+当GDB启动时，会读取选项以外的参数作为指定的可执行文件和core文件(或进程ID)。和分别使用&rsquo;-se'和&rsquo;-c&rsquo;(或&rsquo;-p&rsquo;)选项指定的参数相同。(GDB会读取第一个和选项标识无关的参数作为可执行文件，同&rsquo;-se'后面携带的参数一致。同理会读取第二个和选项标识无关的参数作为core文件，和&rsquo;-c&rsquo;/'-p'选项后面鞋带的参数一致)。如果第二个参数是数字的形式，GDB首先会尝试将其作为进程号解释，如果失败，尝试做为一个core文件进行解释。如果你的core文件是以数字命名的，你可以是用前缀&rsquo;./&lsquo;来防止GDB将其作为进程号来对待。<br>
 当GDB没有配置core文件的支持，像一些嵌入式设备，GDB会忽略第二个参数。<br>
 许多选项有长和短的形式，如果长的形式你能截取到能够确定的长度，GDB同样可以识别。</li>
 </ul>
@@ -288,8 +291,8 @@ gdb -help
 <p>-quiet<br>
 -silent<br>
 -q  <strong>不打印介绍和版本信息，这些信息在batch模式下同样不会显示</strong></p>
-<p>-batch <strong>使用batch模式，在执行完&rsquo;-x&rsquo;命令指定的命令文件后以0状态退出。如果执行命令文件中的GDB命令出错时以非零的状态退出。该模式不支持分页，可以无限制的设置终端的宽高。</strong></p>
-<p>-batch-silent <strong>使用silently的batch模式，GDB所有的stdout输出都不会显示(stderr除外)。这个模式比&rsquo;-silent&rsquo;更加quiet，但是在交互式会话中没用。</strong></p>
+<p>-batch <strong>使用batch模式，在执行完&rsquo;-x'命令指定的命令文件后以0状态退出。如果执行命令文件中的GDB命令出错时以非零的状态退出。该模式不支持分页，可以无限制的设置终端的宽高。</strong></p>
+<p>-batch-silent <strong>使用silently的batch模式，GDB所有的stdout输出都不会显示(stderr除外)。这个模式比&rsquo;-silent'更加quiet，但是在交互式会话中没用。</strong></p>
 <p>-return-child-result <strong>返回码会是子进程(被调试进程)的返回码，(GDB非正常退出，用户带值退出，子进程没有运行或不允许终止时返回-1。这些情况除外)</strong></p>
 <p>-nowindows<br>
 -nw <strong>如果GDB有一个图形化的界面，此选项表示GDB只使用命令行模式</strong></p>
@@ -307,15 +310,15 @@ GDB在启动期间做的事情包括如下几点:</li>
 <li>加载命令行指定的命令解释器。</li>
 <li>加载system-wide的初始化文件和在system-wide gdbinit directory目录中的所有文件(以.gdb结尾的GDB命令文件或其他支持的教本文件)。</li>
 <li>加载HOME目录下的初时化文件，并执行其中的命令。</li>
-<li>加载&rsquo;-iex&rsquo;和&rsquo;-ix&rsquo;选项设置的命令及命令文件。</li>
+<li>加载&rsquo;-iex'和&rsquo;-ix'选项设置的命令及命令文件。</li>
 <li>处理命令行选项和操作对象。</li>
 <li>加载执行当前工作目录中的初始化文件的命令，只有当前的工作目录和你的home目录不同时才生效。因此你可能有多个初始化文件，一个在home目录中，另外的可能在你启动GDB调试程序的目录下。</li>
 <li>在命令行指定了一个执行程序、进程或core file后，GDB会加载程序及其库提供的一些自动加载的脚本文件，如果你想在启动其间关闭自动加载可以使用以下命令:<br>
 <code>$gdb -iex &quot;set auto-load python-scripts off&quot; program</code></li>
-<li>加载&rsquo;-ex&rsquo;和&rsquo;-x&rsquo;选项设置的命令及命令文件。</li>
+<li>加载&rsquo;-ex'和&rsquo;-x'选项设置的命令及命令文件。</li>
 <li>加载history file中的历史记录命令。</li>
 </ol>
-<p>初始化文件使用和命令文件相同的语法，并且GDB的处理方式也是相同的。在home目录中的初始化文件能设置参数来影响子进程的命令行选项和操作对象。当使用&rsquo;-nx&rsquo;选项时，初始化文件不会被执行。<br>
+<p>初始化文件使用和命令文件相同的语法，并且GDB的处理方式也是相同的。在home目录中的初始化文件能设置参数来影响子进程的命令行选项和操作对象。当使用&rsquo;-nx'选项时，初始化文件不会被执行。<br>
 可以使用<code>gdb --help</code>来查看gdb在启动时家在了那些初始化文件。</p>
 <h4 id="退出gdb">退出GDB</h4>
 <blockquote>
@@ -343,7 +346,7 @@ piep -d delim command delim shell_command
 | -d delim command delim shell_command  
 </code></pre></div></blockquote>
 <p>执行command命令并将其输出发送给shell_command。如果没有command，上一次执行的command会重复执行。<br>
-当command中包含'|'界定字符时，选项&rsquo;-d delim&rsquo;能指定一个备用界定字符串delim用以区分command和shell_command。</p>
+当command中包含'|'界定字符时，选项&rsquo;-d delim'能指定一个备用界定字符串delim用以区分command和shell_command。</p>
 <blockquote>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span>p var  
 $1<span style="color:#f92672">={</span>
@@ -381,7 +384,7 @@ set logging redirect <span style="color:#f92672">[</span>on|off<span style="colo
 <p>对于明确的命令你可以使用缩写的GDB命令。通过输入<strong>RETURN</strong>，你能重复上一条命令，同时你能使用<strong>TAB</strong>按键来进行命令的自动补全或进行提示。</p>
 <h4 id="命令语法">命令语法</h4>
 <p>一个GDB命令是单行的输入。不会限制命令有多长。通常以一个命令名开始，后面可以跟随一些参数，这些参数取决于用的什么命令。比如，命令step可以带上一个参数表示step进行的次数&rsquo;step 5&rsquo;。你也可以用不带参数的step命令，一些命令是可以不用带参数的。<br>
-一些GDB的命令名可以缩减当简写不会模棱两可的时候。文档中的一些其他的命令简写可能是针对其他命令的。在某些情况下，模棱两可的缩写也是被允许的；比如&rsquo;s&rsquo;通常等价于&rsquo;step&rsquo;命令，尽管有一些是用&rsquo;s&rsquo;表示&rsquo;start&rsquo;。你能在&rsquo;help&rsquo;命令后面带上缩写作为参数来查看缩写是什么含义。<br>
+一些GDB的命令名可以缩减当简写不会模棱两可的时候。文档中的一些其他的命令简写可能是针对其他命令的。在某些情况下，模棱两可的缩写也是被允许的；比如&rsquo;s'通常等价于&rsquo;step'命令，尽管有一些是用&rsquo;s'表示&rsquo;start&rsquo;。你能在&rsquo;help'命令后面带上缩写作为参数来查看缩写是什么含义。<br>
 输入一个空行(键入<strong>RETURN</strong>)可以重复上一条命令。一些命令(如，run)不适用这一特性，因为这些命令重复可能会造成一些问题并且你也不希望重复运行这些命令。<br>
 当你使用<strong>RETURN</strong>来重复list和x命令时，会使用新的参数而不是输入的确定的参数，这样容易扫描源码和内存。<br>
 GDB使用<strong>RETURN</strong>的另一个作用是显示过量的输出，和shell命令more相似。<br>

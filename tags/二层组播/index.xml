@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>“二层组播” on 郭微blog</title>
+    <link>http://guowei7.gitee.io/guowei/tags/%E4%BA%8C%E5%B1%82%E7%BB%84%E6%92%AD/</link>
+    <description>Recent content in “二层组播” on 郭微blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 21 Jul 2021 09:46:28 +0800</lastBuildDate>
+    
+	<atom:link href="http://guowei7.gitee.io/guowei/tags/%E4%BA%8C%E5%B1%82%E7%BB%84%E6%92%AD/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>IgmpSnoop Learning</title>
+      <link>http://guowei7.gitee.io/guowei/post/igmpsnoop-learning/</link>
+      <pubDate>Wed, 21 Jul 2021 09:46:28 +0800</pubDate>
+      
+      <guid>http://guowei7.gitee.io/guowei/post/igmpsnoop-learning/</guid>
+      <description>&lt;p&gt;主要记录IGMP Snoop的学习&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

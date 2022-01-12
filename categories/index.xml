@@ -6,7 +6,7 @@
     <description>Recent content in Categories on 郭微blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 28 Mar 2021 10:19:53 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 26 Nov 2021 13:53:41 +0800</lastBuildDate>
     
 	<atom:link href="http://guowei7.gitee.io/guowei/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,18 +14,36 @@
     <item>
       <title>C</title>
       <link>http://guowei7.gitee.io/guowei/categories/c/</link>
-      <pubDate>Sun, 28 Mar 2021 10:19:53 +0800</pubDate>
+      <pubDate>Fri, 26 Nov 2021 13:53:41 +0800</pubDate>
       
       <guid>http://guowei7.gitee.io/guowei/categories/c/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>computer science</title>
+      <link>http://guowei7.gitee.io/guowei/categories/computer-science/</link>
+      <pubDate>Fri, 26 Nov 2021 13:53:41 +0800</pubDate>
+      
+      <guid>http://guowei7.gitee.io/guowei/categories/computer-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>计算机网络</title>
       <link>http://guowei7.gitee.io/guowei/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
-      <pubDate>Fri, 05 Feb 2021 10:29:13 +0800</pubDate>
+      <pubDate>Wed, 28 Jul 2021 22:06:50 +0800</pubDate>
       
       <guid>http://guowei7.gitee.io/guowei/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>http://guowei7.gitee.io/guowei/categories/linux/</link>
+      <pubDate>Tue, 01 Jun 2021 13:54:17 +0800</pubDate>
+      
+      <guid>http://guowei7.gitee.io/guowei/categories/linux/</guid>
       <description></description>
     </item>
     
@@ -53,15 +71,6 @@
       <pubDate>Sun, 15 Nov 2020 10:55:30 +0800</pubDate>
       
       <guid>http://guowei7.gitee.io/guowei/categories/adobe/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>http://guowei7.gitee.io/guowei/categories/linux/</link>
-      <pubDate>Wed, 21 Oct 2020 21:00:21 +0800</pubDate>
-      
-      <guid>http://guowei7.gitee.io/guowei/categories/linux/</guid>
       <description></description>
     </item>
     

@@ -6,10 +6,37 @@
     <description>Recent content in 计算机网络 on 郭微blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 05 Feb 2021 10:29:13 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 28 Jul 2021 22:06:50 +0800</lastBuildDate>
     
 	<atom:link href="http://guowei7.gitee.io/guowei/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Netprogram Learning</title>
+      <link>http://guowei7.gitee.io/guowei/post/netprogram-learning/</link>
+      <pubDate>Wed, 28 Jul 2021 22:06:50 +0800</pubDate>
+      
+      <guid>http://guowei7.gitee.io/guowei/post/netprogram-learning/</guid>
+      <description>&lt;p&gt;主要为网络编程的相关学习&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tcpdump Learning</title>
+      <link>http://guowei7.gitee.io/guowei/post/tcpdump-learning/</link>
+      <pubDate>Fri, 23 Jul 2021 15:57:09 +0800</pubDate>
+      
+      <guid>http://guowei7.gitee.io/guowei/post/tcpdump-learning/</guid>
+      <description>&lt;p&gt;主要记录常用的tcpdump命令&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>IgmpSnoop Learning</title>
+      <link>http://guowei7.gitee.io/guowei/post/igmpsnoop-learning/</link>
+      <pubDate>Wed, 21 Jul 2021 09:46:28 +0800</pubDate>
+      
+      <guid>http://guowei7.gitee.io/guowei/post/igmpsnoop-learning/</guid>
+      <description>&lt;p&gt;主要记录IGMP Snoop的学习&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>SR Learning</title>

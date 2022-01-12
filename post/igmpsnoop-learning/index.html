@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="zh-cn" data-theme=""><head>
+    <title> guowei | IgmpSnoop Learning </title>
+
+    
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.68.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="给岁月以文明，而不是给文明以岁月。">
+    
+    <link rel="stylesheet"
+          href="http://guowei7.gitee.io/guowei/css/style.min.89e1916d605c8846c2f5a79a6aaeccfbc97502632fc692dbcfc743e65b272c19.css"
+          integrity="sha256-ieGRbWBciEbC9aeaaq7M&#43;8l1AmMvxpLbz8dD5lsnLBk="
+          crossorigin="anonymous"
+          type="text/css">
+    
+    <link rel="stylesheet"
+        href="http://guowei7.gitee.io/guowei/css/markupHighlight.min.cc84ed683057cc175ddfa738ea6ba2d5c882b95cb64f50bf9be918cb3791887b.css"
+        integrity="sha256-zITtaDBXzBdd36c46mui1ciCuVy2T1C/m&#43;kYyzeRiHs="
+        crossorigin="anonymous"
+        type="text/css">
+    
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" 
+    crossorigin="anonymous" />
+
+    
+    <link rel="shortcut icon" href="http://guowei7.gitee.io/guowei/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="http://guowei7.gitee.io/guowei/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://guowei7.gitee.io/guowei/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://guowei7.gitee.io/guowei/favicons/favicon-16x16.png">
+
+    <link rel="canonical" href="http://guowei7.gitee.io/guowei/post/igmpsnoop-learning/">
+
+    
+    
+    
+    
+    <script type="text/javascript"
+            src="http://guowei7.gitee.io/guowei/js/anatole-header.min.d8599ee07b7d3f11bafbac30657ccc591e8d7fd36a9f580cd4c09e24e0e4a971.js"
+            integrity="sha256-2Fme4Ht9PxG6&#43;6wwZXzMWR6Nf9Nqn1gM1MCeJODkqXE="
+            crossorigin="anonymous"></script>
+
+
+    
+        
+        
+        <script type="text/javascript"
+                src="http://guowei7.gitee.io/guowei/js/anatole-theme-switcher.min.e289e9ebb2a4e7a7f895859c8a2b0da2de1ec73f22cea58d8475aa0597023837.js"
+                integrity="sha256-4onp67Kk56f4lYWciisNot4exz8izqWNhHWqBZcCODc="
+                crossorigin="anonymous"></script>
+    
+
+    
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://guowei7.gitee.io/guowei/images/site-feature-image.png"/>
+
+<meta name="twitter:title" content="IgmpSnoop Learning"/>
+<meta name="twitter:description" content="主要记录IGMP Snoop的学习"/>
+
+    
+</head>
+<body><div class="sidebar animated fadeInDown ">
+    <div class="logo-title">
+        <div class="title">
+            <img src="http://guowei7.gitee.io/guowei/images/profile.jpg" alt="profile picture">
+            <h3 title=""><a href="/">三体</a></h3>
+            <div class="description">
+                <p>给岁月以文明，而不是给文明以岁月。</p>
+            </div>
+        </div>
+    </div>
+    <ul class="social-links">
+        
+            <li>
+                <a href="https://github.com/guowei7" rel="me" aria-label="GitHub">
+                    <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            <li>
+                <a href="mailto:770857344@qq.com" rel="me" aria-label="e-mail">
+                    <i class="fas fa-envelope fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; guowei  2021 </div>
+    </div>
+</div>
+<div class="main">
+    <div class="page-top  animated fadeInDown ">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+    </a>
+    <ul class="nav" id="navMenu">
+        
+        
+            
+            <li><a 
+                   href="/guowei/"
+                        
+                   title="">Home</a></li>
+        
+            
+            <li><a 
+                   href="/guowei/post/"
+                        
+                   title="">Post</a></li>
+        
+        
+        
+            <li class="theme-switch-item">
+                <a class="theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
+    <div class="autopagerize_page_element">
+        <div class="content">
+    <div class="post  animated fadeInDown ">
+        <div class="post-content">
+            
+            <div class="post-title">
+                <h3>IgmpSnoop Learning</h3>
+                
+                    <div class="info">
+                        <em class="fas fa-calendar-day"></em>
+                        <span class="date"> Wed, Jul 21, 2021 
+                                           </span>
+                        <em class="fas fa-stopwatch"></em>
+                        <span class="reading-time">阅读时间 5 分钟</span>
+                    </div>
+                
+            </div>
+
+            <p>主要记录IGMP Snoop的学习</p>
+<h3 id="1igmp-snoop简介">1.IGMP Snoop简介</h3>
+<ol>
+<li>
+<p>解决的问题<br>
+当组播源侧的Router将组播报文转发至Switch后，Switch将报文转发给组播用户。由于组播报文的目的地址为组播组地址，二层设备上学习不到这一类MAC表项，这样组播报文会在所有接口进行广播，这样所有成员都收到组播报文。<br>
+而使能IGMP Snoop功能后，Switch会侦听主机和上游三层设备之间交互的IGMP报文，通过分析报文中携带的信息，建立和维护二层组播转发表，从而指导组播数据在数据链路层按需转发。</p>
+</li>
+<li>
+<p>基本概念</p>
+<ul>
+<li>
+<p>相关端口</p>
+<table>
+<thead>
+<tr>
+<th align="center">端口角色</th>
+<th align="center">作用</th>
+<th align="center">如何生成</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">路由器端口(上联口)，指二层组播设备上朝向组播路由器的接口。</td>
+<td align="center">二层设备通过此端口将report/lea    ve报文发送到三层组播设备。二层组播设备从此接口接收组播数据。</td>
+<td align="center">动态生成。收到IGMP查询报文的接   口都将被视为动态路由器端口;静态配置。</td>
+</tr>
+<tr>
+<td align="center">成员端口</td>
+<td align="center">二层组播设备往此接口发送组播数据</td>
+<td align="center">动态生成。收到IGMP  Report报文的接口都将标识为动态成员端口;静态配置。</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>组播地址范围</p>
+<ul>
+<li>MAC地址范围<br>
+01:00:5E:00:00:00/25</li>
+<li>IP地址范围<br>
+224.0.0.0/4(224[1110 0000].0.0.0-239[1110 1111].255.255.255)</li>
+<li>IP到MAC的转换<br>
+01:00:5E:(0)+IP组播地址后23位映射到MAC地址中。<br>
+注意，IP组播地址设备号有28位，而映射到MAC中的只有23位，故高5位未做映射，会存在多个IP映射同一个MAC地址的可能。</li>
+</ul>
+</li>
+<li>
+<p>报文格式</p>
+<ul>
+<li>v1报文</li>
+<li>v2报文</li>
+<li>v3报文</li>
+</ul>
+</li>
+<li>
+<p>基本工作机制</p>
+<ul>
+<li>Report机制</li>
+<li>Leave机制</li>
+<li>通用查询机制</li>
+<li>代理工作机制</li>
+</ul>
+</li>
+<li>
+<p>V3增强功能</p>
+<ul>
+<li>源过滤功能</li>
+<li>SSM Mapping功能</li>
+</ul>
+</li>
+<li>
+<p>IGMP版本说明</p>
+<ul>
+<li>IGMPv1</li>
+<li>IGMPv2</li>
+<li>IGMPv3</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>IGMP Snoop转发</p>
+<ul>
+<li>
+<p>MAC转发模式<br>
+MAC转发为二层转发，因此只能在同一个vlan内转发，根据(VID+组播MAC+接口)。当配置为MAC转发模式时，软表显式出来的依然是IP，但是在下硬件的时候会按照IP到MAC地址转换规则下发MAC转发表。<br>
+此模式多个IP可能对应同一个MAC，例如：225.0.0.1和226.0.0.1。</p>
+</li>
+<li>
+<p>IP转发模式<br>
+IP转发为三层转发，可以跨VLAN转发，根据(IN_VID+GROUP+SOURCE+OUT_VID+接口)转发。<br>
+IP转发在软件中，可通过命令行配置是否需要跨VLAN转发，默认不开启跨VLAN。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>IGMP Snoop典型配置</p>
+<ul>
+<li>
+<p>单台单上联，MAC或IP转发</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#创建相关VLAN(组播VLAN)</span>
+vlan 100
+<span style="color:#75715e">#未知组播丢弃</span>
+unknown-multicast vlan <span style="color:#ae81ff">100</span> drop
+
+<span style="color:#75715e">#全局使能IGMP SNOOP</span>
+igmp-snooping start
+
+<span style="color:#75715e">#创建并进入组播VLAN节点</span>
+igmp-snooping mvlan 100
+
+<span style="color:#75715e">#配置转发模式</span>
+igmp-snooping forwarding-mode ip
+igmp-snooping forwarding-mode mac
+
+<span style="color:#75715e">#配置上联口</span>
+igmp-snooping uplink-port gigaethernet 1/0/3
+
+<span style="color:#75715e">#接口加入组播VLAN并使能协议</span>
+interface gigaethernet 1/0/1
+    port hybrid vlan <span style="color:#ae81ff">100</span> untagged
+    port hybrid pvid 100
+    igmp-snooping enable
+      
+interface gigaethernet 1/0/2
+    port hybrid vlan <span style="color:#ae81ff">100</span> untagged
+    port hybrid pvid 100
+    igmp-snooping enable
+
+interface gigaethernet 1/0/3
+    port hybrid vlan <span style="color:#ae81ff">100</span> untagged
+    port hybrid pvid 100
+    igmp-snooping enable
+</code></pre></div></li>
+<li>
+<p>单台单上联，跨VLAN转发</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#创建相关VLAN</span>
+vlan 10,20,100
+unknown-multicast vlan <span style="color:#ae81ff">100</span> drop
+
+<span style="color:#75715e">#全局使能</span>
+igmp-snooping mvlan 100
+
+<span style="color:#75715e">#配置转发模式</span>
+igmp-snooping forwarding-mode ip
+
+<span style="color:#75715e">#使能跨VLAN组播复制</span>
+igmp-snooping multicast-vlan enable
+
+<span style="color:#75715e">#配置跨VLAN组播用户VLAN(出口VLAN)</span>
+igmp-snooping multicast-vlan user-vlan 10,20
+
+<span style="color:#75715e">#配置上联口</span>
+igmp-snooping uplink-port gigaethernet 1/0/3
+
+<span style="color:#75715e">#用户端口加入用户VLAN并使能组播协议</span>
+interface gigaethernet 1/0/1
+    port hybrid vlan <span style="color:#ae81ff">10</span> untagged
+    port hybrid pvid 10
+    igmp-snooping enable
+
+interface gigaethernet 1/0/2
+    port hybrid vlan <span style="color:#ae81ff">20</span> untagged
+    port hybrid pvid 20
+    igmp-snooping enable
+
+<span style="color:#75715e">#上联口加入组播VLAN并使能组播协议</span>
+interface gigaethernet 1/0/3
+    port hybrid vlan <span style="color:#ae81ff">100</span> untagged
+    port hybrid pvid 100
+    igmp-snooping enable
+</code></pre></div></li>
+<li>
+<p>单台单上联，MAC或IP转发，代理模式</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#创建相关VLAN(组播VLAN)</span>
+vlan 100
+unknown-multicast vlan <span style="color:#ae81ff">100</span> drop
+
+<span style="color:#75715e">#全局使能</span>
+igmp-snooping start
+
+<span style="color:#75715e">#创建并进入组播VLAN节点</span>
+igmp-snooping mvlan 100
+
+<span style="color:#75715e">#配置转发模式</span>
+igmp-snooping forwarding-mode ip
+igmp-snooping forwarding-mode mac
+
+<span style="color:#75715e">#配置上联口</span>
+igmp-snooping uplink-port gigaethernet 1/0/3
+
+<span style="color:#75715e">#配置代理模式</span>
+igmp-snooping workmode igmp-proxy
+igmp-snooping report-suppress enable
+
+<span style="color:#75715e">#配置代理IP(上游设备为IGMP时，必须配置通网段IP地址)</span>
+igmp-snooping proxy-ip 10.1.1.1
+
+<span style="color:#75715e">#配置查询使能(工程上使用代理模式必须使能，否则会导致表项老化)</span>
+igmp-snooping querier enable
+
+<span style="color:#75715e">#接口加入组播VLAN并使能协议</span>
+interface gigaethernet 1/0/1
+    port hybrid vlan <span style="color:#ae81ff">100</span> untagged
+    port hybrid pvid 100
+    igmp-snooping enable
+
+interface gigaethernet 1/0/2
+    port hybrid vlan <span style="color:#ae81ff">100</span> untagged
+    port hybrid pvid 100
+    igmp-snooping enable
+
+interface gigaethernet 1/0/3
+    port hybrid vlan <span style="color:#ae81ff">100</span> untagged
+    port hybrid pvid 100
+    igmp-snooping enable
+</code></pre></div></li>
+<li>
+<p>单台单上联，跨VLAN转发，代理模式</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#配置相关VLAN(组播VLAN)</span>
+vlan 10,20,100
+unknown-multicast vlan <span style="color:#ae81ff">100</span> drop
+
+<span style="color:#75715e">#全局使能</span>
+igmp-snooping start
+
+<span style="color:#75715e">#创建并进入组播VLAN节点</span>
+igmp-snooping forwarding-mode ip
+
+<span style="color:#75715e">#使能跨VLAN组播复制</span>
+igmp-snooping multicast-vlan enable
+
+<span style="color:#75715e">#配置跨VLAN组播用户VLAN(出口VLAN)</span>
+igmp-snooping multicast user-vlan 10,20
+
+<span style="color:#75715e">#配置上联口</span>
+igmp-snooping uplink-port gigaethernet 1/0/3
+
+<span style="color:#75715e">#配置代理模式</span>
+igmp-snooping workmode igmp-proxy
+igmp-snooping report-suppress enable
+
+<span style="color:#75715e">#配置代理IP(上游设备为IGMP时，必须配置同网段IP地址)</span>
+igmp-snooping proxy-ip 10.1.1.1
+
+<span style="color:#75715e">#配置查询器使能</span>
+igmp-snooping querier enable
+
+<span style="color:#75715e">#用户端口加入用户VLAN并使能组播协议</span>
+interface gigaethernet 1/0/1
+    port hybrid vlan <span style="color:#ae81ff">10</span> untagged
+    port hybrid pvid 10
+    igmp-snooping enable
+
+interface gigaethernet 1/0/2
+    port hybrid vlan <span style="color:#ae81ff">20</span> untagged
+    port hybrid pvid 20
+    igmp-snooping enable
+
+<span style="color:#75715e">#上联口加入组播VLAN并使能组播协议</span>
+interface gigaethernet 1/0/3
+    port hybrid vlan <span style="color:#ae81ff">100</span> untagged
+    port hybrid pvid 100
+    igmp-snooping enable
+</code></pre></div></li>
+<li>
+<p>级联，上游同VLAN转发，下游跨VLAN转发</p>
+<ul>
+<li>DUT1配置
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vlan 100
+unknown-multicast vlan <span style="color:#ae81ff">100</span> drop
+
+igmp-snooping start
+igmp-snooping mvlan 100
+igmp-snooping uplink-port gigaethernet 1/0/3
+
+interface gigaethernet 1/0/1
+    port hybrid vlan <span style="color:#ae81ff">100</span> untagged
+    port hybrid pvid 100
+    igmp-snooping enable
+
+interface gigaethernet 1/0/2
+    port hybrid vlan <span style="color:#ae81ff">100</span> untagged
+    port hybrid pvid 100
+    igmp-snooping enable
+
+interface gigaethernet 1/0/3
+    port hybrid vlan <span style="color:#ae81ff">100</span> untagged
+    port hybrid pvid 100
+    igmp-snooping enable
+</code></pre></div></li>
+<li>DUT2配置
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vlan 10,100
+unknown-multicast vlan <span style="color:#ae81ff">100</span> drop
+
+igmp-snooping start
+igmp-snooping mvlan 100
+igmp-snooping uplink-port 1/0/2
+igmp-snooping forwarding-mode ip 
+igmp-snooping multicast-vlan enable
+igmp-snooping multicast user-vlan 10
+
+interface gigaethernet 1/0/1
+    port hybrid vlan <span style="color:#ae81ff">10</span> untagged
+    port hybrid pvid 10
+    igmp-snooping enable
+
+interface gigaethernet 1/0/2
+    port hybrid vlan <span style="color:#ae81ff">100</span> untagged
+    port hybrid pvid 100
+    igmp-snooping enable
+</code></pre></div></li>
+<li>DUT3配置
+同DUT2。</li>
+</ul>
+</li>
+<li>
+<p>环网，不跨VLAN
+该拓扑需要配置环网协议，防止成环。</p>
+<ul>
+<li>DUT1配置
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vlan 100
+unknown-multicast vlan <span style="color:#ae81ff">100</span> drop
+
+igmp-snooping start
+igmp-snooping mvlan 100
+igmp-snooping uplink-port gigaethernet 1/0/3
+
+interface gigaethernet 1/0/1
+    port hybrid vlan <span style="color:#ae81ff">100</span> untagged
+    port hybrid pvid 100
+    igmp-snooping enable
+
+interface gigaethernet 1/0/2
+    port hybrid vlan <span style="color:#ae81ff">100</span> untagged
+    port hybrid pvid 100
+    igmp-snooping enable
+
+interface gigaethernet 1/0/3
+    port hybrid vlan <span style="color:#ae81ff">100</span> untagged
+    port hybrid pvid 100
+    igmp-snooping enable
+</code></pre></div></li>
+<li>DUT2配置
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vlan 100
+unknown-multicast vlan <span style="color:#ae81ff">100</span> drop
+
+igmp-snooping start
+igmp-snooping mvlan 100
+igmp-snooping querier enable<span style="color:#f92672">(</span>环网的查询器视实际需求是否开启<span style="color:#f92672">)</span>
+
+interface gigaethernet 1/0/1
+    port hybrid vlan <span style="color:#ae81ff">100</span> untagged
+    port hybrid pvid 100
+    igmp-snooping enable
+
+interface gigaethernet 1/0/2
+    port hybrid vlan <span style="color:#ae81ff">100</span> untagged
+    port hybrid pvid 100
+    igmp-snooping enable
+
+interface gigaethernet 1/0/3
+    port hybrid vlan <span style="color:#ae81ff">100</span> untagged
+    port hybrid pvid 100
+    igmp-snooping enable
+</code></pre></div></li>
+<li>DUT3配置
+同DUT2。</li>
+</ul>
+</li>
+<li>
+<p>环网，跨VLAN</p>
+<ul>
+<li>DUT1配置
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vlan 100
+unknown-multicast vlan <span style="color:#ae81ff">100</span> drop
+
+igmp-snooping start
+igmp-snooping mvlan 100
+igmp-snooping uplink-port gigaethernet 1/0/3
+
+interface gigaethernet 1/0/1
+    port hybrid vlan <span style="color:#ae81ff">100</span> untagged
+    port hybrid pvid 100
+    igmp-snooping enable
+
+interface gigaethernet 1/0/2
+    port hybrid vlan <span style="color:#ae81ff">100</span> untagged
+    port hybrid pvid 100
+    igmp-snooping enable
+
+interface gigaethernet 1/0/3
+    port hybrid vlan <span style="color:#ae81ff">100</span> untagged
+    port hybrid pvid 100
+    igmp-snooping enable
+</code></pre></div></li>
+<li>DUT2配置
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vlan 10,100
+unknown-multicast vlan <span style="color:#ae81ff">100</span> drop
+
+igmp-snooping start
+igmp-snooping mvlan 100
+igmp-snooping forwarding-mode ip
+igmp-snooping multicast-vlan enable
+igmp-snooping multicast user-vlan 10
+igmp-snooping querier enable
+
+interface gigaethernet 1/0/1
+    port hybrid vlan <span style="color:#ae81ff">10</span> untagged
+    port hybrid pvid 10
+    igmp-snooping enable
+
+interface gigaethernet 1/0/2
+    port hybrid vlan <span style="color:#ae81ff">100</span> untagged
+    port hybrid pvid 100
+    igmp-snooping enable
+
+interface gigaethernet 1/0/3
+    port hybrid vlan <span style="color:#ae81ff">100</span> untagged
+    port hybrid pvid 100
+    igmp-snooping enable
+</code></pre></div></li>
+<li>DUT3配置
+配置和DUT2相同</li>
+</ul>
+</li>
+<li>
+<p>可控组播配置</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vlan 100
+unknown-multicast vlan <span style="color:#ae81ff">100</span> drop
+
+igmp-snooping start
+igmp-snooping mvlan 100
+igmp-snooping uplink-port gigaethernet 1/0/3
+
+<span style="color:#75715e">#创建可控组播频道,source-address暂时没用到，填0即可</span>
+igmp-control channel channel-1 mvlan <span style="color:#ae81ff">100</span> group-address 255.1.1.1 source-address 0.0.0.0
+igmp-control channel channel-2 mvaln <span style="color:#ae81ff">100</span> group-address 255.1.1.2 source-address 0.0.0.0
+igmp-control channel channel-3 mvlan <span style="color:#ae81ff">100</span> group-address 255.1.1.3 source-address 0.0.0.0
+igmp-control channel channel-4 mvaln <span style="color:#ae81ff">100</span> group-address 255.1.1.4 source-address 0.0.0.0
+
+<span style="color:#75715e">#创建可控组播预览模板,总预览时间为60秒</span>
+igmp-control preview-profile pp-1 time-total 60
+<span style="color:#75715e">#创建非总时方式预览模板，预览次数3次，单次预览时间60s，两次预览时间的间隔为60s</span>
+igmp-control preview-profile pp-2 time-sharing count <span style="color:#ae81ff">3</span> duration <span style="color:#ae81ff">60</span> interval 60
+
+<span style="color:#75715e">#创建两个节目包</span>
+igmp-control package pkg-1 channel channel-1 watch
+igmp-control package pkg-1 channel channel-2 preview pp-1
+igmp-control package pkg-1 channel channel-3 deny
+igmp-control package pkg-1 channel channel-4 preview pp-2
+
+igmp-control package pkg-2 channel channel-1 preview pp-1
+igmp-control package pkg-2 channel channel-2 preview pp-2
+igmp-control package pkg-2 channel channel-3 watch
+igmp-control package pkg-2 channel channel-4 deny
+
+
+interface gigaethernet 1/0/1
+    port hybrid vlan <span style="color:#ae81ff">100</span> untagged
+    port hybrid pvid 100
+    igmp-snooping enable
+    <span style="color:#75715e">#创建基于端口的检权用户，并绑定节目包pkg-1</span>
+    igmp-snooping ctrlmode enable
+    igmp-control auth package pkg-1
+
+interface gigaethernet 1/0/2
+    port hybrid vlan <span style="color:#ae81ff">100</span> untagged
+    port hybrid pvid 100
+    igmp-snooping enable
+    <span style="color:#75715e">#创建基于端口的鉴权用户，并绑定节目包pkg-2</span>
+    igmp-snooping ctrlmode enable
+    igmp-control auth package pkg-1
+
+interface gigaethernet 1/0/3
+    port hybrid vlan <span style="color:#ae81ff">100</span> untagged
+    port hybrid pvid 100
+    igmp-snooping enable
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#查看频道表</span>
+show igmp-control channel
+
+<span style="color:#75715e">#查看预览模板表</span>
+show igmp-control preview-profile
+
+<span style="color:#75715e">#查看节目包表</span>
+show igmp-control package
+
+<span style="color:#75715e">#可控用户表</span>
+show igmp-control interface user
+
+<span style="color:#75715e">#用户预览参数复位，配置此命令后，所有用户的预览参数将恢复到初始值。</span>
+reset igmp-control preview-profile
+<span style="color:#75715e">#每天自动复位的时间</span>
+reset igmp-control preview-reset-time 22:00
+
+<span style="color:#75715e">#强制用户下线</span>
+igmp-control group-address 225.1.1.1 force-leave
+</code></pre></div></li>
+</ul>
+</li>
+</ol>
+<h3 id="2-igmp-snoop故障排查">2. IGMP Snoop故障排查</h3>
+<ol>
+<li>
+<p>常用故障定位命令</p>
+<ul>
+<li>
+<p>查看igmpsnoop全局参数</p>
+<blockquote>
+<p>show igmp-snooping</p>
+</blockquote>
+</li>
+<li>
+<p>查看igmpsnoop组播转发表</p>
+<blockquote>
+<p>show igmp-snooping egress-port</p>
+</blockquote>
+</li>
+<li>
+<p>查看igmpsnoop使能的端口</p>
+<blockquote>
+<p>show igmp-snooping interface</p>
+</blockquote>
+</li>
+<li>
+<p>查看igmpsnoop上联接口</p>
+<blockquote>
+<p>show igmp-snooping uplinkport</p>
+</blockquote>
+</li>
+<li>
+<p>查看igmpsnoop mvlan信息</p>
+<blockquote>
+<p>show igmp-snooping mvlan</p>
+</blockquote>
+</li>
+<li>
+<p>查看igmpsnoop组播组信息</p>
+<blockquote>
+<p>show igmp-snooping group</p>
+</blockquote>
+</li>
+<li>
+<p>开启igmpsnoop debug</p>
+<blockquote>
+<p>debug igmpsnoop</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>配置问题</p>
+</li>
+<li>
+<p>流量转发问题</p>
+</li>
+<li>
+<p>功能问题</p>
+</li>
+</ol></div>
+        <div class="post-footer">
+            <div class="info">
+                <span class="separator"><a class="category" href="/guowei/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></span>
+
+                <span class="separator"><a class="tag" href="/guowei/tags/%E4%BA%8C%E5%B1%82%E7%BB%84%E6%92%AD/">“二层组播”</a></span>
+
+            </div>
+        </div>
+
+        
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript"
+        src="http://guowei7.gitee.io/guowei/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js"
+        integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw="
+        crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript"
+        src="http://guowei7.gitee.io/guowei/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js"
+        integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4="
+        crossorigin="anonymous"></script>
+
+<script type="text/javascript"
+        src="http://guowei7.gitee.io/guowei/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js"
+        integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro="
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

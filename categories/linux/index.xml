@@ -6,10 +6,19 @@
     <description>Recent content in Linux on 郭微blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 21 Oct 2020 21:00:21 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 01 Jun 2021 13:54:17 +0800</lastBuildDate>
     
 	<atom:link href="http://guowei7.gitee.io/guowei/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Gdb Note</title>
+      <link>http://guowei7.gitee.io/guowei/post/gdb-note/</link>
+      <pubDate>Tue, 01 Jun 2021 13:54:17 +0800</pubDate>
+      
+      <guid>http://guowei7.gitee.io/guowei/post/gdb-note/</guid>
+      <description>&lt;p&gt;gdb简单介绍即常用命令总结&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Gdb Learning</title>

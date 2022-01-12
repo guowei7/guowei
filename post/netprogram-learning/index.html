@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="zh-cn" data-theme=""><head>
+    <title> guowei | Netprogram Learning </title>
+
+    
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.68.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="给岁月以文明，而不是给文明以岁月。">
+    
+    <link rel="stylesheet"
+          href="http://guowei7.gitee.io/guowei/css/style.min.89e1916d605c8846c2f5a79a6aaeccfbc97502632fc692dbcfc743e65b272c19.css"
+          integrity="sha256-ieGRbWBciEbC9aeaaq7M&#43;8l1AmMvxpLbz8dD5lsnLBk="
+          crossorigin="anonymous"
+          type="text/css">
+    
+    <link rel="stylesheet"
+        href="http://guowei7.gitee.io/guowei/css/markupHighlight.min.cc84ed683057cc175ddfa738ea6ba2d5c882b95cb64f50bf9be918cb3791887b.css"
+        integrity="sha256-zITtaDBXzBdd36c46mui1ciCuVy2T1C/m&#43;kYyzeRiHs="
+        crossorigin="anonymous"
+        type="text/css">
+    
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" 
+    crossorigin="anonymous" />
+
+    
+    <link rel="shortcut icon" href="http://guowei7.gitee.io/guowei/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="http://guowei7.gitee.io/guowei/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://guowei7.gitee.io/guowei/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://guowei7.gitee.io/guowei/favicons/favicon-16x16.png">
+
+    <link rel="canonical" href="http://guowei7.gitee.io/guowei/post/netprogram-learning/">
+
+    
+    
+    
+    
+    <script type="text/javascript"
+            src="http://guowei7.gitee.io/guowei/js/anatole-header.min.d8599ee07b7d3f11bafbac30657ccc591e8d7fd36a9f580cd4c09e24e0e4a971.js"
+            integrity="sha256-2Fme4Ht9PxG6&#43;6wwZXzMWR6Nf9Nqn1gM1MCeJODkqXE="
+            crossorigin="anonymous"></script>
+
+
+    
+        
+        
+        <script type="text/javascript"
+                src="http://guowei7.gitee.io/guowei/js/anatole-theme-switcher.min.e289e9ebb2a4e7a7f895859c8a2b0da2de1ec73f22cea58d8475aa0597023837.js"
+                integrity="sha256-4onp67Kk56f4lYWciisNot4exz8izqWNhHWqBZcCODc="
+                crossorigin="anonymous"></script>
+    
+
+    
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://guowei7.gitee.io/guowei/images/site-feature-image.png"/>
+
+<meta name="twitter:title" content="Netprogram Learning"/>
+<meta name="twitter:description" content="主要为网络编程的相关学习"/>
+
+    
+</head>
+<body><div class="sidebar animated fadeInDown ">
+    <div class="logo-title">
+        <div class="title">
+            <img src="http://guowei7.gitee.io/guowei/images/profile.jpg" alt="profile picture">
+            <h3 title=""><a href="/">三体</a></h3>
+            <div class="description">
+                <p>给岁月以文明，而不是给文明以岁月。</p>
+            </div>
+        </div>
+    </div>
+    <ul class="social-links">
+        
+            <li>
+                <a href="https://github.com/guowei7" rel="me" aria-label="GitHub">
+                    <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            <li>
+                <a href="mailto:770857344@qq.com" rel="me" aria-label="e-mail">
+                    <i class="fas fa-envelope fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; guowei  2021 </div>
+    </div>
+</div>
+<div class="main">
+    <div class="page-top  animated fadeInDown ">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+    </a>
+    <ul class="nav" id="navMenu">
+        
+        
+            
+            <li><a 
+                   href="/guowei/"
+                        
+                   title="">Home</a></li>
+        
+            
+            <li><a 
+                   href="/guowei/post/"
+                        
+                   title="">Post</a></li>
+        
+        
+        
+            <li class="theme-switch-item">
+                <a class="theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
+    <div class="autopagerize_page_element">
+        <div class="content">
+    <div class="post  animated fadeInDown ">
+        <div class="post-content">
+            
+            <div class="post-title">
+                <h3>Netprogram Learning</h3>
+                
+                    <div class="info">
+                        <em class="fas fa-calendar-day"></em>
+                        <span class="date"> Wed, Jul 28, 2021 
+                                           </span>
+                        <em class="fas fa-stopwatch"></em>
+                        <span class="reading-time">阅读时间 3 分钟</span>
+                    </div>
+                
+            </div>
+
+            <p>主要为网络编程的相关学习</p>
+<h3 id="1-理解网络编程和套接字">1. 理解网络编程和套接字</h3>
+<ol>
+<li>理解网络编程和套接字</li>
+</ol>
+<ul>
+<li>
+<p>网络编程和套接字概要<br>
+操作系统会提供套接字(socket)来完成数据的传输，因此网络编程也可以被称为套接字编程。</p>
+</li>
+<li>
+<p>构建接电话套接字</p>
+<ul>
+<li>调用socket函数(安装电话机)<br>
+创建套接字并返回文件描述符</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/socket.h&gt;  </span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">/* 成功时返回文件描述符，失败时返回-1 */</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">socket</span>(<span style="color:#66d9ef">int</span> domain,<span style="color:#66d9ef">int</span> type,<span style="color:#66d9ef">int</span> protocol);
+</code></pre></div><ul>
+<li>调用bind函数(分配电话号码)<br>
+给创建好的套接字分配地址信息(ip地址和端口号)</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/socket.h&gt;  </span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">/* 成功时返回0，失败时返回-1 */</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">bind</span>(<span style="color:#66d9ef">int</span> socketfd, <span style="color:#66d9ef">struct</span> sockadr <span style="color:#f92672">*</span>myaddr,socklen_t addrLen); 
+</code></pre></div><ul>
+<li>调用listen函数(连接电话线)<br>
+将套接字转换成可接受连接状态</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/socket.h&gt;  </span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">/* 成功时返回0，失败时返回-1 */</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">listen</span>(<span style="color:#66d9ef">int</span> sockfd,<span style="color:#66d9ef">int</span> backlog);
+</code></pre></div><ul>
+<li>调用accept函数(拿起话筒)<br>
+接受对端的连接请求</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/socket.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">/* 成功时返回文件描述符，失败时返回-1 */</span>
+<span style="color:#66d9ef">int</span> accept(<span style="color:#66d9ef">int</span> sockfd,<span style="color:#66d9ef">struct</span> sockaddr <span style="color:#f92672">*</span>addr,socklen_t <span style="color:#f92672">*</span>addrlen)
+</code></pre></div></li>
+<li>
+<p>编写服务端<br>
+服务器端是能够受理连接请求的程序。服务端收到请求后向请求者返回&quot;Hello world!&ldquo;回复。<br>
+<a href="../../c-example/socket/Chap1/hello_server.c">hello_server.c</a></p>
+</li>
+<li>
+<p>构建打电话套接字<br>
+服务端创建的套接字又称为服务端套接字或监听套接字。而用于请求连接的客户端套接字如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/socket.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">/* 成功时返回0，失败时返回-1 */</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">connect</span>(<span style="color:#66d9ef">int</span> sockfd,<span style="color:#66d9ef">struct</span> sockaddr <span style="color:#f92672">*</span>serv_addr,socklen_t addrLen);
+</code></pre></div><p>客户端程序只有&quot;调用socket函数创建套接字&quot;和&quot;调用connect函数向服务器端发送连接请求&quot;这两个步骤。</p>
+<p><a href="../../c-example/socket/Chap1/hello_client.c">hello_client.c</a></p>
+</li>
+</ul>
+<ol start="2">
+<li>基于Linux的文件操作<br>
+对于Linux而言，socket操作与文件操作没有区别，因而有必要详细了解文件。因此在网络数据传输过程中自然可以使用文件I/O的相关函数。Windows则与Linux不同，是要区分socket和文件的。因此在Windows中需要调用特殊的数据传输相关函数。</li>
+</ol>
+<ul>
+<li>
+<p>底层文件访问(Low_Level File Access)和文件描述符(File Descriptor)<br>
+文件描述符时系统分配给文件或套接字的整数，实际上C语言的标准输入即输出和标准错误输出在Linux中也被分配了文件描述符。</p>
+<table>
+<thead>
+<tr>
+<th align="center">文件描述符</th>
+<th align="center">对象</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td align="center">标准输入</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">标准输出</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">标准错误</td>
+</tr>
+</tbody>
+</table>
+<p>文件和套接字一般经过创建才会被分配文件描述符。而上述的三种对象未经过特殊的创建过程，程序开始运行后也会被自动分配文件描述符。</p>
+</li>
+<li>
+<p>打开文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/types.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/stat.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;fcntl.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/* 成功时返回文件描述符，失败时返回-1 */</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">open</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>path,<span style="color:#66d9ef">int</span> flag);
+</code></pre></div></li>
+<li>
+<p>关闭文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">/* 成功时返回0，失败时返回-1 */</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">close</span>(<span style="color:#66d9ef">int</span> fd);
+</code></pre></div><p>此函数不仅可以关闭文件，还可以关闭套接字。因为Linux操作系统不区分文件与套接字。</p>
+</li>
+<li>
+<p>将数据写入文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">/* 成功时返回写入的字节数，失败时返回-1
+</span><span style="color:#75715e">*  fd 数据传输对象的文件描述符
+</span><span style="color:#75715e">*  buf 保存要传输数据的缓冲地址值
+</span><span style="color:#75715e">*  nbytes  要传输数据的字节数。
+</span><span style="color:#75715e">*/</span>
+ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int</span> fd, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>buf,size_t nbytes);
+</code></pre></div><p><a href="../../c-example/socket/Chap1/low_open.c">low_open.c</a></p>
+</li>
+<li>
+<p>读取文件中的数据</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">/* 成功时返回接受的字节数(遇到文件结尾则返回0),失败返回-1
+</span><span style="color:#75715e">*  fd 数据接受对象的文件描述符
+</span><span style="color:#75715e">*  buf 要保存接收数据的缓冲地址值
+</span><span style="color:#75715e">*  nbytes 要接收数据的最大字节数
+</span><span style="color:#75715e">*/</span>
+ssize_t <span style="color:#a6e22e">read</span>(<span style="color:#66d9ef">int</span> fd,<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>buf,size_t nbytes);
+</code></pre></div><p><a href="../../c-example/socket/Chap1/low_read.c">low_read.c</a></p>
+</li>
+<li>
+<p>文件描述符与套接字</p>
+</li>
+</ul>
+<h3 id="2-套接字类型与协议设置">2. 套接字类型与协议设置</h3>
+<ol>
+<li>套接字协议及其数据传输特性</li>
+</ol>
+<ul>
+<li>
+<p>关于协议<br>
+协议就是为了完成数据交换而定好的约定。</p>
+</li>
+<li>
+<p>创建套接字<br>
+创建套接字所用的socket函数主要包含三个参数</p>
+<ul>
+<li>domain 套接字中使用的协议族信息</li>
+<li>type 套接字数据传输类型信息</li>
+<li>protocol 计算机间通信中使用的协议信息</li>
+</ul>
+</li>
+<li>
+<p>协议族</p>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">协议族</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">PF_INET</td>
+<td align="center">IPv4互联网协议族</td>
+</tr>
+<tr>
+<td align="center">PF_INET</td>
+<td align="center">IPv6互联网协议族</td>
+</tr>
+<tr>
+<td align="center">PF_LOCAL</td>
+<td align="center">本地通信的UNIX协议族</td>
+</tr>
+<tr>
+<td align="center">PF_PACKET</td>
+<td align="center">底层套接字的协议族</td>
+</tr>
+<tr>
+<td align="center">PF_IPX</td>
+<td align="center">IPX Novell协议族</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>套接字类型<br>
+套接字类型指的是套接字的数据传输方式，通过socket函数的第二个参数传递，只有这样才能决定创建的套接字的数据传输方式。具有代表性的数据传输方式有下列两种。</p>
+<ul>
+<li>
+<p>面向连接的套接字(SOCK_STREAM)<br>
+主要的特点如下：</p>
+<ul>
+<li>传输过程中数据不会消失</li>
+<li>按序传输数据</li>
+<li>传输的数据不存在数据边界</li>
+</ul>
+<p>面向连接的套接字只能与另外一个同样特性的套接字连接。&ldquo;可靠的、按序传递的、基于字节的面向连接的数据传输方式的套接字&rdquo;</p>
+</li>
+<li>
+<p>面向消息的套接字(SOCK_DGRAM)<br>
+主要的特点如下：</p>
+<ul>
+<li>强调快速传输而非传输顺序</li>
+<li>传输的数据可能丢失也可能损毁</li>
+<li>传输的数据有数据边界</li>
+<li>限制每次传输的数据大小</li>
+</ul>
+<p>面向消息的套接字比面向连接的套接字具有更快的传输速度，但无法避免数据丢失或损毁。另外每次传输的数据大小具有一定限制，并存在数据边界。存在数据边界意味着接受数据的次数应和传输次数相同。&ldquo;不可靠的、不按序传递的、以数据的高速传输为目的的套接字&rdquo;</p>
+</li>
+</ul>
+</li>
+<li>
+<p>协议的最终选择<br>
+传递前两个参数即可创建所需套接字。所以大部分情况下可以向第三个参数传递0，除非遇到以下这种情况。<br>
+同一协议族中存在多个数据传输方式相同的协议。<br>
+数据传输方式相同，但协议不同。此时需要通过第三个参数具体指定协议信息。<br>
+IPv4协议族中面向连接的套接字只有TCP套接字。</p>
+<blockquote>
+<p>int tcp_socket = socket(PF_INET,SOCK_STREAM,IPPROTO_TCP);</p>
+</blockquote>
+<p>IPv4协议族中面向消息的套接字只有UDP套接字。</p>
+<blockquote>
+<p>int udp_socket = socket(PF_INET,SOCK_DGRAM,IPPROTO_UDP);</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="3-地址族与数据序列">3. 地址族与数据序列</h3>
+<ul>
+<li>
+<p>分配给套接字的IP地址与端口号<br>
+IP地址是为了收发网络数据而分配给计算机的值。端口号并非赋予计算机的值，而是为区分程序中创建的套接字而分配给套接字的序号。</p>
+<ol>
+<li>网络地址<br>
+为使计算机连接到网络并收发数据，必需向其分配IP地址。IP地址分为两类。</li>
+</ol>
+<ul>
+<li>IPv4 4字节地址族</li>
+<li>IPv6 16字节地址族<br>
+IP地址分为网络地址和主机地址，网络地址是为区分网络而设置的一部分IP地址，当数据传输到所在网络后，在通过主机地址将数据传给目标计算机。</li>
+</ul>
+<ol start="2">
+<li>网络地址分类与主机地址边界<br>
+只需通过IP地址的第一个字节即可判断网络地址占用的字节数。</li>
+</ol>
+<ul>
+<li>A类地址的首位以0开始</li>
+<li>B类地址的前两位以10开始</li>
+<li>C类地址的前两位以110开始</li>
+</ul>
+<ol start="3">
+<li>用于区分套接字的端口号<br>
+IP用于区分计算机，只要有IP地址就能向目标主机传输数据，但仅凭这些无法传输给最终的应用程序。<br>
+计算机中一般配有NIC(网络接口卡)数据传输设备，通过NIC向计算机内部传输数据时会用到IP。操作系统负责把传递到内部的数据适当分配给套接字，这时就要利用端口号，也就是说，通过NIC接收的数据内有端口号，操作系统正是参考此端口号把数据传输给相应端口的套接字。<br>
+端口号就是在同一操作系统内为区分不同套接字而设置的，因此无法将一个端口号分配给不同套接字。另外，端口号由16位构成，可分配的端口号范围是0-65535。但0-1023是知名端口(Well-known PORT)，一般分配给特定应用程序，所以应当分配此范围之外的值。另外，虽然端口号不能重复，但TCP套接字和UDP套接字不会共用端口号，所以允许重复。</li>
+</ol>
+</li>
+<li>
+<p>地址信息的表示<br>
+应用程序中使用的IP地址和端口号以结构体的形式给出定义。</p>
+<ol>
+<li>表示IPv4地址的结构体</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">struct</span> sockaddr_in
+{
+    sa_family_t sin_family;  <span style="color:#75715e">//地址族(Address Family)
+</span><span style="color:#75715e"></span>    uint16_t sin_port;  <span style="color:#75715e">//16位TCP/UDP端口号
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">struct</span> in_addr sin_addr;  <span style="color:#75715e">//32位IP地址
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">char</span>  sin_zero[<span style="color:#ae81ff">8</span>];  <span style="color:#75715e">//不使用
+</span><span style="color:#75715e"></span>};
+</code></pre></div><p>该结构体中另一个结构体in_addr定义如下,用来存放32位IP地址</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">struct</span> in_addr
+{
+    In_addr_t  s_addr;  <span style="color:#75715e">//32位IPv4地址
+</span><span style="color:#75715e"></span>};
+</code></pre></div><p>POSIX(Portable Operating System Interface,可移植操作系统接口),POSIX是位UNIX系列操作系统设立的标准，它定义了一些其他数据类型。</p>
+<table>
+<thead>
+<tr>
+<th align="center">数据类型名称</th>
+<th align="center">数据类型说明</th>
+<th align="center">声明的头文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">int8_t</td>
+<td align="center">signed 8-bit int</td>
+<td align="center">sys/types.h</td>
+</tr>
+<tr>
+<td align="center">uint8_t</td>
+<td align="center">unsigned 8-bit int</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">int16_t</td>
+<td align="center">signed 16-bit int</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">uint16_t</td>
+<td align="center">unsigned 16-bit int</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">int32_t</td>
+<td align="center">signed 32-bit int</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">uint32_t</td>
+<td align="center">unsigned 32-bit int</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">sa_family_t</td>
+<td align="center">地址族</td>
+<td align="center">sys/socket.h</td>
+</tr>
+<tr>
+<td align="center">socklen_t</td>
+<td align="center">长度</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">in_addr_t</td>
+<td align="center">IP地址，声明为uint32_t</td>
+<td align="center">netinet/in.h</td>
+</tr>
+<tr>
+<td align="center">in_port_t</td>
+<td align="center">端口号，声明为uint16_t</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ol start="2">
+<li>结构体sockaddr_in的成员分析</li>
+</ol>
+<ul>
+<li>
+<p>成员sin_family<br>
+每种协议族适用的地址族均不同。比如，IPv4使用4字节地址族(AF_INET),IPv6使用16字节地址族(AF_INET6)</p>
+</li>
+<li>
+<p>成员sin_port<br>
+该成员保存16位端口号，重点在于，它以网络字节序保存。</p>
+</li>
+<li>
+<p>成员sin_addr<br>
+该成员保存32位IP地址信息，且也以网络字节序保存。理解成uint32_t即可。</p>
+</li>
+<li>
+<p>成员sin_zero<br>
+无特殊含义。只是为使结构体sockaddr_in的大小与sockaddr结构体保持一致而插入的成员。必需填充为0，否则无法得到想要的结果。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">struct</span> sockaddr_in serv_addr;
+<span style="color:#66d9ef">if</span>(bind(serv_sock,(<span style="color:#66d9ef">struct</span> sockaddr <span style="color:#f92672">*</span>)<span style="color:#f92672">&amp;</span>serv_addr,<span style="color:#66d9ef">sizeof</span>(serv_addr))<span style="color:#f92672">==-</span><span style="color:#ae81ff">1</span>)
+
+<span style="color:#66d9ef">struct</span> sockaddr
+{
+    sa_family_t sin_family;  <span style="color:#75715e">//地址族
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">char</span>  sa_data[<span style="color:#ae81ff">14</span>];  <span style="color:#75715e">//地址信息
+</span><span style="color:#75715e"></span>};
+</code></pre></div><p>sockaddr中sa_data保存的地址信息中需要包含IP地址和端口号，剩余部分填充0，这是bind函数要求的。这样直接使用十分麻烦，因此有了sockaddr_in，这样更加方便，使用的时候直接转换一下类型即可。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>网络字节序与地址变换<br>
+不同CPU中，4字节整型值1在内存空间的保存方式是不同的。4字节整型值1可用2进制表示如下</p>
+<blockquote>
+<p>00 00 00 01</p>
+</blockquote>
+<p>有些CPU以这种顺序保存到内存，另外一些CPU则以倒序保存</p>
+<blockquote>
+<p>01 00 00 00</p>
+</blockquote>
+</li>
+</ul>
+<ol>
+<li>
+<p>字节序与网络字节序<br>
+CPU向内存保存数据的方式有2种，这意味着CPU解析数据的方式也分为2种</p>
+<ul>
+<li>大端序(Big Endian):  高位字节存放到低位地址</li>
+<li>小端序(Little Endian): 高位字节存放到高位地址</li>
+</ul>
+<p>代表CPU数据保存方式的主机字节序在不同CPU中也各不相同。目前主流的Intel系列CPU以小端序方式保存数据。<br>
+在通过网络传输数据时约定统一方式，这种约定称为网络字节序，统一为大端序。即，先把数据组织转化成大端序格式再进行网络传输。</p>
+</li>
+<li>
+<p>字节序转换<br>
+帮助转换字节序的函数</p>
+<ul>
+<li>unsigned short htons(unsigned short)</li>
+<li>unsigned short ntohs(unsigned short)</li>
+<li>unsigned long htonl(unsigned long)</li>
+<li>unsigned long ntohl(unsigned long)</li>
+</ul>
+<p>有必要编写与大端序无关的统一代码。这样即使在大端序系统中，最好也经过主机字节序转换为网络字节序的过程。当然，此时，主机字节序与网络字节序相同，不会有任何变化</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;arpa/inet.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc,<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[])  
+{
+    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">short</span> host_port <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x1234</span>;
+    <span style="color:#66d9ef">unsigned</span> short_net_port;
+    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> host_addr <span style="color:#f92672">=</span>  <span style="color:#ae81ff">0x12345678</span>;
+    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> net_addr;
+
+    net_port<span style="color:#f92672">=</span>htons(host_port);
+    net_addr<span style="color:#f92672">=</span>htonl(host_addr);
+
+    printf(<span style="color:#e6db74">&#34;Host ordered port:%x&#34;</span>,host_port);
+    printf(<span style="color:#e6db74">&#34;Network ordered port:%x&#34;</span>,net_port);
+    printf(<span style="color:#e6db74">&#34;Host ordered address:%x&#34;</span>,host_addr);
+    printf(<span style="color:#e6db74">&#34;Network ordered address:%x&#34;</span>,net_addr);
+}
+   
+</code></pre></div><p>除了向sockaddr_in结构体变量填充数据外，其他情况无需考虑字节序问题。</p>
+</li>
+</ol>
+<ul>
+<li>网络地址的初始化与分配</li>
+</ul>
+<ol>
+<li>
+<p>将字符串信息转换为网络字节序的整数型<br>
+sockaddr_in中保存地址信息的成员为32位整数型。而我们熟悉的IP地址表示是点分十进制表示法，而非整数型数据表示法。有个函数会帮我们将字符串形式的IP地址转换成32位整数型数据。此函数在转换类型的同时进行网络字节序转换。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;arpa/inet.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/* 成功时返回32位大端序整数型值，失败返回INADDR_NONE*/</span>
+int_addr_t <span style="color:#a6e22e">inet_addr</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>string);
+
+<span style="color:#75715e">/* 成功时返回1，失败时返回0 */</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">inet_aton</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>string,<span style="color:#66d9ef">struct</span> int_addr <span style="color:#f92672">*</span>addr);
+</code></pre></div><p>inet_addr函数不仅可以把IP地址转成32位整数型，而且可以检测无效的IP地址。<br>
+inet_aton函数与inet_addr函数在功能上完全相同，也将字符串形式IP地址转换位32位网络字节序整数并返回。只不过该函数利用了in_addr结构体，且使用频率更高。</p>
+<p>介绍一个与inet_aton函数正好相反的函数，此函数可以把网络字节序整数型IP地址转换成我们熟悉的字符串形式。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;arpa/inet.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/* 成功时返回转换的字符串地址值，失败时返回-1 */</span>
+<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">inet_ntoa</span>(<span style="color:#66d9ef">struct</span> in_addr addr);
+</code></pre></div></li>
+<li>
+<p>网络地址初始化<br>
+现介绍套接字创建过程中常见的网络地址信息初始化方法。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">struct</span> sokaddr_in addr;
+<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span> serv_ip <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;211.217.168.13&#34;</span>;  
+<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span> serv_port <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;9190&#34;</span>;
+memset(<span style="color:#f92672">&amp;</span>addr,<span style="color:#ae81ff">0</span>,<span style="color:#66d9ef">sizeof</span>(addr));
+addr.sin_family <span style="color:#f92672">=</span> AF_INET;
+addr.sin_addr.s_addr <span style="color:#f92672">=</span> inet_addr(serv_ip);
+addr.sin_port <span style="color:#f92672">=</span> htons(atoi(serv_port));
+</code></pre></div></li>
+<li>
+<p>客户端地址信息初始化<br>
+客户端声明sockaddr_in结构体，并初始化为要与之连接的服务器端套接字的IP和端口号，然后调用connect函数。</p>
+</li>
+<li>
+<p>INADDR_ANY<br>
+每次创建服务器端套接字都要输入IP地址会有些繁琐，此时可以如下初始化</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">struct</span> sockaddr_in addr;
+<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span> serv_port <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;9190&#34;</span>;
+memset(<span style="color:#f92672">&amp;</span>addr,<span style="color:#ae81ff">0</span>,<span style="color:#66d9ef">sizeof</span>(addr));
+addr.sin_family <span style="color:#f92672">=</span> AF_INET;
+addr.sin_addr.s_addr <span style="color:#f92672">=</span> htol(INADDR_ANY);
+addr.sin_port <span style="color:#f92672">=</span> htons(atoi(serv_port));
+</code></pre></div><p>利用常数INADDR_ANY分配服务器端的IP地址。若采用这种方式，则可自动获取运行服务器端的计算机IP地址，不必亲自输入。若同一计算机中已分配多个IP地址，则只要端口号一致，就可以从不同IP地址接受数据。</p>
+</li>
+<li>
+<p>hello_server.c和hello_client.c运行过程</p>
+</li>
+<li>
+<p>向套接字分配网络地址<br>
+sockaddr_in结构体初始化后，就应该分配给套接字，bind函数就负责这项此操作</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/socket.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/* 成功时返回0，失败时返回-1 */</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">bind</span>(<span style="color:#66d9ef">int</span> sockfd,<span style="color:#66d9ef">struct</span> sockaddr <span style="color:#f92672">*</span>myaddr,socklen_t addrlen);
+</code></pre></div></li>
+</ol></div>
+        <div class="post-footer">
+            <div class="info">
+                <span class="separator"><a class="category" href="/guowei/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></span>
+
+                <span class="separator"><a class="tag" href="/guowei/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">网络编程</a></span>
+
+            </div>
+        </div>
+
+        
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript"
+        src="http://guowei7.gitee.io/guowei/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js"
+        integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw="
+        crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript"
+        src="http://guowei7.gitee.io/guowei/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js"
+        integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4="
+        crossorigin="anonymous"></script>
+
+<script type="text/javascript"
+        src="http://guowei7.gitee.io/guowei/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js"
+        integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro="
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

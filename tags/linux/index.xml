@@ -17,7 +17,9 @@
       <pubDate>Tue, 08 Sep 2020 12:24:17 +0800</pubDate>
       
       <guid>http://guowei7.gitee.io/guowei/post/linux-learning/</guid>
-      <description>主要是Linux学习笔记</description>
+      <description>主要是Linux学习笔记
+1. Linux内存管理  Linux进程空间概述
+Linux操作系统采用虚拟内存管理技术，使得每个进程都有各自互不干涉的进程地址空间。该空间是一段线性虚拟空间，用户所看到和操作的都是该虚拟地址，无法操作实际的物理内存地址。    Linux进程空间(x86)</description>
     </item>
     
   </channel>

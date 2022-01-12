@@ -4,12 +4,92 @@
   
   <url>
     <loc>http://guowei7.gitee.io/guowei/categories/c/</loc>
-    <lastmod>2021-03-28T10:19:53+08:00</lastmod>
+    <lastmod>2021-11-26T13:53:41+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://guowei7.gitee.io/guowei/categories/</loc>
-    <lastmod>2021-03-28T10:19:53+08:00</lastmod>
+    <lastmod>2021-11-26T13:53:41+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://guowei7.gitee.io/guowei/categories/computer-science/</loc>
+    <lastmod>2021-11-26T13:53:41+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://guowei7.gitee.io/guowei/post/operation-system/</loc>
+    <lastmod>2021-11-26T13:53:41+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://guowei7.gitee.io/guowei/tags/os/</loc>
+    <lastmod>2021-11-26T13:53:41+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://guowei7.gitee.io/guowei/post/</loc>
+    <lastmod>2021-11-26T13:53:41+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://guowei7.gitee.io/guowei/tags/</loc>
+    <lastmod>2021-11-26T13:53:41+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://guowei7.gitee.io/guowei/</loc>
+    <lastmod>2021-11-26T13:53:41+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://guowei7.gitee.io/guowei/post/netprogram-learning/</loc>
+    <lastmod>2021-07-28T22:06:50+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://guowei7.gitee.io/guowei/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</loc>
+    <lastmod>2021-07-28T22:06:50+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://guowei7.gitee.io/guowei/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2021-07-28T22:06:50+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://guowei7.gitee.io/guowei/tags/tcpdump/</loc>
+    <lastmod>2021-07-23T15:57:09+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://guowei7.gitee.io/guowei/post/tcpdump-learning/</loc>
+    <lastmod>2021-07-23T15:57:09+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://guowei7.gitee.io/guowei/post/igmpsnoop-learning/</loc>
+    <lastmod>2021-07-21T09:46:28+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://guowei7.gitee.io/guowei/tags/%E4%BA%8C%E5%B1%82%E7%BB%84%E6%92%AD/</loc>
+    <lastmod>2021-07-21T09:46:28+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://guowei7.gitee.io/guowei/post/gdb-note/</loc>
+    <lastmod>2021-06-01T13:54:17+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://guowei7.gitee.io/guowei/categories/linux/</loc>
+    <lastmod>2021-06-01T13:54:17+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://guowei7.gitee.io/guowei/tags/%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2021-06-01T13:54:17+08:00</lastmod>
   </url>
   
   <url>
@@ -23,32 +103,12 @@
   </url>
   
   <url>
-    <loc>http://guowei7.gitee.io/guowei/post/</loc>
-    <lastmod>2021-03-28T10:19:53+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://guowei7.gitee.io/guowei/tags/</loc>
-    <lastmod>2021-03-28T10:19:53+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://guowei7.gitee.io/guowei/</loc>
-    <lastmod>2021-03-28T10:19:53+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://guowei7.gitee.io/guowei/tags/segment-route/</loc>
     <lastmod>2021-02-05T10:29:13+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://guowei7.gitee.io/guowei/post/sr-learning/</loc>
-    <lastmod>2021-02-05T10:29:13+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://guowei7.gitee.io/guowei/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2021-02-05T10:29:13+08:00</lastmod>
   </url>
   
@@ -109,16 +169,6 @@
   
   <url>
     <loc>http://guowei7.gitee.io/guowei/post/gdb-learning/</loc>
-    <lastmod>2020-10-21T21:00:21+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://guowei7.gitee.io/guowei/categories/linux/</loc>
-    <lastmod>2020-10-21T21:00:21+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://guowei7.gitee.io/guowei/tags/%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2020-10-21T21:00:21+08:00</lastmod>
   </url>
   

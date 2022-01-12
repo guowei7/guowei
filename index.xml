@@ -6,10 +6,55 @@
     <description>Recent content on 郭微blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 28 Mar 2021 10:19:53 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 26 Nov 2021 13:53:41 +0800</lastBuildDate>
     
 	<atom:link href="http://guowei7.gitee.io/guowei/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Operation System</title>
+      <link>http://guowei7.gitee.io/guowei/post/operation-system/</link>
+      <pubDate>Fri, 26 Nov 2021 13:53:41 +0800</pubDate>
+      
+      <guid>http://guowei7.gitee.io/guowei/post/operation-system/</guid>
+      <description>&lt;p&gt;主要为计算机操作系统相关学习记录&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Netprogram Learning</title>
+      <link>http://guowei7.gitee.io/guowei/post/netprogram-learning/</link>
+      <pubDate>Wed, 28 Jul 2021 22:06:50 +0800</pubDate>
+      
+      <guid>http://guowei7.gitee.io/guowei/post/netprogram-learning/</guid>
+      <description>&lt;p&gt;主要为网络编程的相关学习&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tcpdump Learning</title>
+      <link>http://guowei7.gitee.io/guowei/post/tcpdump-learning/</link>
+      <pubDate>Fri, 23 Jul 2021 15:57:09 +0800</pubDate>
+      
+      <guid>http://guowei7.gitee.io/guowei/post/tcpdump-learning/</guid>
+      <description>&lt;p&gt;主要记录常用的tcpdump命令&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>IgmpSnoop Learning</title>
+      <link>http://guowei7.gitee.io/guowei/post/igmpsnoop-learning/</link>
+      <pubDate>Wed, 21 Jul 2021 09:46:28 +0800</pubDate>
+      
+      <guid>http://guowei7.gitee.io/guowei/post/igmpsnoop-learning/</guid>
+      <description>&lt;p&gt;主要记录IGMP Snoop的学习&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Gdb Note</title>
+      <link>http://guowei7.gitee.io/guowei/post/gdb-note/</link>
+      <pubDate>Tue, 01 Jun 2021 13:54:17 +0800</pubDate>
+      
+      <guid>http://guowei7.gitee.io/guowei/post/gdb-note/</guid>
+      <description>&lt;p&gt;gdb简单介绍即常用命令总结&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Compiler Learing</title>
@@ -107,7 +152,9 @@
       <pubDate>Tue, 08 Sep 2020 12:24:17 +0800</pubDate>
       
       <guid>http://guowei7.gitee.io/guowei/post/linux-learning/</guid>
-      <description>主要是Linux学习笔记</description>
+      <description>主要是Linux学习笔记
+1. Linux内存管理  Linux进程空间概述
+Linux操作系统采用虚拟内存管理技术，使得每个进程都有各自互不干涉的进程地址空间。该空间是一段线性虚拟空间，用户所看到和操作的都是该虚拟地址，无法操作实际的物理内存地址。    Linux进程空间(x86)</description>
     </item>
     
     <item>
